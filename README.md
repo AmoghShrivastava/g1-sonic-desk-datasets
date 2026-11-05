@@ -41,14 +41,10 @@ python gr00t/experiment/launch_finetune.py --base-model-path nvidia/GR00T-N1.7-3
 
 ## Limits
 
-- These are 3D renders and a viewer can tell. The clear bottle is opaque, the far side of the wipes canister is smeared and the plate is a plain stand-in.
-- Only the G1, the original apple and the plate are simulated physically. The moved and added desk items are visual only, so an arm can't knock them over; episodes where an arm comes within 5 cm of one are left out. The other apples in `types` move exactly as the original does.
+- Only the G1, the original apple and the plate are simulated physically. The moved and added desk items, and the other apples in `types`, are visual only.
 - The apple lands harder and rolls further than in NVIDIA's demos, and in some episodes it's still rolling when the episode ends. `meta/provenance.json` lists each episode's `apple_fall_cm`, `apple_roll_cm` and `apple_end_speed_cm_s`, so you can filter on them.
-- The body sways more than in NVIDIA's demos, because SONIC balances the robot itself. Across `baseline`, the pelvis moves about 3.7 cm over a typical episode, against 0.4 cm in NVIDIA's demos. The head camera moves with it. Wrist and arm errors don't show this, because they're measured relative to the pelvis.
-- The desk's objects change less than they should under the lighting variants.
-- Desk sizes are estimates. The desk is 0.80 m high.
-- Simulation only, and not run through NVIDIA's own SONIC deploy. Nothing here has been tested on a real robot.
-- No claim is made that these variants improve a policy; that hasn't been measured.
+- The body sways more than in NVIDIA's demos, because SONIC balances the robot itself: the pelvis moves about 3.7 cm over a typical `baseline` episode, against 0.4 cm in NVIDIA's demos, and the head camera moves with it.
+- Simulation only. Nothing has been tested on a real robot or on NVIDIA's own SONIC deploy.
 
 ## Credits
 
