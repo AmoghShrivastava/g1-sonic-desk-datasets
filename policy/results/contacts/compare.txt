@@ -1,0 +1,4 @@
+error: SCORE.HELD_DIMENSION_MISMATCH
+at:    spec_resolved.world.model
+why:   The runs differ on 3 held dimension path(s): spec_resolved.world.model: 'ef91811424941d1dc583f4295ee5ab098fc8c3987f95195443fe1a13d72dde73' vs '853f601430f405024b28f73a886a55ad96ac96d61e1e791b5de07e62e72cb7a5'; world_assets.asset_hashes.model_file: 'ef91811424941d1dc583f4295ee5ab098fc8c3987f95195443fe1a13d72dde73' vs '853f601430f405024b28f73a886a55ad96ac96d61e1e791b5de07e62e72cb7a5'; world_assets.scene_xml_sha256: '35a749eafb9bddecf921f49dcf19f735483a4c81b00f2a316ef7fd48b90037c7' vs '555ba3d902534cf2cd06b05682e18c9c09019fca432c061ac6a9523cc9a3b10d'.
+fix:   Compare runs that differ only in profile, condition or seed base, or pass --allow-diff spec_resolved.world.model to label the report UNCONTROLLED.

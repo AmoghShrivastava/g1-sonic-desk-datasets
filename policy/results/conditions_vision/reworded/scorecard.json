@@ -1,0 +1,5822 @@
+{
+  "calibration": {
+    "control": {
+      "max_steps": 600,
+      "physics_dt_ns": 5000000,
+      "rate_hz": 50
+    },
+    "gate": {
+      "chunk_blend": "newest",
+      "deadline_ns": 500000000,
+      "ensemble_m": 0.01,
+      "fallback": "hold_last",
+      "max_reuse_steps": 40,
+      "request_interval_steps": 15,
+      "safe_stop_after": 5
+    },
+    "host": {
+      "forward_ms": {
+        "max": 387.872449,
+        "mean": 202.2586034215,
+        "p50": 200.2226785,
+        "p90": 205.24318060000002,
+        "p99": 290.23424903999984
+      },
+      "n_episodes": 100,
+      "n_forwards": 4000,
+      "n_renders": 60000,
+      "platform": "Linux-6.8.0-1070-gcp-x86_64-with-glibc2.35",
+      "render_ms": {
+        "max": 5.426667,
+        "mean": 1.6143811283166667,
+        "p50": 1.5960619999999999,
+        "p90": 1.7911811,
+        "p99": 2.2096224200000005
+      },
+      "torch_threads": 4
+    },
+    "injected_profile": null,
+    "ks_distance": null,
+    "manifest_hash": "c09d87c77e134ea483a901bea5375390d370beb051b17154329d959e38df0299",
+    "run_hash": "9e3d574d6167368ce2ae7e75ac6c095bad0ab5c17c60fa022a5a8b2781f6965e",
+    "statement": "Calibration: latencies are MEASURED (profile `a100-40gb-groot-n17-sonic` v0.1.0, confidence high: 300 timed inference calls on kite-g1-sonic Linux-6.8.0-1070-gcp-x86_64-with-glibc2.35 python 3.13.18, 2026-11-06T10:29:28Z). They describe that host at that thread count and no other device. MEASURED profile: 300 timed inference calls on the host named in provenance.measured_on. It describes that host, that policy and that thread count only; re-measure with `kite profile measure` on any other target before quoting numbers."
+  },
+  "kite_scorecard_version": "2",
+  "manifest": {
+    "environment": {
+      "batch": 1,
+      "cpu_count": 16,
+      "created_at": "2026-11-06T18:53:05Z",
+      "determinism_verified": false,
+      "evaluator_timeout_s": 60.0,
+      "hostname": "kite-g1-eval",
+      "image_every_n": 10,
+      "library_versions": {
+        "mcap": "1.4.0",
+        "pyarrow": "25.0.1",
+        "pydantic": "2.13.5",
+        "zstandard": "0.25.0"
+      },
+      "output_dir": "/home/amogh/runs/sweep_20000/runs/reworded",
+      "overrides": {
+        "episodes.count": "100",
+        "policy.revision": "desk_v1-checkpoint-20000"
+      },
+      "platform": "Linux-6.8.0-1070-gcp-x86_64-with-glibc2.35",
+      "stop": null,
+      "stopped_at": null,
+      "video": {
+        "cameras": null,
+        "every_n": 1
+      },
+      "workers": 1
+    },
+    "evaluators": [
+      {
+        "file_sha256": "ac68fb37e7e73a6762ee4592789f56b0aa89efde02163c53fc93f7ee93159660",
+        "id": "action_staleness_p95",
+        "version": "1.0.0"
+      },
+      {
+        "file_sha256": "32284dcde3e465521a59a90bd7e2740a65ba70619228b347354340ec2cbe7770",
+        "id": "deadline_miss_rate",
+        "version": "1.1.0"
+      },
+      {
+        "file_sha256": "46749770b39231b4e470771904fceadc780dbfc89fb88ff171798d72e25d9583",
+        "id": "fell",
+        "version": "1.0.0"
+      },
+      {
+        "file_sha256": "2667c17ba63500356a1b8ae6133999cd3198b345859856e547590cf04eaa3a74",
+        "id": "lifted",
+        "version": "1.0.0"
+      },
+      {
+        "file_sha256": "a2f6580f4d227cd0241d91d46e7cb95351b0b8f39645d4efd4e08d8cfcfe44e3",
+        "id": "task_success",
+        "version": "1.0.0"
+      }
+    ],
+    "policy_assets": {
+      "asset_hashes": {
+        "embodiment_tag": "unitree_g1_sonic",
+        "revision": "desk_v1-checkpoint-20000",
+        "server": "tcp://127.0.0.1:5550"
+      },
+      "revision": "desk_v1-checkpoint-20000"
+    },
+    "profile": {
+      "id": "a100-40gb-groot-n17-sonic",
+      "sha256": "1dfa71ffe06432a3dc3ee664b7cba5519ba38d58d85692e32762126716d5afdc",
+      "version": "0.1.0"
+    },
+    "seeds": {
+      "seed_base": 0
+    },
+    "spec_resolved": {
+      "compute": {
+        "kind": "file",
+        "path": "1dfa71ffe06432a3dc3ee664b7cba5519ba38d58d85692e32762126716d5afdc",
+        "server": null,
+        "sha256": "1dfa71ffe06432a3dc3ee664b7cba5519ba38d58d85692e32762126716d5afdc"
+      },
+      "condition": {
+        "camera": null,
+        "distractors": null,
+        "id": "reworded",
+        "instruction": {
+          "phrasings": [
+            "Put the apple on the plate.",
+            "Move the red apple onto the blue plate."
+          ]
+        },
+        "lighting": null,
+        "materials": null,
+        "object": null,
+        "observation_noise": null,
+        "physics": null,
+        "version": "1.0.0"
+      },
+      "control": {
+        "max_steps": 600,
+        "physics_dt_ns": 5000000,
+        "rate_hz": 50
+      },
+      "determinism": {
+        "n_repeats": 5,
+        "tier": "statistical"
+      },
+      "episodes": {
+        "count": 100,
+        "seed_base": 0
+      },
+      "eval": {
+        "evals_dir": "0e50f80f5ac4fc4aaf7789f74ea3e3543846e1ef16f5dd69aa576b3ddf284183",
+        "include": null
+      },
+      "gate": {
+        "chunk_blend": "newest",
+        "deadline_ns": 500000000,
+        "ensemble_m": 0.01,
+        "fallback": "hold_last",
+        "max_reuse_steps": 40,
+        "request_interval_steps": 15,
+        "safe_stop_after": 5
+      },
+      "kite_spec_version": "2",
+      "name": "sonic-desk-groot",
+      "policy": {
+        "asset_dir": null,
+        "device": "cuda",
+        "kind": "groot",
+        "ref": "tcp://127.0.0.1:5550",
+        "revision": "desk_v1-checkpoint-20000",
+        "temporal_ensemble_coeff": null,
+        "torch_threads": 4
+      },
+      "task": {
+        "file": "78e5c459ddbc259ddb1b612e0f63fc167f54d5ae2ccff60eb2a7f3039813182a",
+        "id": null,
+        "instruction": "Pick up the apple from the table and place it onto the plate next to it.",
+        "params": {
+          "above_plate_m": [
+            0.01,
+            0.07
+          ],
+          "apple_rest_z_m": 0.839,
+          "apple_xy": [
+            0.328,
+            0.19
+          ],
+          "fallen_height_m": 0.45,
+          "hold_steps": 25,
+          "jitter_m": 0.03,
+          "lift_threshold_m": 0.03,
+          "plate_inner_radius_m": 0.06,
+          "plate_rest_z_m": 0.801,
+          "plate_xy": [
+            0.326,
+            -0.025
+          ]
+        },
+        "version": "1.0.0"
+      },
+      "trace": {
+        "record_chunks": true
+      },
+      "world": {
+        "arm_rgba": null,
+        "embodiment": "1b0b73c5c6f49fb4a8e0f5b323228df181c7d0a76bf48ba465ae0c5f852654d6",
+        "hide_floor": null,
+        "hide_frame": null,
+        "kind": "sonic",
+        "lighting": null,
+        "menagerie_dir": null,
+        "model": "ef91811424941d1dc583f4295ee5ab098fc8c3987f95195443fe1a13d72dde73",
+        "mujoco_version": "3.6.0",
+        "render": {
+          "backend": "native",
+          "camera": "ego_view",
+          "height": 480,
+          "hide_geom_groups": [],
+          "reflection": false,
+          "shadow": true,
+          "width": 640
+        },
+        "robot": "gear_sonic/sonic_v1_1",
+        "scene": "menagerie",
+        "table_rgba": null
+      }
+    },
+    "versions": {
+      "kite-backends-lerobot": "0.2.0",
+      "kite-backends-mujoco": "0.2.0",
+      "kite-backends-openpi": "0.2.0",
+      "kite-cli": "0.2.0",
+      "kite-runtime": "0.2.0",
+      "kite-sdk": "0.2.0",
+      "kite-spec": "0.2.0",
+      "kite-trace": "0.2.0",
+      "lerobot": "0.5.1",
+      "mujoco": "3.6.0",
+      "numpy": "2.2.6",
+      "python": "3.13",
+      "spec_version": "2",
+      "torch": "2.7.1",
+      "trace_format_version": "2"
+    },
+    "world_assets": {
+      "asset_hashes": {
+        "embodiment": "1b0b73c5c6f49fb4a8e0f5b323228df181c7d0a76bf48ba465ae0c5f852654d6",
+        "model_file": "ef91811424941d1dc583f4295ee5ab098fc8c3987f95195443fe1a13d72dde73",
+        "sonic_checkpoint": "sonic_v1_1",
+        "sonic_decoder": "34bae8570d4a4421a5391a5c2befd745d4a02d182ec539e5f9da44c091c67509",
+        "sonic_encoder": "fb97de22819b2057b41459802128d91723d91a25f0ad73e7bfc41a9cf8365bae"
+      },
+      "mujoco_version": "3.6.0",
+      "render_flags": {
+        "mjRND_ADDITIVE": false,
+        "mjRND_CULL_FACE": true,
+        "mjRND_DEPTH": false,
+        "mjRND_FOG": false,
+        "mjRND_HAZE": true,
+        "mjRND_IDCOLOR": false,
+        "mjRND_REFLECTION": false,
+        "mjRND_SEGMENT": false,
+        "mjRND_SHADOW": true,
+        "mjRND_SKYBOX": true,
+        "mjRND_WIREFRAME": false
+      },
+      "scene_xml_sha256": "35a749eafb9bddecf921f49dcf19f735483a4c81b00f2a316ef7fd48b90037c7"
+    }
+  },
+  "metrics": [
+    {
+      "aggregate": "mean",
+      "ci_conf": 0.95,
+      "ci_hi": 500.0,
+      "ci_lo": 500.0,
+      "ci_method": "bootstrap_mean",
+      "cs_alpha": null,
+      "cs_hi": null,
+      "cs_lo": null,
+      "denominator": null,
+      "episodes": [
+        {
+          "episode_index": 0,
+          "error_code": null,
+          "extra": {
+            "max_ms": 500.0,
+            "mean_ms": 354.5,
+            "n_hold_steps": 11,
+            "n_safe_stop_steps": 0
+          },
+          "status": "ok",
+          "trace_hash": "24dfa3fa6e552b3f2a2cd359b80c12f2a93786a1dc04c3dca63574e27f38d889",
+          "value": 500.0
+        },
+        {
+          "episode_index": 1,
+          "error_code": null,
+          "extra": {
+            "max_ms": 500.0,
+            "mean_ms": 354.5,
+            "n_hold_steps": 11,
+            "n_safe_stop_steps": 0
+          },
+          "status": "ok",
+          "trace_hash": "8060767f0c7c779c082e618c3c23ac1b130a307e930407437910cde43bc38989",
+          "value": 500.0
+        },
+        {
+          "episode_index": 2,
+          "error_code": null,
+          "extra": {
+            "max_ms": 500.0,
+            "mean_ms": 354.5,
+            "n_hold_steps": 11,
+            "n_safe_stop_steps": 0
+          },
+          "status": "ok",
+          "trace_hash": "457c1aaa88e0604834cbf63af8f78342da3332acce8223454acf547739a93703",
+          "value": 500.0
+        },
+        {
+          "episode_index": 3,
+          "error_code": null,
+          "extra": {
+            "max_ms": 500.0,
+            "mean_ms": 354.5,
+            "n_hold_steps": 11,
+            "n_safe_stop_steps": 0
+          },
+          "status": "ok",
+          "trace_hash": "d3dd9888d373e1209ac0d21692fe1a36cb8ea5f636bb87d82fb545af90f79ec2",
+          "value": 500.0
+        },
+        {
+          "episode_index": 4,
+          "error_code": null,
+          "extra": {
+            "max_ms": 500.0,
+            "mean_ms": 354.5,
+            "n_hold_steps": 11,
+            "n_safe_stop_steps": 0
+          },
+          "status": "ok",
+          "trace_hash": "b4992a03a1687192d400e5059ca5412fa771617a442bc47846eb73c0bc582722",
+          "value": 500.0
+        },
+        {
+          "episode_index": 5,
+          "error_code": null,
+          "extra": {
+            "max_ms": 500.0,
+            "mean_ms": 354.5,
+            "n_hold_steps": 11,
+            "n_safe_stop_steps": 0
+          },
+          "status": "ok",
+          "trace_hash": "cd752a7040ca435d3b44d824ab0dac221b9ea64f8e057c09dd4088558870c23f",
+          "value": 500.0
+        },
+        {
+          "episode_index": 6,
+          "error_code": null,
+          "extra": {
+            "max_ms": 500.0,
+            "mean_ms": 354.5,
+            "n_hold_steps": 11,
+            "n_safe_stop_steps": 0
+          },
+          "status": "ok",
+          "trace_hash": "1104d94ce3c6d17f7526b4440d79a5c6dbcb1b65d60320e6c231559c0bdc6f7b",
+          "value": 500.0
+        },
+        {
+          "episode_index": 7,
+          "error_code": null,
+          "extra": {
+            "max_ms": 500.0,
+            "mean_ms": 354.5,
+            "n_hold_steps": 11,
+            "n_safe_stop_steps": 0
+          },
+          "status": "ok",
+          "trace_hash": "7cd6d8c25cfd09b020ddf58585fb542340dc6864ae955a66aafa37651fc82c9f",
+          "value": 500.0
+        },
+        {
+          "episode_index": 8,
+          "error_code": null,
+          "extra": {
+            "max_ms": 500.0,
+            "mean_ms": 354.5,
+            "n_hold_steps": 11,
+            "n_safe_stop_steps": 0
+          },
+          "status": "ok",
+          "trace_hash": "ed567e345b4ebea113b5688605c60ac731177959a60cdafa6a71e98542f159a3",
+          "value": 500.0
+        },
+        {
+          "episode_index": 9,
+          "error_code": null,
+          "extra": {
+            "max_ms": 500.0,
+            "mean_ms": 354.5,
+            "n_hold_steps": 11,
+            "n_safe_stop_steps": 0
+          },
+          "status": "ok",
+          "trace_hash": "9707e2a59d2c61fbcac85ed200ef23959303b1e06f99885474f0626f37fabe00",
+          "value": 500.0
+        },
+        {
+          "episode_index": 10,
+          "error_code": null,
+          "extra": {
+            "max_ms": 500.0,
+            "mean_ms": 354.5,
+            "n_hold_steps": 11,
+            "n_safe_stop_steps": 0
+          },
+          "status": "ok",
+          "trace_hash": "d71d0731c55610be07ed205d0eb2dd127f96d95e49c4117cba4701d7f939243a",
+          "value": 500.0
+        },
+        {
+          "episode_index": 11,
+          "error_code": null,
+          "extra": {
+            "max_ms": 500.0,
+            "mean_ms": 354.5,
+            "n_hold_steps": 11,
+            "n_safe_stop_steps": 0
+          },
+          "status": "ok",
+          "trace_hash": "009168727b4604f6f9d3c394d49626204a58d89d37a99b6190825f67606af855",
+          "value": 500.0
+        },
+        {
+          "episode_index": 12,
+          "error_code": null,
+          "extra": {
+            "max_ms": 500.0,
+            "mean_ms": 354.5,
+            "n_hold_steps": 11,
+            "n_safe_stop_steps": 0
+          },
+          "status": "ok",
+          "trace_hash": "c68c0e052fd183df18ca8616497753690c93ea337fb452d3c6ff7b1f86c754ff",
+          "value": 500.0
+        },
+        {
+          "episode_index": 13,
+          "error_code": null,
+          "extra": {
+            "max_ms": 500.0,
+            "mean_ms": 354.5,
+            "n_hold_steps": 11,
+            "n_safe_stop_steps": 0
+          },
+          "status": "ok",
+          "trace_hash": "5782327251895b573d1d6c54db06aa2b6cc4a5822835febe597438e8de843e03",
+          "value": 500.0
+        },
+        {
+          "episode_index": 14,
+          "error_code": null,
+          "extra": {
+            "max_ms": 500.0,
+            "mean_ms": 354.5,
+            "n_hold_steps": 11,
+            "n_safe_stop_steps": 0
+          },
+          "status": "ok",
+          "trace_hash": "b48b3d387525e446ea7f4c48214a8fe8fa08d165aeff1f03faba0f23307cbc82",
+          "value": 500.0
+        },
+        {
+          "episode_index": 15,
+          "error_code": null,
+          "extra": {
+            "max_ms": 500.0,
+            "mean_ms": 354.5,
+            "n_hold_steps": 11,
+            "n_safe_stop_steps": 0
+          },
+          "status": "ok",
+          "trace_hash": "3ba1854ce821d6889cab4e3165c0627c00e17f6021f49768f1a00fe8aa56de3f",
+          "value": 500.0
+        },
+        {
+          "episode_index": 16,
+          "error_code": null,
+          "extra": {
+            "max_ms": 500.0,
+            "mean_ms": 354.5,
+            "n_hold_steps": 11,
+            "n_safe_stop_steps": 0
+          },
+          "status": "ok",
+          "trace_hash": "04ce4647fb517e31a6bfc0e2516e9ed53114293d380c27e4bb624fc5e2646e1a",
+          "value": 500.0
+        },
+        {
+          "episode_index": 17,
+          "error_code": null,
+          "extra": {
+            "max_ms": 500.0,
+            "mean_ms": 354.5,
+            "n_hold_steps": 11,
+            "n_safe_stop_steps": 0
+          },
+          "status": "ok",
+          "trace_hash": "4bb0bd8108fa5d9aa2a370c8ef30f9ffcc58072097e788070b3de24b183b71fb",
+          "value": 500.0
+        },
+        {
+          "episode_index": 18,
+          "error_code": null,
+          "extra": {
+            "max_ms": 500.0,
+            "mean_ms": 354.5,
+            "n_hold_steps": 11,
+            "n_safe_stop_steps": 0
+          },
+          "status": "ok",
+          "trace_hash": "982b85234d98eb1e817ece865d6f1d4dc6db3176628c11d931c078bd9fb0de12",
+          "value": 500.0
+        },
+        {
+          "episode_index": 19,
+          "error_code": null,
+          "extra": {
+            "max_ms": 500.0,
+            "mean_ms": 354.5,
+            "n_hold_steps": 11,
+            "n_safe_stop_steps": 0
+          },
+          "status": "ok",
+          "trace_hash": "1f69be827483f72ba27691c9dead85a095ae39f2425fe9cac3da2ded0d92bb21",
+          "value": 500.0
+        },
+        {
+          "episode_index": 20,
+          "error_code": null,
+          "extra": {
+            "max_ms": 500.0,
+            "mean_ms": 354.5,
+            "n_hold_steps": 11,
+            "n_safe_stop_steps": 0
+          },
+          "status": "ok",
+          "trace_hash": "efcea9a9aeda722d74511988fc453718def9b31f5e532c976174843e6234aa10",
+          "value": 500.0
+        },
+        {
+          "episode_index": 21,
+          "error_code": null,
+          "extra": {
+            "max_ms": 500.0,
+            "mean_ms": 354.5,
+            "n_hold_steps": 11,
+            "n_safe_stop_steps": 0
+          },
+          "status": "ok",
+          "trace_hash": "66b40c9b3c96a69ee2590fb58f0c034f64d16369214402f85418311b8736906b",
+          "value": 500.0
+        },
+        {
+          "episode_index": 22,
+          "error_code": null,
+          "extra": {
+            "max_ms": 500.0,
+            "mean_ms": 354.5,
+            "n_hold_steps": 11,
+            "n_safe_stop_steps": 0
+          },
+          "status": "ok",
+          "trace_hash": "92931ad9295eba8d5d0133f0b503f55a3a0001fb8cd2913c5da33ce49ce8453c",
+          "value": 500.0
+        },
+        {
+          "episode_index": 23,
+          "error_code": null,
+          "extra": {
+            "max_ms": 500.0,
+            "mean_ms": 354.5,
+            "n_hold_steps": 11,
+            "n_safe_stop_steps": 0
+          },
+          "status": "ok",
+          "trace_hash": "b76745d7ecc412c9f681db68f38579141dcdf57526d6183d21a50d3e7924f261",
+          "value": 500.0
+        },
+        {
+          "episode_index": 24,
+          "error_code": null,
+          "extra": {
+            "max_ms": 500.0,
+            "mean_ms": 354.5,
+            "n_hold_steps": 11,
+            "n_safe_stop_steps": 0
+          },
+          "status": "ok",
+          "trace_hash": "17da23538441c137a57548b5e300b10cb15b68f4a33e6fa40e271276f65d464d",
+          "value": 500.0
+        },
+        {
+          "episode_index": 25,
+          "error_code": null,
+          "extra": {
+            "max_ms": 500.0,
+            "mean_ms": 354.5,
+            "n_hold_steps": 11,
+            "n_safe_stop_steps": 0
+          },
+          "status": "ok",
+          "trace_hash": "dd8512f600fd8b7911f3a4f4e2bf2bd167befdfbd0c1fc439890f8cb213ac369",
+          "value": 500.0
+        },
+        {
+          "episode_index": 26,
+          "error_code": null,
+          "extra": {
+            "max_ms": 500.0,
+            "mean_ms": 354.5,
+            "n_hold_steps": 11,
+            "n_safe_stop_steps": 0
+          },
+          "status": "ok",
+          "trace_hash": "38f7942dc542a93960879ea9b942ca207c3af2120e9b514741efc251e2703a88",
+          "value": 500.0
+        },
+        {
+          "episode_index": 27,
+          "error_code": null,
+          "extra": {
+            "max_ms": 500.0,
+            "mean_ms": 354.5,
+            "n_hold_steps": 11,
+            "n_safe_stop_steps": 0
+          },
+          "status": "ok",
+          "trace_hash": "bd6327ffa4190bee5d563d17f7585ad5618d3b9e7bef70641a4cd1f1ff8749f3",
+          "value": 500.0
+        },
+        {
+          "episode_index": 28,
+          "error_code": null,
+          "extra": {
+            "max_ms": 500.0,
+            "mean_ms": 354.5,
+            "n_hold_steps": 11,
+            "n_safe_stop_steps": 0
+          },
+          "status": "ok",
+          "trace_hash": "8b627b58ed509edc47b857f526f01475c298c554ee6b53733f0b6f9d69150caf",
+          "value": 500.0
+        },
+        {
+          "episode_index": 29,
+          "error_code": null,
+          "extra": {
+            "max_ms": 500.0,
+            "mean_ms": 354.5,
+            "n_hold_steps": 11,
+            "n_safe_stop_steps": 0
+          },
+          "status": "ok",
+          "trace_hash": "5a9beb168c5c6dd31cfff2c4f4e49ef156fc1aa33774812944d5c25d085a6fac",
+          "value": 500.0
+        },
+        {
+          "episode_index": 30,
+          "error_code": null,
+          "extra": {
+            "max_ms": 500.0,
+            "mean_ms": 354.5,
+            "n_hold_steps": 11,
+            "n_safe_stop_steps": 0
+          },
+          "status": "ok",
+          "trace_hash": "0ed0ef2bebe5077d8dea059535b25f1ff925e788a8a125e963edec5e086d31cb",
+          "value": 500.0
+        },
+        {
+          "episode_index": 31,
+          "error_code": null,
+          "extra": {
+            "max_ms": 500.0,
+            "mean_ms": 354.5,
+            "n_hold_steps": 11,
+            "n_safe_stop_steps": 0
+          },
+          "status": "ok",
+          "trace_hash": "7d0f3b56a5449125a4fadb3141451a733bf7169db6d3285ac114aea200fc8195",
+          "value": 500.0
+        },
+        {
+          "episode_index": 32,
+          "error_code": null,
+          "extra": {
+            "max_ms": 500.0,
+            "mean_ms": 354.5,
+            "n_hold_steps": 11,
+            "n_safe_stop_steps": 0
+          },
+          "status": "ok",
+          "trace_hash": "3e3a428192f75a3f8ca808b7f280ac663c454fa71ad2f79d8f5aeee3817aed78",
+          "value": 500.0
+        },
+        {
+          "episode_index": 33,
+          "error_code": null,
+          "extra": {
+            "max_ms": 500.0,
+            "mean_ms": 354.5,
+            "n_hold_steps": 11,
+            "n_safe_stop_steps": 0
+          },
+          "status": "ok",
+          "trace_hash": "c354fe6260b3edf76eb3bff5d759396d58963630c939b20f7dc01069cc70f9dc",
+          "value": 500.0
+        },
+        {
+          "episode_index": 34,
+          "error_code": null,
+          "extra": {
+            "max_ms": 500.0,
+            "mean_ms": 354.5,
+            "n_hold_steps": 11,
+            "n_safe_stop_steps": 0
+          },
+          "status": "ok",
+          "trace_hash": "aa7bb7b23a8180b74ddc8002e8fb105bb237487d6e6e384d5c478d7e8c07933f",
+          "value": 500.0
+        },
+        {
+          "episode_index": 35,
+          "error_code": null,
+          "extra": {
+            "max_ms": 500.0,
+            "mean_ms": 354.5,
+            "n_hold_steps": 11,
+            "n_safe_stop_steps": 0
+          },
+          "status": "ok",
+          "trace_hash": "7387f646836be1c6f466da8ba6ad6d9eeeb24dae8b44f9dbeebb565afcbad6e6",
+          "value": 500.0
+        },
+        {
+          "episode_index": 36,
+          "error_code": null,
+          "extra": {
+            "max_ms": 500.0,
+            "mean_ms": 354.5,
+            "n_hold_steps": 11,
+            "n_safe_stop_steps": 0
+          },
+          "status": "ok",
+          "trace_hash": "60dcfc9e4502633f9f474df9f3d0a0ac16db1abc54a404d52d58946019cc6e9a",
+          "value": 500.0
+        },
+        {
+          "episode_index": 37,
+          "error_code": null,
+          "extra": {
+            "max_ms": 500.0,
+            "mean_ms": 354.5,
+            "n_hold_steps": 11,
+            "n_safe_stop_steps": 0
+          },
+          "status": "ok",
+          "trace_hash": "8fc1e30cc0d253fcc1c89f2c9d305727e26d5fe09fe62400012932194eac971c",
+          "value": 500.0
+        },
+        {
+          "episode_index": 38,
+          "error_code": null,
+          "extra": {
+            "max_ms": 500.0,
+            "mean_ms": 354.5,
+            "n_hold_steps": 11,
+            "n_safe_stop_steps": 0
+          },
+          "status": "ok",
+          "trace_hash": "6832d1bf7b56e9a22126d19961e61fe08d3bf026e3136d07e0ce469612cfcbd6",
+          "value": 500.0
+        },
+        {
+          "episode_index": 39,
+          "error_code": null,
+          "extra": {
+            "max_ms": 500.0,
+            "mean_ms": 354.5,
+            "n_hold_steps": 11,
+            "n_safe_stop_steps": 0
+          },
+          "status": "ok",
+          "trace_hash": "5b9692e63fe0cedf581c2692c37874aa8993a257038dd2cc655f1a463c58871d",
+          "value": 500.0
+        },
+        {
+          "episode_index": 40,
+          "error_code": null,
+          "extra": {
+            "max_ms": 500.0,
+            "mean_ms": 354.5,
+            "n_hold_steps": 11,
+            "n_safe_stop_steps": 0
+          },
+          "status": "ok",
+          "trace_hash": "a9c9236034222efe0c1ed38930f7db2130ae4e2dee9b80f59b8e1787d41c16db",
+          "value": 500.0
+        },
+        {
+          "episode_index": 41,
+          "error_code": null,
+          "extra": {
+            "max_ms": 500.0,
+            "mean_ms": 354.5,
+            "n_hold_steps": 11,
+            "n_safe_stop_steps": 0
+          },
+          "status": "ok",
+          "trace_hash": "13efe1a3fbf2cbb6898ef482fd8eb0d2c08fd2ce584f4edf6ac8baa28498f795",
+          "value": 500.0
+        },
+        {
+          "episode_index": 42,
+          "error_code": null,
+          "extra": {
+            "max_ms": 500.0,
+            "mean_ms": 354.5,
+            "n_hold_steps": 11,
+            "n_safe_stop_steps": 0
+          },
+          "status": "ok",
+          "trace_hash": "4d71264e433bdff4953c70d86d4cd5bf3882f8767bf086753ca670a041d31821",
+          "value": 500.0
+        },
+        {
+          "episode_index": 43,
+          "error_code": null,
+          "extra": {
+            "max_ms": 500.0,
+            "mean_ms": 354.5,
+            "n_hold_steps": 11,
+            "n_safe_stop_steps": 0
+          },
+          "status": "ok",
+          "trace_hash": "5160b41bb76169fae21e80cf10f55382ecd511bef5220ad093f2732f73d5cb96",
+          "value": 500.0
+        },
+        {
+          "episode_index": 44,
+          "error_code": null,
+          "extra": {
+            "max_ms": 500.0,
+            "mean_ms": 354.5,
+            "n_hold_steps": 11,
+            "n_safe_stop_steps": 0
+          },
+          "status": "ok",
+          "trace_hash": "02f00bfe9d864c9f197a4c3fda4bfb5c39e2e1a9d34831fbd458e03432bc8859",
+          "value": 500.0
+        },
+        {
+          "episode_index": 45,
+          "error_code": null,
+          "extra": {
+            "max_ms": 500.0,
+            "mean_ms": 354.5,
+            "n_hold_steps": 11,
+            "n_safe_stop_steps": 0
+          },
+          "status": "ok",
+          "trace_hash": "07d6cd329571296af3256e4b89a34977886c3fdd30bc8e6deb42d7ce7fc60101",
+          "value": 500.0
+        },
+        {
+          "episode_index": 46,
+          "error_code": null,
+          "extra": {
+            "max_ms": 500.0,
+            "mean_ms": 354.5,
+            "n_hold_steps": 11,
+            "n_safe_stop_steps": 0
+          },
+          "status": "ok",
+          "trace_hash": "1e0dee3cb07dacf7366ea659707b3ce5818ccee06251193619d76347f2fa6366",
+          "value": 500.0
+        },
+        {
+          "episode_index": 47,
+          "error_code": null,
+          "extra": {
+            "max_ms": 500.0,
+            "mean_ms": 354.5,
+            "n_hold_steps": 11,
+            "n_safe_stop_steps": 0
+          },
+          "status": "ok",
+          "trace_hash": "036474ede5bf78aec4bbff3c542a24f05ea2c0cbbb8753718000c8add9632c37",
+          "value": 500.0
+        },
+        {
+          "episode_index": 48,
+          "error_code": null,
+          "extra": {
+            "max_ms": 500.0,
+            "mean_ms": 354.5,
+            "n_hold_steps": 11,
+            "n_safe_stop_steps": 0
+          },
+          "status": "ok",
+          "trace_hash": "341c7cfebc5c119b570eeb9bf38bc6a2ffc6fb766109a1c7afdea2fba9c610af",
+          "value": 500.0
+        },
+        {
+          "episode_index": 49,
+          "error_code": null,
+          "extra": {
+            "max_ms": 500.0,
+            "mean_ms": 354.5,
+            "n_hold_steps": 11,
+            "n_safe_stop_steps": 0
+          },
+          "status": "ok",
+          "trace_hash": "4ddbeb35c44984c61a9c1a62bc41a09e270b4b7f6bb3fc710a56cdf9cff58833",
+          "value": 500.0
+        },
+        {
+          "episode_index": 50,
+          "error_code": null,
+          "extra": {
+            "max_ms": 500.0,
+            "mean_ms": 354.5,
+            "n_hold_steps": 11,
+            "n_safe_stop_steps": 0
+          },
+          "status": "ok",
+          "trace_hash": "a5f5668aa7b1397d5244b3e91533f55463374552956b4749ab2291e70059aa7a",
+          "value": 500.0
+        },
+        {
+          "episode_index": 51,
+          "error_code": null,
+          "extra": {
+            "max_ms": 500.0,
+            "mean_ms": 354.5,
+            "n_hold_steps": 11,
+            "n_safe_stop_steps": 0
+          },
+          "status": "ok",
+          "trace_hash": "828bba2cf232cf4240712d9773de52789b4e903bdb31a101e81ee6d6f31aa1ad",
+          "value": 500.0
+        },
+        {
+          "episode_index": 52,
+          "error_code": null,
+          "extra": {
+            "max_ms": 500.0,
+            "mean_ms": 354.5,
+            "n_hold_steps": 11,
+            "n_safe_stop_steps": 0
+          },
+          "status": "ok",
+          "trace_hash": "0ce1c56d4bbb5ecf04efa99ed9a8e84cf5b02ebc5e1f7de60a85d5d3d0cf9e07",
+          "value": 500.0
+        },
+        {
+          "episode_index": 53,
+          "error_code": null,
+          "extra": {
+            "max_ms": 500.0,
+            "mean_ms": 354.5,
+            "n_hold_steps": 11,
+            "n_safe_stop_steps": 0
+          },
+          "status": "ok",
+          "trace_hash": "aaaba18aa70ed3c9f647717028108817e7027dc2fd4be2829fbcd4b94ac65608",
+          "value": 500.0
+        },
+        {
+          "episode_index": 54,
+          "error_code": null,
+          "extra": {
+            "max_ms": 500.0,
+            "mean_ms": 354.5,
+            "n_hold_steps": 11,
+            "n_safe_stop_steps": 0
+          },
+          "status": "ok",
+          "trace_hash": "8c1a78a8bd2a1ab5dacad7570e559a9f15a69bb935ef3a0ee50aca7d20ebdcaf",
+          "value": 500.0
+        },
+        {
+          "episode_index": 55,
+          "error_code": null,
+          "extra": {
+            "max_ms": 500.0,
+            "mean_ms": 354.5,
+            "n_hold_steps": 11,
+            "n_safe_stop_steps": 0
+          },
+          "status": "ok",
+          "trace_hash": "745b66a84f8001ac74538ca4f092b9a06ea4fb01c562ad3b3271fe01c7e2344f",
+          "value": 500.0
+        },
+        {
+          "episode_index": 56,
+          "error_code": null,
+          "extra": {
+            "max_ms": 500.0,
+            "mean_ms": 354.5,
+            "n_hold_steps": 11,
+            "n_safe_stop_steps": 0
+          },
+          "status": "ok",
+          "trace_hash": "73a269618319cef791a8cded22d8db4e59e169fdc085279afffe856dc1987071",
+          "value": 500.0
+        },
+        {
+          "episode_index": 57,
+          "error_code": null,
+          "extra": {
+            "max_ms": 500.0,
+            "mean_ms": 354.5,
+            "n_hold_steps": 11,
+            "n_safe_stop_steps": 0
+          },
+          "status": "ok",
+          "trace_hash": "982997ae1c8971138c7c00465ef7d08604587b5f8ccbd0a5ad4856bfc65e4020",
+          "value": 500.0
+        },
+        {
+          "episode_index": 58,
+          "error_code": null,
+          "extra": {
+            "max_ms": 500.0,
+            "mean_ms": 354.5,
+            "n_hold_steps": 11,
+            "n_safe_stop_steps": 0
+          },
+          "status": "ok",
+          "trace_hash": "3090b958b0aaa6d139439db5ffffd596baca1ba1441f5b481f28dfc5a8e035ae",
+          "value": 500.0
+        },
+        {
+          "episode_index": 59,
+          "error_code": null,
+          "extra": {
+            "max_ms": 500.0,
+            "mean_ms": 354.5,
+            "n_hold_steps": 11,
+            "n_safe_stop_steps": 0
+          },
+          "status": "ok",
+          "trace_hash": "4af315c6ff80c7ebd336d75e49fdfa7a7c301704ae89ad3bb443321aa4428c5a",
+          "value": 500.0
+        },
+        {
+          "episode_index": 60,
+          "error_code": null,
+          "extra": {
+            "max_ms": 500.0,
+            "mean_ms": 354.5,
+            "n_hold_steps": 11,
+            "n_safe_stop_steps": 0
+          },
+          "status": "ok",
+          "trace_hash": "4eb42ec78944a61030d435cad89e9711f586a9e76d03c71f1204e1f4d39df186",
+          "value": 500.0
+        },
+        {
+          "episode_index": 61,
+          "error_code": null,
+          "extra": {
+            "max_ms": 500.0,
+            "mean_ms": 354.5,
+            "n_hold_steps": 11,
+            "n_safe_stop_steps": 0
+          },
+          "status": "ok",
+          "trace_hash": "d21a51f09c3869e56ad2f078e059362a6715bfe1d2b701b8ecb209780fa9f168",
+          "value": 500.0
+        },
+        {
+          "episode_index": 62,
+          "error_code": null,
+          "extra": {
+            "max_ms": 500.0,
+            "mean_ms": 354.5,
+            "n_hold_steps": 11,
+            "n_safe_stop_steps": 0
+          },
+          "status": "ok",
+          "trace_hash": "7708ec630e56ea0fc3475a099064b61bb04e3e0868a83d5a1304a2c9cc33c7dc",
+          "value": 500.0
+        },
+        {
+          "episode_index": 63,
+          "error_code": null,
+          "extra": {
+            "max_ms": 500.0,
+            "mean_ms": 354.5,
+            "n_hold_steps": 11,
+            "n_safe_stop_steps": 0
+          },
+          "status": "ok",
+          "trace_hash": "67997671fc471665ef9d0acb275393acf02f6a7040f1d4410372fd58481152d9",
+          "value": 500.0
+        },
+        {
+          "episode_index": 64,
+          "error_code": null,
+          "extra": {
+            "max_ms": 500.0,
+            "mean_ms": 354.5,
+            "n_hold_steps": 11,
+            "n_safe_stop_steps": 0
+          },
+          "status": "ok",
+          "trace_hash": "e1478427001b6394bea132247c56e8e3ea50df3f8987fa0628c3d13fe00bf7e7",
+          "value": 500.0
+        },
+        {
+          "episode_index": 65,
+          "error_code": null,
+          "extra": {
+            "max_ms": 500.0,
+            "mean_ms": 354.5,
+            "n_hold_steps": 11,
+            "n_safe_stop_steps": 0
+          },
+          "status": "ok",
+          "trace_hash": "3bdc45f95bcc267c443cd7e360fd3857e83aeb6774a13430eb825df77ba32cbf",
+          "value": 500.0
+        },
+        {
+          "episode_index": 66,
+          "error_code": null,
+          "extra": {
+            "max_ms": 500.0,
+            "mean_ms": 354.5,
+            "n_hold_steps": 11,
+            "n_safe_stop_steps": 0
+          },
+          "status": "ok",
+          "trace_hash": "6db8339be1e83d34d68445ad132446c59788141b7bcd0cfa23a553cc3c1cadf2",
+          "value": 500.0
+        },
+        {
+          "episode_index": 67,
+          "error_code": null,
+          "extra": {
+            "max_ms": 500.0,
+            "mean_ms": 354.5,
+            "n_hold_steps": 11,
+            "n_safe_stop_steps": 0
+          },
+          "status": "ok",
+          "trace_hash": "398fb60fd4f33a3e8e6fa50f9decbf01c1ccf63ec6e0d4621c53bf68401c2212",
+          "value": 500.0
+        },
+        {
+          "episode_index": 68,
+          "error_code": null,
+          "extra": {
+            "max_ms": 500.0,
+            "mean_ms": 354.5,
+            "n_hold_steps": 11,
+            "n_safe_stop_steps": 0
+          },
+          "status": "ok",
+          "trace_hash": "eb1717db3791d415326e3ffac35e286c65c364b6090ffc0b8dbe473c9263238f",
+          "value": 500.0
+        },
+        {
+          "episode_index": 69,
+          "error_code": null,
+          "extra": {
+            "max_ms": 500.0,
+            "mean_ms": 354.5,
+            "n_hold_steps": 11,
+            "n_safe_stop_steps": 0
+          },
+          "status": "ok",
+          "trace_hash": "b7874d2c633947eb42c55c6d4ad1e0020accaf27f3c690264c22ec7f82d25a5b",
+          "value": 500.0
+        },
+        {
+          "episode_index": 70,
+          "error_code": null,
+          "extra": {
+            "max_ms": 500.0,
+            "mean_ms": 354.5,
+            "n_hold_steps": 11,
+            "n_safe_stop_steps": 0
+          },
+          "status": "ok",
+          "trace_hash": "cf4c0bba05ccec4fc29bfe41e8cf798eaf8d538e2eb86bc802da8166b43149cf",
+          "value": 500.0
+        },
+        {
+          "episode_index": 71,
+          "error_code": null,
+          "extra": {
+            "max_ms": 500.0,
+            "mean_ms": 354.5,
+            "n_hold_steps": 11,
+            "n_safe_stop_steps": 0
+          },
+          "status": "ok",
+          "trace_hash": "6a728119a1945fee5863f76141e8ca3e8921c465b85f8a36aade54c172bf0a71",
+          "value": 500.0
+        },
+        {
+          "episode_index": 72,
+          "error_code": null,
+          "extra": {
+            "max_ms": 500.0,
+            "mean_ms": 354.5,
+            "n_hold_steps": 11,
+            "n_safe_stop_steps": 0
+          },
+          "status": "ok",
+          "trace_hash": "688d47b2c795ab3031403f18c3563d3e643a4aa0714a37692cc974dd05d264af",
+          "value": 500.0
+        },
+        {
+          "episode_index": 73,
+          "error_code": null,
+          "extra": {
+            "max_ms": 500.0,
+            "mean_ms": 354.5,
+            "n_hold_steps": 11,
+            "n_safe_stop_steps": 0
+          },
+          "status": "ok",
+          "trace_hash": "1fc6dcee64bbe45d1b7387b0a5314c04cc271e03024e45b9e5554c7b37812894",
+          "value": 500.0
+        },
+        {
+          "episode_index": 74,
+          "error_code": null,
+          "extra": {
+            "max_ms": 500.0,
+            "mean_ms": 354.5,
+            "n_hold_steps": 11,
+            "n_safe_stop_steps": 0
+          },
+          "status": "ok",
+          "trace_hash": "558b27f40876ad6ebe4b226b680f89bf13e77e51447ea40e91053b1b1b48bb66",
+          "value": 500.0
+        },
+        {
+          "episode_index": 75,
+          "error_code": null,
+          "extra": {
+            "max_ms": 500.0,
+            "mean_ms": 354.5,
+            "n_hold_steps": 11,
+            "n_safe_stop_steps": 0
+          },
+          "status": "ok",
+          "trace_hash": "a0ef1cdf639eb5604983d09342d0f0ad757247bb852c20ef318fed9c2e34661b",
+          "value": 500.0
+        },
+        {
+          "episode_index": 76,
+          "error_code": null,
+          "extra": {
+            "max_ms": 500.0,
+            "mean_ms": 354.5,
+            "n_hold_steps": 11,
+            "n_safe_stop_steps": 0
+          },
+          "status": "ok",
+          "trace_hash": "0143d27ffadc81c29056371cf51ddba5aec64f164994f9211e0b1571f14edf62",
+          "value": 500.0
+        },
+        {
+          "episode_index": 77,
+          "error_code": null,
+          "extra": {
+            "max_ms": 500.0,
+            "mean_ms": 354.5,
+            "n_hold_steps": 11,
+            "n_safe_stop_steps": 0
+          },
+          "status": "ok",
+          "trace_hash": "45c2433b6c636f4ee7ca2e4ed6750c7639e204aab4de9f14979f2a507b91d367",
+          "value": 500.0
+        },
+        {
+          "episode_index": 78,
+          "error_code": null,
+          "extra": {
+            "max_ms": 500.0,
+            "mean_ms": 354.5,
+            "n_hold_steps": 11,
+            "n_safe_stop_steps": 0
+          },
+          "status": "ok",
+          "trace_hash": "7b226c1234aaba432fc5876cecbe3280d84a4bd348ab6963b7d7f2291e761f7b",
+          "value": 500.0
+        },
+        {
+          "episode_index": 79,
+          "error_code": null,
+          "extra": {
+            "max_ms": 500.0,
+            "mean_ms": 354.5,
+            "n_hold_steps": 11,
+            "n_safe_stop_steps": 0
+          },
+          "status": "ok",
+          "trace_hash": "776ce733db718b1fd17bc38322121d01cf0242b4af6f963e8817654887555a84",
+          "value": 500.0
+        },
+        {
+          "episode_index": 80,
+          "error_code": null,
+          "extra": {
+            "max_ms": 500.0,
+            "mean_ms": 354.5,
+            "n_hold_steps": 11,
+            "n_safe_stop_steps": 0
+          },
+          "status": "ok",
+          "trace_hash": "a67488c7619e94d5c38bc8cce78655fb76e7c7d631118bf53a7ce2c74b7052c0",
+          "value": 500.0
+        },
+        {
+          "episode_index": 81,
+          "error_code": null,
+          "extra": {
+            "max_ms": 500.0,
+            "mean_ms": 354.5,
+            "n_hold_steps": 11,
+            "n_safe_stop_steps": 0
+          },
+          "status": "ok",
+          "trace_hash": "fb771da009b707d50f2b4496ba284eaac410e2d224444be2feb6afe8461a8d40",
+          "value": 500.0
+        },
+        {
+          "episode_index": 82,
+          "error_code": null,
+          "extra": {
+            "max_ms": 500.0,
+            "mean_ms": 354.5,
+            "n_hold_steps": 11,
+            "n_safe_stop_steps": 0
+          },
+          "status": "ok",
+          "trace_hash": "82a73d8c0381ba30825ac8a2303302889c8857f49cd2bfce16b130b63e6c1fcc",
+          "value": 500.0
+        },
+        {
+          "episode_index": 83,
+          "error_code": null,
+          "extra": {
+            "max_ms": 500.0,
+            "mean_ms": 354.5,
+            "n_hold_steps": 11,
+            "n_safe_stop_steps": 0
+          },
+          "status": "ok",
+          "trace_hash": "35d43ae3114e083b3d5ea25aa148b151c46f36fe4a3d5ce0bc0e2e43a1b171d5",
+          "value": 500.0
+        },
+        {
+          "episode_index": 84,
+          "error_code": null,
+          "extra": {
+            "max_ms": 500.0,
+            "mean_ms": 354.5,
+            "n_hold_steps": 11,
+            "n_safe_stop_steps": 0
+          },
+          "status": "ok",
+          "trace_hash": "448b0fd731d23b55605be5cc789ebe6e95be146269c5c87c17bfb67ab1c65d88",
+          "value": 500.0
+        },
+        {
+          "episode_index": 85,
+          "error_code": null,
+          "extra": {
+            "max_ms": 500.0,
+            "mean_ms": 354.5,
+            "n_hold_steps": 11,
+            "n_safe_stop_steps": 0
+          },
+          "status": "ok",
+          "trace_hash": "ebd7c94bce3507046a3ca3b1cd443cd40d67443e552fcb985481ad30576661dd",
+          "value": 500.0
+        },
+        {
+          "episode_index": 86,
+          "error_code": null,
+          "extra": {
+            "max_ms": 500.0,
+            "mean_ms": 354.5,
+            "n_hold_steps": 11,
+            "n_safe_stop_steps": 0
+          },
+          "status": "ok",
+          "trace_hash": "5d7dc2f54db04d720e705154c9eb96b3372af7f3d6152bdb21cea29ba778d151",
+          "value": 500.0
+        },
+        {
+          "episode_index": 87,
+          "error_code": null,
+          "extra": {
+            "max_ms": 500.0,
+            "mean_ms": 354.5,
+            "n_hold_steps": 11,
+            "n_safe_stop_steps": 0
+          },
+          "status": "ok",
+          "trace_hash": "69678110e61d372e75dac8f95216f634c3af4c4fa850aa32b87d93abe2cce749",
+          "value": 500.0
+        },
+        {
+          "episode_index": 88,
+          "error_code": null,
+          "extra": {
+            "max_ms": 500.0,
+            "mean_ms": 354.5,
+            "n_hold_steps": 11,
+            "n_safe_stop_steps": 0
+          },
+          "status": "ok",
+          "trace_hash": "046a9dd92ec3f32e4c3f421ceb26c0d6e4c99051e9394ca771ae3b735bc5af07",
+          "value": 500.0
+        },
+        {
+          "episode_index": 89,
+          "error_code": null,
+          "extra": {
+            "max_ms": 500.0,
+            "mean_ms": 354.5,
+            "n_hold_steps": 11,
+            "n_safe_stop_steps": 0
+          },
+          "status": "ok",
+          "trace_hash": "7d256410fb529579ebf2e00fff422d8743209d2fe4f48af52922bb53a525c80f",
+          "value": 500.0
+        },
+        {
+          "episode_index": 90,
+          "error_code": null,
+          "extra": {
+            "max_ms": 500.0,
+            "mean_ms": 354.5,
+            "n_hold_steps": 11,
+            "n_safe_stop_steps": 0
+          },
+          "status": "ok",
+          "trace_hash": "d5b135ab8095180f8c0e68b5e0c2590d4b7612d65beb8b09e2294c0453217a70",
+          "value": 500.0
+        },
+        {
+          "episode_index": 91,
+          "error_code": null,
+          "extra": {
+            "max_ms": 500.0,
+            "mean_ms": 354.5,
+            "n_hold_steps": 11,
+            "n_safe_stop_steps": 0
+          },
+          "status": "ok",
+          "trace_hash": "12152a0ebee8ca3c97a394997332789870b6f1352052d04d36cf64244c560870",
+          "value": 500.0
+        },
+        {
+          "episode_index": 92,
+          "error_code": null,
+          "extra": {
+            "max_ms": 500.0,
+            "mean_ms": 354.5,
+            "n_hold_steps": 11,
+            "n_safe_stop_steps": 0
+          },
+          "status": "ok",
+          "trace_hash": "152e4fff07228eb945480aa4c3a3087b4830f318fa28efa497b90da95f4fea6c",
+          "value": 500.0
+        },
+        {
+          "episode_index": 93,
+          "error_code": null,
+          "extra": {
+            "max_ms": 500.0,
+            "mean_ms": 354.5,
+            "n_hold_steps": 11,
+            "n_safe_stop_steps": 0
+          },
+          "status": "ok",
+          "trace_hash": "0f34d0cd257f87f54dfe5b393045212d14e81a8c58292bdea11feddd4bf5afae",
+          "value": 500.0
+        },
+        {
+          "episode_index": 94,
+          "error_code": null,
+          "extra": {
+            "max_ms": 500.0,
+            "mean_ms": 354.5,
+            "n_hold_steps": 11,
+            "n_safe_stop_steps": 0
+          },
+          "status": "ok",
+          "trace_hash": "a8e7ccd879e29bd126a9f77105a01c2b3b4f25065f578f1ce8b61175e9cb0733",
+          "value": 500.0
+        },
+        {
+          "episode_index": 95,
+          "error_code": null,
+          "extra": {
+            "max_ms": 500.0,
+            "mean_ms": 354.5,
+            "n_hold_steps": 11,
+            "n_safe_stop_steps": 0
+          },
+          "status": "ok",
+          "trace_hash": "67eaa5db0b03945c6fb8bb3830875784131f2835bb39649a8e9c8724ba64b1e2",
+          "value": 500.0
+        },
+        {
+          "episode_index": 96,
+          "error_code": null,
+          "extra": {
+            "max_ms": 500.0,
+            "mean_ms": 354.5,
+            "n_hold_steps": 11,
+            "n_safe_stop_steps": 0
+          },
+          "status": "ok",
+          "trace_hash": "ba260c78b2a18fd78ece1d05199e0efa67b97a7076a5f03ce64d477c8d311282",
+          "value": 500.0
+        },
+        {
+          "episode_index": 97,
+          "error_code": null,
+          "extra": {
+            "max_ms": 500.0,
+            "mean_ms": 354.5,
+            "n_hold_steps": 11,
+            "n_safe_stop_steps": 0
+          },
+          "status": "ok",
+          "trace_hash": "3f9d257eb1000ff666511c2449febeb51808224155005452e047bc4c39522935",
+          "value": 500.0
+        },
+        {
+          "episode_index": 98,
+          "error_code": null,
+          "extra": {
+            "max_ms": 500.0,
+            "mean_ms": 354.5,
+            "n_hold_steps": 11,
+            "n_safe_stop_steps": 0
+          },
+          "status": "ok",
+          "trace_hash": "79965ec26394dfd41966c2e90eee90545fcb15c2eb8cca057ba543894cef446b",
+          "value": 500.0
+        },
+        {
+          "episode_index": 99,
+          "error_code": null,
+          "extra": {
+            "max_ms": 500.0,
+            "mean_ms": 354.5,
+            "n_hold_steps": 11,
+            "n_safe_stop_steps": 0
+          },
+          "status": "ok",
+          "trace_hash": "c0e6a9c73a869a0de3b4ae74da88a3882d588ed0578552e683688d51ee9f5104",
+          "value": 500.0
+        }
+      ],
+      "evaluator_file_sha256": "ac68fb37e7e73a6762ee4592789f56b0aa89efde02163c53fc93f7ee93159660",
+      "evaluator_id": "action_staleness_p95",
+      "evaluator_version": "1.0.0",
+      "failures": {},
+      "kind": "continuous",
+      "n": 100,
+      "n_episodes": 100,
+      "n_failed": 0,
+      "name": "action_staleness_p95@1.0.0",
+      "numerator": null,
+      "profile_id": "a100-40gb-groot-n17-sonic",
+      "profile_label": "MEASURED",
+      "run_hash": "9e3d574d6167368ce2ae7e75ac6c095bad0ab5c17c60fa022a5a8b2781f6965e",
+      "unit": "ms",
+      "value": 500.0
+    },
+    {
+      "aggregate": "ratio_of_sums",
+      "ci_conf": 0.95,
+      "ci_hi": 0.0,
+      "ci_lo": 0.0,
+      "ci_method": "bootstrap_ratio_of_sums",
+      "cs_alpha": null,
+      "cs_hi": null,
+      "cs_lo": null,
+      "denominator": 4000.0,
+      "episodes": [
+        {
+          "episode_index": 0,
+          "error_code": null,
+          "extra": {
+            "denominator": 40,
+            "numerator": 0
+          },
+          "status": "ok",
+          "trace_hash": "24dfa3fa6e552b3f2a2cd359b80c12f2a93786a1dc04c3dca63574e27f38d889",
+          "value": 0.0
+        },
+        {
+          "episode_index": 1,
+          "error_code": null,
+          "extra": {
+            "denominator": 40,
+            "numerator": 0
+          },
+          "status": "ok",
+          "trace_hash": "8060767f0c7c779c082e618c3c23ac1b130a307e930407437910cde43bc38989",
+          "value": 0.0
+        },
+        {
+          "episode_index": 2,
+          "error_code": null,
+          "extra": {
+            "denominator": 40,
+            "numerator": 0
+          },
+          "status": "ok",
+          "trace_hash": "457c1aaa88e0604834cbf63af8f78342da3332acce8223454acf547739a93703",
+          "value": 0.0
+        },
+        {
+          "episode_index": 3,
+          "error_code": null,
+          "extra": {
+            "denominator": 40,
+            "numerator": 0
+          },
+          "status": "ok",
+          "trace_hash": "d3dd9888d373e1209ac0d21692fe1a36cb8ea5f636bb87d82fb545af90f79ec2",
+          "value": 0.0
+        },
+        {
+          "episode_index": 4,
+          "error_code": null,
+          "extra": {
+            "denominator": 40,
+            "numerator": 0
+          },
+          "status": "ok",
+          "trace_hash": "b4992a03a1687192d400e5059ca5412fa771617a442bc47846eb73c0bc582722",
+          "value": 0.0
+        },
+        {
+          "episode_index": 5,
+          "error_code": null,
+          "extra": {
+            "denominator": 40,
+            "numerator": 0
+          },
+          "status": "ok",
+          "trace_hash": "cd752a7040ca435d3b44d824ab0dac221b9ea64f8e057c09dd4088558870c23f",
+          "value": 0.0
+        },
+        {
+          "episode_index": 6,
+          "error_code": null,
+          "extra": {
+            "denominator": 40,
+            "numerator": 0
+          },
+          "status": "ok",
+          "trace_hash": "1104d94ce3c6d17f7526b4440d79a5c6dbcb1b65d60320e6c231559c0bdc6f7b",
+          "value": 0.0
+        },
+        {
+          "episode_index": 7,
+          "error_code": null,
+          "extra": {
+            "denominator": 40,
+            "numerator": 0
+          },
+          "status": "ok",
+          "trace_hash": "7cd6d8c25cfd09b020ddf58585fb542340dc6864ae955a66aafa37651fc82c9f",
+          "value": 0.0
+        },
+        {
+          "episode_index": 8,
+          "error_code": null,
+          "extra": {
+            "denominator": 40,
+            "numerator": 0
+          },
+          "status": "ok",
+          "trace_hash": "ed567e345b4ebea113b5688605c60ac731177959a60cdafa6a71e98542f159a3",
+          "value": 0.0
+        },
+        {
+          "episode_index": 9,
+          "error_code": null,
+          "extra": {
+            "denominator": 40,
+            "numerator": 0
+          },
+          "status": "ok",
+          "trace_hash": "9707e2a59d2c61fbcac85ed200ef23959303b1e06f99885474f0626f37fabe00",
+          "value": 0.0
+        },
+        {
+          "episode_index": 10,
+          "error_code": null,
+          "extra": {
+            "denominator": 40,
+            "numerator": 0
+          },
+          "status": "ok",
+          "trace_hash": "d71d0731c55610be07ed205d0eb2dd127f96d95e49c4117cba4701d7f939243a",
+          "value": 0.0
+        },
+        {
+          "episode_index": 11,
+          "error_code": null,
+          "extra": {
+            "denominator": 40,
+            "numerator": 0
+          },
+          "status": "ok",
+          "trace_hash": "009168727b4604f6f9d3c394d49626204a58d89d37a99b6190825f67606af855",
+          "value": 0.0
+        },
+        {
+          "episode_index": 12,
+          "error_code": null,
+          "extra": {
+            "denominator": 40,
+            "numerator": 0
+          },
+          "status": "ok",
+          "trace_hash": "c68c0e052fd183df18ca8616497753690c93ea337fb452d3c6ff7b1f86c754ff",
+          "value": 0.0
+        },
+        {
+          "episode_index": 13,
+          "error_code": null,
+          "extra": {
+            "denominator": 40,
+            "numerator": 0
+          },
+          "status": "ok",
+          "trace_hash": "5782327251895b573d1d6c54db06aa2b6cc4a5822835febe597438e8de843e03",
+          "value": 0.0
+        },
+        {
+          "episode_index": 14,
+          "error_code": null,
+          "extra": {
+            "denominator": 40,
+            "numerator": 0
+          },
+          "status": "ok",
+          "trace_hash": "b48b3d387525e446ea7f4c48214a8fe8fa08d165aeff1f03faba0f23307cbc82",
+          "value": 0.0
+        },
+        {
+          "episode_index": 15,
+          "error_code": null,
+          "extra": {
+            "denominator": 40,
+            "numerator": 0
+          },
+          "status": "ok",
+          "trace_hash": "3ba1854ce821d6889cab4e3165c0627c00e17f6021f49768f1a00fe8aa56de3f",
+          "value": 0.0
+        },
+        {
+          "episode_index": 16,
+          "error_code": null,
+          "extra": {
+            "denominator": 40,
+            "numerator": 0
+          },
+          "status": "ok",
+          "trace_hash": "04ce4647fb517e31a6bfc0e2516e9ed53114293d380c27e4bb624fc5e2646e1a",
+          "value": 0.0
+        },
+        {
+          "episode_index": 17,
+          "error_code": null,
+          "extra": {
+            "denominator": 40,
+            "numerator": 0
+          },
+          "status": "ok",
+          "trace_hash": "4bb0bd8108fa5d9aa2a370c8ef30f9ffcc58072097e788070b3de24b183b71fb",
+          "value": 0.0
+        },
+        {
+          "episode_index": 18,
+          "error_code": null,
+          "extra": {
+            "denominator": 40,
+            "numerator": 0
+          },
+          "status": "ok",
+          "trace_hash": "982b85234d98eb1e817ece865d6f1d4dc6db3176628c11d931c078bd9fb0de12",
+          "value": 0.0
+        },
+        {
+          "episode_index": 19,
+          "error_code": null,
+          "extra": {
+            "denominator": 40,
+            "numerator": 0
+          },
+          "status": "ok",
+          "trace_hash": "1f69be827483f72ba27691c9dead85a095ae39f2425fe9cac3da2ded0d92bb21",
+          "value": 0.0
+        },
+        {
+          "episode_index": 20,
+          "error_code": null,
+          "extra": {
+            "denominator": 40,
+            "numerator": 0
+          },
+          "status": "ok",
+          "trace_hash": "efcea9a9aeda722d74511988fc453718def9b31f5e532c976174843e6234aa10",
+          "value": 0.0
+        },
+        {
+          "episode_index": 21,
+          "error_code": null,
+          "extra": {
+            "denominator": 40,
+            "numerator": 0
+          },
+          "status": "ok",
+          "trace_hash": "66b40c9b3c96a69ee2590fb58f0c034f64d16369214402f85418311b8736906b",
+          "value": 0.0
+        },
+        {
+          "episode_index": 22,
+          "error_code": null,
+          "extra": {
+            "denominator": 40,
+            "numerator": 0
+          },
+          "status": "ok",
+          "trace_hash": "92931ad9295eba8d5d0133f0b503f55a3a0001fb8cd2913c5da33ce49ce8453c",
+          "value": 0.0
+        },
+        {
+          "episode_index": 23,
+          "error_code": null,
+          "extra": {
+            "denominator": 40,
+            "numerator": 0
+          },
+          "status": "ok",
+          "trace_hash": "b76745d7ecc412c9f681db68f38579141dcdf57526d6183d21a50d3e7924f261",
+          "value": 0.0
+        },
+        {
+          "episode_index": 24,
+          "error_code": null,
+          "extra": {
+            "denominator": 40,
+            "numerator": 0
+          },
+          "status": "ok",
+          "trace_hash": "17da23538441c137a57548b5e300b10cb15b68f4a33e6fa40e271276f65d464d",
+          "value": 0.0
+        },
+        {
+          "episode_index": 25,
+          "error_code": null,
+          "extra": {
+            "denominator": 40,
+            "numerator": 0
+          },
+          "status": "ok",
+          "trace_hash": "dd8512f600fd8b7911f3a4f4e2bf2bd167befdfbd0c1fc439890f8cb213ac369",
+          "value": 0.0
+        },
+        {
+          "episode_index": 26,
+          "error_code": null,
+          "extra": {
+            "denominator": 40,
+            "numerator": 0
+          },
+          "status": "ok",
+          "trace_hash": "38f7942dc542a93960879ea9b942ca207c3af2120e9b514741efc251e2703a88",
+          "value": 0.0
+        },
+        {
+          "episode_index": 27,
+          "error_code": null,
+          "extra": {
+            "denominator": 40,
+            "numerator": 0
+          },
+          "status": "ok",
+          "trace_hash": "bd6327ffa4190bee5d563d17f7585ad5618d3b9e7bef70641a4cd1f1ff8749f3",
+          "value": 0.0
+        },
+        {
+          "episode_index": 28,
+          "error_code": null,
+          "extra": {
+            "denominator": 40,
+            "numerator": 0
+          },
+          "status": "ok",
+          "trace_hash": "8b627b58ed509edc47b857f526f01475c298c554ee6b53733f0b6f9d69150caf",
+          "value": 0.0
+        },
+        {
+          "episode_index": 29,
+          "error_code": null,
+          "extra": {
+            "denominator": 40,
+            "numerator": 0
+          },
+          "status": "ok",
+          "trace_hash": "5a9beb168c5c6dd31cfff2c4f4e49ef156fc1aa33774812944d5c25d085a6fac",
+          "value": 0.0
+        },
+        {
+          "episode_index": 30,
+          "error_code": null,
+          "extra": {
+            "denominator": 40,
+            "numerator": 0
+          },
+          "status": "ok",
+          "trace_hash": "0ed0ef2bebe5077d8dea059535b25f1ff925e788a8a125e963edec5e086d31cb",
+          "value": 0.0
+        },
+        {
+          "episode_index": 31,
+          "error_code": null,
+          "extra": {
+            "denominator": 40,
+            "numerator": 0
+          },
+          "status": "ok",
+          "trace_hash": "7d0f3b56a5449125a4fadb3141451a733bf7169db6d3285ac114aea200fc8195",
+          "value": 0.0
+        },
+        {
+          "episode_index": 32,
+          "error_code": null,
+          "extra": {
+            "denominator": 40,
+            "numerator": 0
+          },
+          "status": "ok",
+          "trace_hash": "3e3a428192f75a3f8ca808b7f280ac663c454fa71ad2f79d8f5aeee3817aed78",
+          "value": 0.0
+        },
+        {
+          "episode_index": 33,
+          "error_code": null,
+          "extra": {
+            "denominator": 40,
+            "numerator": 0
+          },
+          "status": "ok",
+          "trace_hash": "c354fe6260b3edf76eb3bff5d759396d58963630c939b20f7dc01069cc70f9dc",
+          "value": 0.0
+        },
+        {
+          "episode_index": 34,
+          "error_code": null,
+          "extra": {
+            "denominator": 40,
+            "numerator": 0
+          },
+          "status": "ok",
+          "trace_hash": "aa7bb7b23a8180b74ddc8002e8fb105bb237487d6e6e384d5c478d7e8c07933f",
+          "value": 0.0
+        },
+        {
+          "episode_index": 35,
+          "error_code": null,
+          "extra": {
+            "denominator": 40,
+            "numerator": 0
+          },
+          "status": "ok",
+          "trace_hash": "7387f646836be1c6f466da8ba6ad6d9eeeb24dae8b44f9dbeebb565afcbad6e6",
+          "value": 0.0
+        },
+        {
+          "episode_index": 36,
+          "error_code": null,
+          "extra": {
+            "denominator": 40,
+            "numerator": 0
+          },
+          "status": "ok",
+          "trace_hash": "60dcfc9e4502633f9f474df9f3d0a0ac16db1abc54a404d52d58946019cc6e9a",
+          "value": 0.0
+        },
+        {
+          "episode_index": 37,
+          "error_code": null,
+          "extra": {
+            "denominator": 40,
+            "numerator": 0
+          },
+          "status": "ok",
+          "trace_hash": "8fc1e30cc0d253fcc1c89f2c9d305727e26d5fe09fe62400012932194eac971c",
+          "value": 0.0
+        },
+        {
+          "episode_index": 38,
+          "error_code": null,
+          "extra": {
+            "denominator": 40,
+            "numerator": 0
+          },
+          "status": "ok",
+          "trace_hash": "6832d1bf7b56e9a22126d19961e61fe08d3bf026e3136d07e0ce469612cfcbd6",
+          "value": 0.0
+        },
+        {
+          "episode_index": 39,
+          "error_code": null,
+          "extra": {
+            "denominator": 40,
+            "numerator": 0
+          },
+          "status": "ok",
+          "trace_hash": "5b9692e63fe0cedf581c2692c37874aa8993a257038dd2cc655f1a463c58871d",
+          "value": 0.0
+        },
+        {
+          "episode_index": 40,
+          "error_code": null,
+          "extra": {
+            "denominator": 40,
+            "numerator": 0
+          },
+          "status": "ok",
+          "trace_hash": "a9c9236034222efe0c1ed38930f7db2130ae4e2dee9b80f59b8e1787d41c16db",
+          "value": 0.0
+        },
+        {
+          "episode_index": 41,
+          "error_code": null,
+          "extra": {
+            "denominator": 40,
+            "numerator": 0
+          },
+          "status": "ok",
+          "trace_hash": "13efe1a3fbf2cbb6898ef482fd8eb0d2c08fd2ce584f4edf6ac8baa28498f795",
+          "value": 0.0
+        },
+        {
+          "episode_index": 42,
+          "error_code": null,
+          "extra": {
+            "denominator": 40,
+            "numerator": 0
+          },
+          "status": "ok",
+          "trace_hash": "4d71264e433bdff4953c70d86d4cd5bf3882f8767bf086753ca670a041d31821",
+          "value": 0.0
+        },
+        {
+          "episode_index": 43,
+          "error_code": null,
+          "extra": {
+            "denominator": 40,
+            "numerator": 0
+          },
+          "status": "ok",
+          "trace_hash": "5160b41bb76169fae21e80cf10f55382ecd511bef5220ad093f2732f73d5cb96",
+          "value": 0.0
+        },
+        {
+          "episode_index": 44,
+          "error_code": null,
+          "extra": {
+            "denominator": 40,
+            "numerator": 0
+          },
+          "status": "ok",
+          "trace_hash": "02f00bfe9d864c9f197a4c3fda4bfb5c39e2e1a9d34831fbd458e03432bc8859",
+          "value": 0.0
+        },
+        {
+          "episode_index": 45,
+          "error_code": null,
+          "extra": {
+            "denominator": 40,
+            "numerator": 0
+          },
+          "status": "ok",
+          "trace_hash": "07d6cd329571296af3256e4b89a34977886c3fdd30bc8e6deb42d7ce7fc60101",
+          "value": 0.0
+        },
+        {
+          "episode_index": 46,
+          "error_code": null,
+          "extra": {
+            "denominator": 40,
+            "numerator": 0
+          },
+          "status": "ok",
+          "trace_hash": "1e0dee3cb07dacf7366ea659707b3ce5818ccee06251193619d76347f2fa6366",
+          "value": 0.0
+        },
+        {
+          "episode_index": 47,
+          "error_code": null,
+          "extra": {
+            "denominator": 40,
+            "numerator": 0
+          },
+          "status": "ok",
+          "trace_hash": "036474ede5bf78aec4bbff3c542a24f05ea2c0cbbb8753718000c8add9632c37",
+          "value": 0.0
+        },
+        {
+          "episode_index": 48,
+          "error_code": null,
+          "extra": {
+            "denominator": 40,
+            "numerator": 0
+          },
+          "status": "ok",
+          "trace_hash": "341c7cfebc5c119b570eeb9bf38bc6a2ffc6fb766109a1c7afdea2fba9c610af",
+          "value": 0.0
+        },
+        {
+          "episode_index": 49,
+          "error_code": null,
+          "extra": {
+            "denominator": 40,
+            "numerator": 0
+          },
+          "status": "ok",
+          "trace_hash": "4ddbeb35c44984c61a9c1a62bc41a09e270b4b7f6bb3fc710a56cdf9cff58833",
+          "value": 0.0
+        },
+        {
+          "episode_index": 50,
+          "error_code": null,
+          "extra": {
+            "denominator": 40,
+            "numerator": 0
+          },
+          "status": "ok",
+          "trace_hash": "a5f5668aa7b1397d5244b3e91533f55463374552956b4749ab2291e70059aa7a",
+          "value": 0.0
+        },
+        {
+          "episode_index": 51,
+          "error_code": null,
+          "extra": {
+            "denominator": 40,
+            "numerator": 0
+          },
+          "status": "ok",
+          "trace_hash": "828bba2cf232cf4240712d9773de52789b4e903bdb31a101e81ee6d6f31aa1ad",
+          "value": 0.0
+        },
+        {
+          "episode_index": 52,
+          "error_code": null,
+          "extra": {
+            "denominator": 40,
+            "numerator": 0
+          },
+          "status": "ok",
+          "trace_hash": "0ce1c56d4bbb5ecf04efa99ed9a8e84cf5b02ebc5e1f7de60a85d5d3d0cf9e07",
+          "value": 0.0
+        },
+        {
+          "episode_index": 53,
+          "error_code": null,
+          "extra": {
+            "denominator": 40,
+            "numerator": 0
+          },
+          "status": "ok",
+          "trace_hash": "aaaba18aa70ed3c9f647717028108817e7027dc2fd4be2829fbcd4b94ac65608",
+          "value": 0.0
+        },
+        {
+          "episode_index": 54,
+          "error_code": null,
+          "extra": {
+            "denominator": 40,
+            "numerator": 0
+          },
+          "status": "ok",
+          "trace_hash": "8c1a78a8bd2a1ab5dacad7570e559a9f15a69bb935ef3a0ee50aca7d20ebdcaf",
+          "value": 0.0
+        },
+        {
+          "episode_index": 55,
+          "error_code": null,
+          "extra": {
+            "denominator": 40,
+            "numerator": 0
+          },
+          "status": "ok",
+          "trace_hash": "745b66a84f8001ac74538ca4f092b9a06ea4fb01c562ad3b3271fe01c7e2344f",
+          "value": 0.0
+        },
+        {
+          "episode_index": 56,
+          "error_code": null,
+          "extra": {
+            "denominator": 40,
+            "numerator": 0
+          },
+          "status": "ok",
+          "trace_hash": "73a269618319cef791a8cded22d8db4e59e169fdc085279afffe856dc1987071",
+          "value": 0.0
+        },
+        {
+          "episode_index": 57,
+          "error_code": null,
+          "extra": {
+            "denominator": 40,
+            "numerator": 0
+          },
+          "status": "ok",
+          "trace_hash": "982997ae1c8971138c7c00465ef7d08604587b5f8ccbd0a5ad4856bfc65e4020",
+          "value": 0.0
+        },
+        {
+          "episode_index": 58,
+          "error_code": null,
+          "extra": {
+            "denominator": 40,
+            "numerator": 0
+          },
+          "status": "ok",
+          "trace_hash": "3090b958b0aaa6d139439db5ffffd596baca1ba1441f5b481f28dfc5a8e035ae",
+          "value": 0.0
+        },
+        {
+          "episode_index": 59,
+          "error_code": null,
+          "extra": {
+            "denominator": 40,
+            "numerator": 0
+          },
+          "status": "ok",
+          "trace_hash": "4af315c6ff80c7ebd336d75e49fdfa7a7c301704ae89ad3bb443321aa4428c5a",
+          "value": 0.0
+        },
+        {
+          "episode_index": 60,
+          "error_code": null,
+          "extra": {
+            "denominator": 40,
+            "numerator": 0
+          },
+          "status": "ok",
+          "trace_hash": "4eb42ec78944a61030d435cad89e9711f586a9e76d03c71f1204e1f4d39df186",
+          "value": 0.0
+        },
+        {
+          "episode_index": 61,
+          "error_code": null,
+          "extra": {
+            "denominator": 40,
+            "numerator": 0
+          },
+          "status": "ok",
+          "trace_hash": "d21a51f09c3869e56ad2f078e059362a6715bfe1d2b701b8ecb209780fa9f168",
+          "value": 0.0
+        },
+        {
+          "episode_index": 62,
+          "error_code": null,
+          "extra": {
+            "denominator": 40,
+            "numerator": 0
+          },
+          "status": "ok",
+          "trace_hash": "7708ec630e56ea0fc3475a099064b61bb04e3e0868a83d5a1304a2c9cc33c7dc",
+          "value": 0.0
+        },
+        {
+          "episode_index": 63,
+          "error_code": null,
+          "extra": {
+            "denominator": 40,
+            "numerator": 0
+          },
+          "status": "ok",
+          "trace_hash": "67997671fc471665ef9d0acb275393acf02f6a7040f1d4410372fd58481152d9",
+          "value": 0.0
+        },
+        {
+          "episode_index": 64,
+          "error_code": null,
+          "extra": {
+            "denominator": 40,
+            "numerator": 0
+          },
+          "status": "ok",
+          "trace_hash": "e1478427001b6394bea132247c56e8e3ea50df3f8987fa0628c3d13fe00bf7e7",
+          "value": 0.0
+        },
+        {
+          "episode_index": 65,
+          "error_code": null,
+          "extra": {
+            "denominator": 40,
+            "numerator": 0
+          },
+          "status": "ok",
+          "trace_hash": "3bdc45f95bcc267c443cd7e360fd3857e83aeb6774a13430eb825df77ba32cbf",
+          "value": 0.0
+        },
+        {
+          "episode_index": 66,
+          "error_code": null,
+          "extra": {
+            "denominator": 40,
+            "numerator": 0
+          },
+          "status": "ok",
+          "trace_hash": "6db8339be1e83d34d68445ad132446c59788141b7bcd0cfa23a553cc3c1cadf2",
+          "value": 0.0
+        },
+        {
+          "episode_index": 67,
+          "error_code": null,
+          "extra": {
+            "denominator": 40,
+            "numerator": 0
+          },
+          "status": "ok",
+          "trace_hash": "398fb60fd4f33a3e8e6fa50f9decbf01c1ccf63ec6e0d4621c53bf68401c2212",
+          "value": 0.0
+        },
+        {
+          "episode_index": 68,
+          "error_code": null,
+          "extra": {
+            "denominator": 40,
+            "numerator": 0
+          },
+          "status": "ok",
+          "trace_hash": "eb1717db3791d415326e3ffac35e286c65c364b6090ffc0b8dbe473c9263238f",
+          "value": 0.0
+        },
+        {
+          "episode_index": 69,
+          "error_code": null,
+          "extra": {
+            "denominator": 40,
+            "numerator": 0
+          },
+          "status": "ok",
+          "trace_hash": "b7874d2c633947eb42c55c6d4ad1e0020accaf27f3c690264c22ec7f82d25a5b",
+          "value": 0.0
+        },
+        {
+          "episode_index": 70,
+          "error_code": null,
+          "extra": {
+            "denominator": 40,
+            "numerator": 0
+          },
+          "status": "ok",
+          "trace_hash": "cf4c0bba05ccec4fc29bfe41e8cf798eaf8d538e2eb86bc802da8166b43149cf",
+          "value": 0.0
+        },
+        {
+          "episode_index": 71,
+          "error_code": null,
+          "extra": {
+            "denominator": 40,
+            "numerator": 0
+          },
+          "status": "ok",
+          "trace_hash": "6a728119a1945fee5863f76141e8ca3e8921c465b85f8a36aade54c172bf0a71",
+          "value": 0.0
+        },
+        {
+          "episode_index": 72,
+          "error_code": null,
+          "extra": {
+            "denominator": 40,
+            "numerator": 0
+          },
+          "status": "ok",
+          "trace_hash": "688d47b2c795ab3031403f18c3563d3e643a4aa0714a37692cc974dd05d264af",
+          "value": 0.0
+        },
+        {
+          "episode_index": 73,
+          "error_code": null,
+          "extra": {
+            "denominator": 40,
+            "numerator": 0
+          },
+          "status": "ok",
+          "trace_hash": "1fc6dcee64bbe45d1b7387b0a5314c04cc271e03024e45b9e5554c7b37812894",
+          "value": 0.0
+        },
+        {
+          "episode_index": 74,
+          "error_code": null,
+          "extra": {
+            "denominator": 40,
+            "numerator": 0
+          },
+          "status": "ok",
+          "trace_hash": "558b27f40876ad6ebe4b226b680f89bf13e77e51447ea40e91053b1b1b48bb66",
+          "value": 0.0
+        },
+        {
+          "episode_index": 75,
+          "error_code": null,
+          "extra": {
+            "denominator": 40,
+            "numerator": 0
+          },
+          "status": "ok",
+          "trace_hash": "a0ef1cdf639eb5604983d09342d0f0ad757247bb852c20ef318fed9c2e34661b",
+          "value": 0.0
+        },
+        {
+          "episode_index": 76,
+          "error_code": null,
+          "extra": {
+            "denominator": 40,
+            "numerator": 0
+          },
+          "status": "ok",
+          "trace_hash": "0143d27ffadc81c29056371cf51ddba5aec64f164994f9211e0b1571f14edf62",
+          "value": 0.0
+        },
+        {
+          "episode_index": 77,
+          "error_code": null,
+          "extra": {
+            "denominator": 40,
+            "numerator": 0
+          },
+          "status": "ok",
+          "trace_hash": "45c2433b6c636f4ee7ca2e4ed6750c7639e204aab4de9f14979f2a507b91d367",
+          "value": 0.0
+        },
+        {
+          "episode_index": 78,
+          "error_code": null,
+          "extra": {
+            "denominator": 40,
+            "numerator": 0
+          },
+          "status": "ok",
+          "trace_hash": "7b226c1234aaba432fc5876cecbe3280d84a4bd348ab6963b7d7f2291e761f7b",
+          "value": 0.0
+        },
+        {
+          "episode_index": 79,
+          "error_code": null,
+          "extra": {
+            "denominator": 40,
+            "numerator": 0
+          },
+          "status": "ok",
+          "trace_hash": "776ce733db718b1fd17bc38322121d01cf0242b4af6f963e8817654887555a84",
+          "value": 0.0
+        },
+        {
+          "episode_index": 80,
+          "error_code": null,
+          "extra": {
+            "denominator": 40,
+            "numerator": 0
+          },
+          "status": "ok",
+          "trace_hash": "a67488c7619e94d5c38bc8cce78655fb76e7c7d631118bf53a7ce2c74b7052c0",
+          "value": 0.0
+        },
+        {
+          "episode_index": 81,
+          "error_code": null,
+          "extra": {
+            "denominator": 40,
+            "numerator": 0
+          },
+          "status": "ok",
+          "trace_hash": "fb771da009b707d50f2b4496ba284eaac410e2d224444be2feb6afe8461a8d40",
+          "value": 0.0
+        },
+        {
+          "episode_index": 82,
+          "error_code": null,
+          "extra": {
+            "denominator": 40,
+            "numerator": 0
+          },
+          "status": "ok",
+          "trace_hash": "82a73d8c0381ba30825ac8a2303302889c8857f49cd2bfce16b130b63e6c1fcc",
+          "value": 0.0
+        },
+        {
+          "episode_index": 83,
+          "error_code": null,
+          "extra": {
+            "denominator": 40,
+            "numerator": 0
+          },
+          "status": "ok",
+          "trace_hash": "35d43ae3114e083b3d5ea25aa148b151c46f36fe4a3d5ce0bc0e2e43a1b171d5",
+          "value": 0.0
+        },
+        {
+          "episode_index": 84,
+          "error_code": null,
+          "extra": {
+            "denominator": 40,
+            "numerator": 0
+          },
+          "status": "ok",
+          "trace_hash": "448b0fd731d23b55605be5cc789ebe6e95be146269c5c87c17bfb67ab1c65d88",
+          "value": 0.0
+        },
+        {
+          "episode_index": 85,
+          "error_code": null,
+          "extra": {
+            "denominator": 40,
+            "numerator": 0
+          },
+          "status": "ok",
+          "trace_hash": "ebd7c94bce3507046a3ca3b1cd443cd40d67443e552fcb985481ad30576661dd",
+          "value": 0.0
+        },
+        {
+          "episode_index": 86,
+          "error_code": null,
+          "extra": {
+            "denominator": 40,
+            "numerator": 0
+          },
+          "status": "ok",
+          "trace_hash": "5d7dc2f54db04d720e705154c9eb96b3372af7f3d6152bdb21cea29ba778d151",
+          "value": 0.0
+        },
+        {
+          "episode_index": 87,
+          "error_code": null,
+          "extra": {
+            "denominator": 40,
+            "numerator": 0
+          },
+          "status": "ok",
+          "trace_hash": "69678110e61d372e75dac8f95216f634c3af4c4fa850aa32b87d93abe2cce749",
+          "value": 0.0
+        },
+        {
+          "episode_index": 88,
+          "error_code": null,
+          "extra": {
+            "denominator": 40,
+            "numerator": 0
+          },
+          "status": "ok",
+          "trace_hash": "046a9dd92ec3f32e4c3f421ceb26c0d6e4c99051e9394ca771ae3b735bc5af07",
+          "value": 0.0
+        },
+        {
+          "episode_index": 89,
+          "error_code": null,
+          "extra": {
+            "denominator": 40,
+            "numerator": 0
+          },
+          "status": "ok",
+          "trace_hash": "7d256410fb529579ebf2e00fff422d8743209d2fe4f48af52922bb53a525c80f",
+          "value": 0.0
+        },
+        {
+          "episode_index": 90,
+          "error_code": null,
+          "extra": {
+            "denominator": 40,
+            "numerator": 0
+          },
+          "status": "ok",
+          "trace_hash": "d5b135ab8095180f8c0e68b5e0c2590d4b7612d65beb8b09e2294c0453217a70",
+          "value": 0.0
+        },
+        {
+          "episode_index": 91,
+          "error_code": null,
+          "extra": {
+            "denominator": 40,
+            "numerator": 0
+          },
+          "status": "ok",
+          "trace_hash": "12152a0ebee8ca3c97a394997332789870b6f1352052d04d36cf64244c560870",
+          "value": 0.0
+        },
+        {
+          "episode_index": 92,
+          "error_code": null,
+          "extra": {
+            "denominator": 40,
+            "numerator": 0
+          },
+          "status": "ok",
+          "trace_hash": "152e4fff07228eb945480aa4c3a3087b4830f318fa28efa497b90da95f4fea6c",
+          "value": 0.0
+        },
+        {
+          "episode_index": 93,
+          "error_code": null,
+          "extra": {
+            "denominator": 40,
+            "numerator": 0
+          },
+          "status": "ok",
+          "trace_hash": "0f34d0cd257f87f54dfe5b393045212d14e81a8c58292bdea11feddd4bf5afae",
+          "value": 0.0
+        },
+        {
+          "episode_index": 94,
+          "error_code": null,
+          "extra": {
+            "denominator": 40,
+            "numerator": 0
+          },
+          "status": "ok",
+          "trace_hash": "a8e7ccd879e29bd126a9f77105a01c2b3b4f25065f578f1ce8b61175e9cb0733",
+          "value": 0.0
+        },
+        {
+          "episode_index": 95,
+          "error_code": null,
+          "extra": {
+            "denominator": 40,
+            "numerator": 0
+          },
+          "status": "ok",
+          "trace_hash": "67eaa5db0b03945c6fb8bb3830875784131f2835bb39649a8e9c8724ba64b1e2",
+          "value": 0.0
+        },
+        {
+          "episode_index": 96,
+          "error_code": null,
+          "extra": {
+            "denominator": 40,
+            "numerator": 0
+          },
+          "status": "ok",
+          "trace_hash": "ba260c78b2a18fd78ece1d05199e0efa67b97a7076a5f03ce64d477c8d311282",
+          "value": 0.0
+        },
+        {
+          "episode_index": 97,
+          "error_code": null,
+          "extra": {
+            "denominator": 40,
+            "numerator": 0
+          },
+          "status": "ok",
+          "trace_hash": "3f9d257eb1000ff666511c2449febeb51808224155005452e047bc4c39522935",
+          "value": 0.0
+        },
+        {
+          "episode_index": 98,
+          "error_code": null,
+          "extra": {
+            "denominator": 40,
+            "numerator": 0
+          },
+          "status": "ok",
+          "trace_hash": "79965ec26394dfd41966c2e90eee90545fcb15c2eb8cca057ba543894cef446b",
+          "value": 0.0
+        },
+        {
+          "episode_index": 99,
+          "error_code": null,
+          "extra": {
+            "denominator": 40,
+            "numerator": 0
+          },
+          "status": "ok",
+          "trace_hash": "c0e6a9c73a869a0de3b4ae74da88a3882d588ed0578552e683688d51ee9f5104",
+          "value": 0.0
+        }
+      ],
+      "evaluator_file_sha256": "32284dcde3e465521a59a90bd7e2740a65ba70619228b347354340ec2cbe7770",
+      "evaluator_id": "deadline_miss_rate",
+      "evaluator_version": "1.1.0",
+      "failures": {},
+      "kind": "rate",
+      "n": 100,
+      "n_episodes": 100,
+      "n_failed": 0,
+      "name": "deadline_miss_rate@1.1.0",
+      "numerator": 0.0,
+      "profile_id": "a100-40gb-groot-n17-sonic",
+      "profile_label": "MEASURED",
+      "run_hash": "9e3d574d6167368ce2ae7e75ac6c095bad0ab5c17c60fa022a5a8b2781f6965e",
+      "unit": "fraction",
+      "value": 0.0
+    },
+    {
+      "aggregate": "proportion",
+      "ci_conf": 0.95,
+      "ci_hi": 0.03699349820698568,
+      "ci_lo": 3.469446951953614e-18,
+      "ci_method": "wilson",
+      "cs_alpha": 0.05,
+      "cs_hi": 0.0675,
+      "cs_lo": 0.0,
+      "denominator": null,
+      "episodes": [
+        {
+          "episode_index": 0,
+          "error_code": null,
+          "extra": {},
+          "status": "ok",
+          "trace_hash": "24dfa3fa6e552b3f2a2cd359b80c12f2a93786a1dc04c3dca63574e27f38d889",
+          "value": false
+        },
+        {
+          "episode_index": 1,
+          "error_code": null,
+          "extra": {},
+          "status": "ok",
+          "trace_hash": "8060767f0c7c779c082e618c3c23ac1b130a307e930407437910cde43bc38989",
+          "value": false
+        },
+        {
+          "episode_index": 2,
+          "error_code": null,
+          "extra": {},
+          "status": "ok",
+          "trace_hash": "457c1aaa88e0604834cbf63af8f78342da3332acce8223454acf547739a93703",
+          "value": false
+        },
+        {
+          "episode_index": 3,
+          "error_code": null,
+          "extra": {},
+          "status": "ok",
+          "trace_hash": "d3dd9888d373e1209ac0d21692fe1a36cb8ea5f636bb87d82fb545af90f79ec2",
+          "value": false
+        },
+        {
+          "episode_index": 4,
+          "error_code": null,
+          "extra": {},
+          "status": "ok",
+          "trace_hash": "b4992a03a1687192d400e5059ca5412fa771617a442bc47846eb73c0bc582722",
+          "value": false
+        },
+        {
+          "episode_index": 5,
+          "error_code": null,
+          "extra": {},
+          "status": "ok",
+          "trace_hash": "cd752a7040ca435d3b44d824ab0dac221b9ea64f8e057c09dd4088558870c23f",
+          "value": false
+        },
+        {
+          "episode_index": 6,
+          "error_code": null,
+          "extra": {},
+          "status": "ok",
+          "trace_hash": "1104d94ce3c6d17f7526b4440d79a5c6dbcb1b65d60320e6c231559c0bdc6f7b",
+          "value": false
+        },
+        {
+          "episode_index": 7,
+          "error_code": null,
+          "extra": {},
+          "status": "ok",
+          "trace_hash": "7cd6d8c25cfd09b020ddf58585fb542340dc6864ae955a66aafa37651fc82c9f",
+          "value": false
+        },
+        {
+          "episode_index": 8,
+          "error_code": null,
+          "extra": {},
+          "status": "ok",
+          "trace_hash": "ed567e345b4ebea113b5688605c60ac731177959a60cdafa6a71e98542f159a3",
+          "value": false
+        },
+        {
+          "episode_index": 9,
+          "error_code": null,
+          "extra": {},
+          "status": "ok",
+          "trace_hash": "9707e2a59d2c61fbcac85ed200ef23959303b1e06f99885474f0626f37fabe00",
+          "value": false
+        },
+        {
+          "episode_index": 10,
+          "error_code": null,
+          "extra": {},
+          "status": "ok",
+          "trace_hash": "d71d0731c55610be07ed205d0eb2dd127f96d95e49c4117cba4701d7f939243a",
+          "value": false
+        },
+        {
+          "episode_index": 11,
+          "error_code": null,
+          "extra": {},
+          "status": "ok",
+          "trace_hash": "009168727b4604f6f9d3c394d49626204a58d89d37a99b6190825f67606af855",
+          "value": false
+        },
+        {
+          "episode_index": 12,
+          "error_code": null,
+          "extra": {},
+          "status": "ok",
+          "trace_hash": "c68c0e052fd183df18ca8616497753690c93ea337fb452d3c6ff7b1f86c754ff",
+          "value": false
+        },
+        {
+          "episode_index": 13,
+          "error_code": null,
+          "extra": {},
+          "status": "ok",
+          "trace_hash": "5782327251895b573d1d6c54db06aa2b6cc4a5822835febe597438e8de843e03",
+          "value": false
+        },
+        {
+          "episode_index": 14,
+          "error_code": null,
+          "extra": {},
+          "status": "ok",
+          "trace_hash": "b48b3d387525e446ea7f4c48214a8fe8fa08d165aeff1f03faba0f23307cbc82",
+          "value": false
+        },
+        {
+          "episode_index": 15,
+          "error_code": null,
+          "extra": {},
+          "status": "ok",
+          "trace_hash": "3ba1854ce821d6889cab4e3165c0627c00e17f6021f49768f1a00fe8aa56de3f",
+          "value": false
+        },
+        {
+          "episode_index": 16,
+          "error_code": null,
+          "extra": {},
+          "status": "ok",
+          "trace_hash": "04ce4647fb517e31a6bfc0e2516e9ed53114293d380c27e4bb624fc5e2646e1a",
+          "value": false
+        },
+        {
+          "episode_index": 17,
+          "error_code": null,
+          "extra": {},
+          "status": "ok",
+          "trace_hash": "4bb0bd8108fa5d9aa2a370c8ef30f9ffcc58072097e788070b3de24b183b71fb",
+          "value": false
+        },
+        {
+          "episode_index": 18,
+          "error_code": null,
+          "extra": {},
+          "status": "ok",
+          "trace_hash": "982b85234d98eb1e817ece865d6f1d4dc6db3176628c11d931c078bd9fb0de12",
+          "value": false
+        },
+        {
+          "episode_index": 19,
+          "error_code": null,
+          "extra": {},
+          "status": "ok",
+          "trace_hash": "1f69be827483f72ba27691c9dead85a095ae39f2425fe9cac3da2ded0d92bb21",
+          "value": false
+        },
+        {
+          "episode_index": 20,
+          "error_code": null,
+          "extra": {},
+          "status": "ok",
+          "trace_hash": "efcea9a9aeda722d74511988fc453718def9b31f5e532c976174843e6234aa10",
+          "value": false
+        },
+        {
+          "episode_index": 21,
+          "error_code": null,
+          "extra": {},
+          "status": "ok",
+          "trace_hash": "66b40c9b3c96a69ee2590fb58f0c034f64d16369214402f85418311b8736906b",
+          "value": false
+        },
+        {
+          "episode_index": 22,
+          "error_code": null,
+          "extra": {},
+          "status": "ok",
+          "trace_hash": "92931ad9295eba8d5d0133f0b503f55a3a0001fb8cd2913c5da33ce49ce8453c",
+          "value": false
+        },
+        {
+          "episode_index": 23,
+          "error_code": null,
+          "extra": {},
+          "status": "ok",
+          "trace_hash": "b76745d7ecc412c9f681db68f38579141dcdf57526d6183d21a50d3e7924f261",
+          "value": false
+        },
+        {
+          "episode_index": 24,
+          "error_code": null,
+          "extra": {},
+          "status": "ok",
+          "trace_hash": "17da23538441c137a57548b5e300b10cb15b68f4a33e6fa40e271276f65d464d",
+          "value": false
+        },
+        {
+          "episode_index": 25,
+          "error_code": null,
+          "extra": {},
+          "status": "ok",
+          "trace_hash": "dd8512f600fd8b7911f3a4f4e2bf2bd167befdfbd0c1fc439890f8cb213ac369",
+          "value": false
+        },
+        {
+          "episode_index": 26,
+          "error_code": null,
+          "extra": {},
+          "status": "ok",
+          "trace_hash": "38f7942dc542a93960879ea9b942ca207c3af2120e9b514741efc251e2703a88",
+          "value": false
+        },
+        {
+          "episode_index": 27,
+          "error_code": null,
+          "extra": {},
+          "status": "ok",
+          "trace_hash": "bd6327ffa4190bee5d563d17f7585ad5618d3b9e7bef70641a4cd1f1ff8749f3",
+          "value": false
+        },
+        {
+          "episode_index": 28,
+          "error_code": null,
+          "extra": {},
+          "status": "ok",
+          "trace_hash": "8b627b58ed509edc47b857f526f01475c298c554ee6b53733f0b6f9d69150caf",
+          "value": false
+        },
+        {
+          "episode_index": 29,
+          "error_code": null,
+          "extra": {},
+          "status": "ok",
+          "trace_hash": "5a9beb168c5c6dd31cfff2c4f4e49ef156fc1aa33774812944d5c25d085a6fac",
+          "value": false
+        },
+        {
+          "episode_index": 30,
+          "error_code": null,
+          "extra": {},
+          "status": "ok",
+          "trace_hash": "0ed0ef2bebe5077d8dea059535b25f1ff925e788a8a125e963edec5e086d31cb",
+          "value": false
+        },
+        {
+          "episode_index": 31,
+          "error_code": null,
+          "extra": {},
+          "status": "ok",
+          "trace_hash": "7d0f3b56a5449125a4fadb3141451a733bf7169db6d3285ac114aea200fc8195",
+          "value": false
+        },
+        {
+          "episode_index": 32,
+          "error_code": null,
+          "extra": {},
+          "status": "ok",
+          "trace_hash": "3e3a428192f75a3f8ca808b7f280ac663c454fa71ad2f79d8f5aeee3817aed78",
+          "value": false
+        },
+        {
+          "episode_index": 33,
+          "error_code": null,
+          "extra": {},
+          "status": "ok",
+          "trace_hash": "c354fe6260b3edf76eb3bff5d759396d58963630c939b20f7dc01069cc70f9dc",
+          "value": false
+        },
+        {
+          "episode_index": 34,
+          "error_code": null,
+          "extra": {},
+          "status": "ok",
+          "trace_hash": "aa7bb7b23a8180b74ddc8002e8fb105bb237487d6e6e384d5c478d7e8c07933f",
+          "value": false
+        },
+        {
+          "episode_index": 35,
+          "error_code": null,
+          "extra": {},
+          "status": "ok",
+          "trace_hash": "7387f646836be1c6f466da8ba6ad6d9eeeb24dae8b44f9dbeebb565afcbad6e6",
+          "value": false
+        },
+        {
+          "episode_index": 36,
+          "error_code": null,
+          "extra": {},
+          "status": "ok",
+          "trace_hash": "60dcfc9e4502633f9f474df9f3d0a0ac16db1abc54a404d52d58946019cc6e9a",
+          "value": false
+        },
+        {
+          "episode_index": 37,
+          "error_code": null,
+          "extra": {},
+          "status": "ok",
+          "trace_hash": "8fc1e30cc0d253fcc1c89f2c9d305727e26d5fe09fe62400012932194eac971c",
+          "value": false
+        },
+        {
+          "episode_index": 38,
+          "error_code": null,
+          "extra": {},
+          "status": "ok",
+          "trace_hash": "6832d1bf7b56e9a22126d19961e61fe08d3bf026e3136d07e0ce469612cfcbd6",
+          "value": false
+        },
+        {
+          "episode_index": 39,
+          "error_code": null,
+          "extra": {},
+          "status": "ok",
+          "trace_hash": "5b9692e63fe0cedf581c2692c37874aa8993a257038dd2cc655f1a463c58871d",
+          "value": false
+        },
+        {
+          "episode_index": 40,
+          "error_code": null,
+          "extra": {},
+          "status": "ok",
+          "trace_hash": "a9c9236034222efe0c1ed38930f7db2130ae4e2dee9b80f59b8e1787d41c16db",
+          "value": false
+        },
+        {
+          "episode_index": 41,
+          "error_code": null,
+          "extra": {},
+          "status": "ok",
+          "trace_hash": "13efe1a3fbf2cbb6898ef482fd8eb0d2c08fd2ce584f4edf6ac8baa28498f795",
+          "value": false
+        },
+        {
+          "episode_index": 42,
+          "error_code": null,
+          "extra": {},
+          "status": "ok",
+          "trace_hash": "4d71264e433bdff4953c70d86d4cd5bf3882f8767bf086753ca670a041d31821",
+          "value": false
+        },
+        {
+          "episode_index": 43,
+          "error_code": null,
+          "extra": {},
+          "status": "ok",
+          "trace_hash": "5160b41bb76169fae21e80cf10f55382ecd511bef5220ad093f2732f73d5cb96",
+          "value": false
+        },
+        {
+          "episode_index": 44,
+          "error_code": null,
+          "extra": {},
+          "status": "ok",
+          "trace_hash": "02f00bfe9d864c9f197a4c3fda4bfb5c39e2e1a9d34831fbd458e03432bc8859",
+          "value": false
+        },
+        {
+          "episode_index": 45,
+          "error_code": null,
+          "extra": {},
+          "status": "ok",
+          "trace_hash": "07d6cd329571296af3256e4b89a34977886c3fdd30bc8e6deb42d7ce7fc60101",
+          "value": false
+        },
+        {
+          "episode_index": 46,
+          "error_code": null,
+          "extra": {},
+          "status": "ok",
+          "trace_hash": "1e0dee3cb07dacf7366ea659707b3ce5818ccee06251193619d76347f2fa6366",
+          "value": false
+        },
+        {
+          "episode_index": 47,
+          "error_code": null,
+          "extra": {},
+          "status": "ok",
+          "trace_hash": "036474ede5bf78aec4bbff3c542a24f05ea2c0cbbb8753718000c8add9632c37",
+          "value": false
+        },
+        {
+          "episode_index": 48,
+          "error_code": null,
+          "extra": {},
+          "status": "ok",
+          "trace_hash": "341c7cfebc5c119b570eeb9bf38bc6a2ffc6fb766109a1c7afdea2fba9c610af",
+          "value": false
+        },
+        {
+          "episode_index": 49,
+          "error_code": null,
+          "extra": {},
+          "status": "ok",
+          "trace_hash": "4ddbeb35c44984c61a9c1a62bc41a09e270b4b7f6bb3fc710a56cdf9cff58833",
+          "value": false
+        },
+        {
+          "episode_index": 50,
+          "error_code": null,
+          "extra": {},
+          "status": "ok",
+          "trace_hash": "a5f5668aa7b1397d5244b3e91533f55463374552956b4749ab2291e70059aa7a",
+          "value": false
+        },
+        {
+          "episode_index": 51,
+          "error_code": null,
+          "extra": {},
+          "status": "ok",
+          "trace_hash": "828bba2cf232cf4240712d9773de52789b4e903bdb31a101e81ee6d6f31aa1ad",
+          "value": false
+        },
+        {
+          "episode_index": 52,
+          "error_code": null,
+          "extra": {},
+          "status": "ok",
+          "trace_hash": "0ce1c56d4bbb5ecf04efa99ed9a8e84cf5b02ebc5e1f7de60a85d5d3d0cf9e07",
+          "value": false
+        },
+        {
+          "episode_index": 53,
+          "error_code": null,
+          "extra": {},
+          "status": "ok",
+          "trace_hash": "aaaba18aa70ed3c9f647717028108817e7027dc2fd4be2829fbcd4b94ac65608",
+          "value": false
+        },
+        {
+          "episode_index": 54,
+          "error_code": null,
+          "extra": {},
+          "status": "ok",
+          "trace_hash": "8c1a78a8bd2a1ab5dacad7570e559a9f15a69bb935ef3a0ee50aca7d20ebdcaf",
+          "value": false
+        },
+        {
+          "episode_index": 55,
+          "error_code": null,
+          "extra": {},
+          "status": "ok",
+          "trace_hash": "745b66a84f8001ac74538ca4f092b9a06ea4fb01c562ad3b3271fe01c7e2344f",
+          "value": false
+        },
+        {
+          "episode_index": 56,
+          "error_code": null,
+          "extra": {},
+          "status": "ok",
+          "trace_hash": "73a269618319cef791a8cded22d8db4e59e169fdc085279afffe856dc1987071",
+          "value": false
+        },
+        {
+          "episode_index": 57,
+          "error_code": null,
+          "extra": {},
+          "status": "ok",
+          "trace_hash": "982997ae1c8971138c7c00465ef7d08604587b5f8ccbd0a5ad4856bfc65e4020",
+          "value": false
+        },
+        {
+          "episode_index": 58,
+          "error_code": null,
+          "extra": {},
+          "status": "ok",
+          "trace_hash": "3090b958b0aaa6d139439db5ffffd596baca1ba1441f5b481f28dfc5a8e035ae",
+          "value": false
+        },
+        {
+          "episode_index": 59,
+          "error_code": null,
+          "extra": {},
+          "status": "ok",
+          "trace_hash": "4af315c6ff80c7ebd336d75e49fdfa7a7c301704ae89ad3bb443321aa4428c5a",
+          "value": false
+        },
+        {
+          "episode_index": 60,
+          "error_code": null,
+          "extra": {},
+          "status": "ok",
+          "trace_hash": "4eb42ec78944a61030d435cad89e9711f586a9e76d03c71f1204e1f4d39df186",
+          "value": false
+        },
+        {
+          "episode_index": 61,
+          "error_code": null,
+          "extra": {},
+          "status": "ok",
+          "trace_hash": "d21a51f09c3869e56ad2f078e059362a6715bfe1d2b701b8ecb209780fa9f168",
+          "value": false
+        },
+        {
+          "episode_index": 62,
+          "error_code": null,
+          "extra": {},
+          "status": "ok",
+          "trace_hash": "7708ec630e56ea0fc3475a099064b61bb04e3e0868a83d5a1304a2c9cc33c7dc",
+          "value": false
+        },
+        {
+          "episode_index": 63,
+          "error_code": null,
+          "extra": {},
+          "status": "ok",
+          "trace_hash": "67997671fc471665ef9d0acb275393acf02f6a7040f1d4410372fd58481152d9",
+          "value": false
+        },
+        {
+          "episode_index": 64,
+          "error_code": null,
+          "extra": {},
+          "status": "ok",
+          "trace_hash": "e1478427001b6394bea132247c56e8e3ea50df3f8987fa0628c3d13fe00bf7e7",
+          "value": false
+        },
+        {
+          "episode_index": 65,
+          "error_code": null,
+          "extra": {},
+          "status": "ok",
+          "trace_hash": "3bdc45f95bcc267c443cd7e360fd3857e83aeb6774a13430eb825df77ba32cbf",
+          "value": false
+        },
+        {
+          "episode_index": 66,
+          "error_code": null,
+          "extra": {},
+          "status": "ok",
+          "trace_hash": "6db8339be1e83d34d68445ad132446c59788141b7bcd0cfa23a553cc3c1cadf2",
+          "value": false
+        },
+        {
+          "episode_index": 67,
+          "error_code": null,
+          "extra": {},
+          "status": "ok",
+          "trace_hash": "398fb60fd4f33a3e8e6fa50f9decbf01c1ccf63ec6e0d4621c53bf68401c2212",
+          "value": false
+        },
+        {
+          "episode_index": 68,
+          "error_code": null,
+          "extra": {},
+          "status": "ok",
+          "trace_hash": "eb1717db3791d415326e3ffac35e286c65c364b6090ffc0b8dbe473c9263238f",
+          "value": false
+        },
+        {
+          "episode_index": 69,
+          "error_code": null,
+          "extra": {},
+          "status": "ok",
+          "trace_hash": "b7874d2c633947eb42c55c6d4ad1e0020accaf27f3c690264c22ec7f82d25a5b",
+          "value": false
+        },
+        {
+          "episode_index": 70,
+          "error_code": null,
+          "extra": {},
+          "status": "ok",
+          "trace_hash": "cf4c0bba05ccec4fc29bfe41e8cf798eaf8d538e2eb86bc802da8166b43149cf",
+          "value": false
+        },
+        {
+          "episode_index": 71,
+          "error_code": null,
+          "extra": {},
+          "status": "ok",
+          "trace_hash": "6a728119a1945fee5863f76141e8ca3e8921c465b85f8a36aade54c172bf0a71",
+          "value": false
+        },
+        {
+          "episode_index": 72,
+          "error_code": null,
+          "extra": {},
+          "status": "ok",
+          "trace_hash": "688d47b2c795ab3031403f18c3563d3e643a4aa0714a37692cc974dd05d264af",
+          "value": false
+        },
+        {
+          "episode_index": 73,
+          "error_code": null,
+          "extra": {},
+          "status": "ok",
+          "trace_hash": "1fc6dcee64bbe45d1b7387b0a5314c04cc271e03024e45b9e5554c7b37812894",
+          "value": false
+        },
+        {
+          "episode_index": 74,
+          "error_code": null,
+          "extra": {},
+          "status": "ok",
+          "trace_hash": "558b27f40876ad6ebe4b226b680f89bf13e77e51447ea40e91053b1b1b48bb66",
+          "value": false
+        },
+        {
+          "episode_index": 75,
+          "error_code": null,
+          "extra": {},
+          "status": "ok",
+          "trace_hash": "a0ef1cdf639eb5604983d09342d0f0ad757247bb852c20ef318fed9c2e34661b",
+          "value": false
+        },
+        {
+          "episode_index": 76,
+          "error_code": null,
+          "extra": {},
+          "status": "ok",
+          "trace_hash": "0143d27ffadc81c29056371cf51ddba5aec64f164994f9211e0b1571f14edf62",
+          "value": false
+        },
+        {
+          "episode_index": 77,
+          "error_code": null,
+          "extra": {},
+          "status": "ok",
+          "trace_hash": "45c2433b6c636f4ee7ca2e4ed6750c7639e204aab4de9f14979f2a507b91d367",
+          "value": false
+        },
+        {
+          "episode_index": 78,
+          "error_code": null,
+          "extra": {},
+          "status": "ok",
+          "trace_hash": "7b226c1234aaba432fc5876cecbe3280d84a4bd348ab6963b7d7f2291e761f7b",
+          "value": false
+        },
+        {
+          "episode_index": 79,
+          "error_code": null,
+          "extra": {},
+          "status": "ok",
+          "trace_hash": "776ce733db718b1fd17bc38322121d01cf0242b4af6f963e8817654887555a84",
+          "value": false
+        },
+        {
+          "episode_index": 80,
+          "error_code": null,
+          "extra": {},
+          "status": "ok",
+          "trace_hash": "a67488c7619e94d5c38bc8cce78655fb76e7c7d631118bf53a7ce2c74b7052c0",
+          "value": false
+        },
+        {
+          "episode_index": 81,
+          "error_code": null,
+          "extra": {},
+          "status": "ok",
+          "trace_hash": "fb771da009b707d50f2b4496ba284eaac410e2d224444be2feb6afe8461a8d40",
+          "value": false
+        },
+        {
+          "episode_index": 82,
+          "error_code": null,
+          "extra": {},
+          "status": "ok",
+          "trace_hash": "82a73d8c0381ba30825ac8a2303302889c8857f49cd2bfce16b130b63e6c1fcc",
+          "value": false
+        },
+        {
+          "episode_index": 83,
+          "error_code": null,
+          "extra": {},
+          "status": "ok",
+          "trace_hash": "35d43ae3114e083b3d5ea25aa148b151c46f36fe4a3d5ce0bc0e2e43a1b171d5",
+          "value": false
+        },
+        {
+          "episode_index": 84,
+          "error_code": null,
+          "extra": {},
+          "status": "ok",
+          "trace_hash": "448b0fd731d23b55605be5cc789ebe6e95be146269c5c87c17bfb67ab1c65d88",
+          "value": false
+        },
+        {
+          "episode_index": 85,
+          "error_code": null,
+          "extra": {},
+          "status": "ok",
+          "trace_hash": "ebd7c94bce3507046a3ca3b1cd443cd40d67443e552fcb985481ad30576661dd",
+          "value": false
+        },
+        {
+          "episode_index": 86,
+          "error_code": null,
+          "extra": {},
+          "status": "ok",
+          "trace_hash": "5d7dc2f54db04d720e705154c9eb96b3372af7f3d6152bdb21cea29ba778d151",
+          "value": false
+        },
+        {
+          "episode_index": 87,
+          "error_code": null,
+          "extra": {},
+          "status": "ok",
+          "trace_hash": "69678110e61d372e75dac8f95216f634c3af4c4fa850aa32b87d93abe2cce749",
+          "value": false
+        },
+        {
+          "episode_index": 88,
+          "error_code": null,
+          "extra": {},
+          "status": "ok",
+          "trace_hash": "046a9dd92ec3f32e4c3f421ceb26c0d6e4c99051e9394ca771ae3b735bc5af07",
+          "value": false
+        },
+        {
+          "episode_index": 89,
+          "error_code": null,
+          "extra": {},
+          "status": "ok",
+          "trace_hash": "7d256410fb529579ebf2e00fff422d8743209d2fe4f48af52922bb53a525c80f",
+          "value": false
+        },
+        {
+          "episode_index": 90,
+          "error_code": null,
+          "extra": {},
+          "status": "ok",
+          "trace_hash": "d5b135ab8095180f8c0e68b5e0c2590d4b7612d65beb8b09e2294c0453217a70",
+          "value": false
+        },
+        {
+          "episode_index": 91,
+          "error_code": null,
+          "extra": {},
+          "status": "ok",
+          "trace_hash": "12152a0ebee8ca3c97a394997332789870b6f1352052d04d36cf64244c560870",
+          "value": false
+        },
+        {
+          "episode_index": 92,
+          "error_code": null,
+          "extra": {},
+          "status": "ok",
+          "trace_hash": "152e4fff07228eb945480aa4c3a3087b4830f318fa28efa497b90da95f4fea6c",
+          "value": false
+        },
+        {
+          "episode_index": 93,
+          "error_code": null,
+          "extra": {},
+          "status": "ok",
+          "trace_hash": "0f34d0cd257f87f54dfe5b393045212d14e81a8c58292bdea11feddd4bf5afae",
+          "value": false
+        },
+        {
+          "episode_index": 94,
+          "error_code": null,
+          "extra": {},
+          "status": "ok",
+          "trace_hash": "a8e7ccd879e29bd126a9f77105a01c2b3b4f25065f578f1ce8b61175e9cb0733",
+          "value": false
+        },
+        {
+          "episode_index": 95,
+          "error_code": null,
+          "extra": {},
+          "status": "ok",
+          "trace_hash": "67eaa5db0b03945c6fb8bb3830875784131f2835bb39649a8e9c8724ba64b1e2",
+          "value": false
+        },
+        {
+          "episode_index": 96,
+          "error_code": null,
+          "extra": {},
+          "status": "ok",
+          "trace_hash": "ba260c78b2a18fd78ece1d05199e0efa67b97a7076a5f03ce64d477c8d311282",
+          "value": false
+        },
+        {
+          "episode_index": 97,
+          "error_code": null,
+          "extra": {},
+          "status": "ok",
+          "trace_hash": "3f9d257eb1000ff666511c2449febeb51808224155005452e047bc4c39522935",
+          "value": false
+        },
+        {
+          "episode_index": 98,
+          "error_code": null,
+          "extra": {},
+          "status": "ok",
+          "trace_hash": "79965ec26394dfd41966c2e90eee90545fcb15c2eb8cca057ba543894cef446b",
+          "value": false
+        },
+        {
+          "episode_index": 99,
+          "error_code": null,
+          "extra": {},
+          "status": "ok",
+          "trace_hash": "c0e6a9c73a869a0de3b4ae74da88a3882d588ed0578552e683688d51ee9f5104",
+          "value": false
+        }
+      ],
+      "evaluator_file_sha256": "46749770b39231b4e470771904fceadc780dbfc89fb88ff171798d72e25d9583",
+      "evaluator_id": "fell",
+      "evaluator_version": "1.0.0",
+      "failures": {},
+      "kind": "binary",
+      "n": 100,
+      "n_episodes": 100,
+      "n_failed": 0,
+      "name": "fell@1.0.0",
+      "numerator": null,
+      "profile_id": "a100-40gb-groot-n17-sonic",
+      "profile_label": "MEASURED",
+      "run_hash": "9e3d574d6167368ce2ae7e75ac6c095bad0ab5c17c60fa022a5a8b2781f6965e",
+      "unit": "",
+      "value": 0.0
+    },
+    {
+      "aggregate": "proportion",
+      "ci_conf": 0.95,
+      "ci_hi": 1.0,
+      "ci_lo": 0.9630065017930143,
+      "ci_method": "wilson",
+      "cs_alpha": 0.05,
+      "cs_hi": 1.0,
+      "cs_lo": 0.9325,
+      "denominator": null,
+      "episodes": [
+        {
+          "episode_index": 0,
+          "error_code": null,
+          "extra": {},
+          "status": "ok",
+          "trace_hash": "24dfa3fa6e552b3f2a2cd359b80c12f2a93786a1dc04c3dca63574e27f38d889",
+          "value": true
+        },
+        {
+          "episode_index": 1,
+          "error_code": null,
+          "extra": {},
+          "status": "ok",
+          "trace_hash": "8060767f0c7c779c082e618c3c23ac1b130a307e930407437910cde43bc38989",
+          "value": true
+        },
+        {
+          "episode_index": 2,
+          "error_code": null,
+          "extra": {},
+          "status": "ok",
+          "trace_hash": "457c1aaa88e0604834cbf63af8f78342da3332acce8223454acf547739a93703",
+          "value": true
+        },
+        {
+          "episode_index": 3,
+          "error_code": null,
+          "extra": {},
+          "status": "ok",
+          "trace_hash": "d3dd9888d373e1209ac0d21692fe1a36cb8ea5f636bb87d82fb545af90f79ec2",
+          "value": true
+        },
+        {
+          "episode_index": 4,
+          "error_code": null,
+          "extra": {},
+          "status": "ok",
+          "trace_hash": "b4992a03a1687192d400e5059ca5412fa771617a442bc47846eb73c0bc582722",
+          "value": true
+        },
+        {
+          "episode_index": 5,
+          "error_code": null,
+          "extra": {},
+          "status": "ok",
+          "trace_hash": "cd752a7040ca435d3b44d824ab0dac221b9ea64f8e057c09dd4088558870c23f",
+          "value": true
+        },
+        {
+          "episode_index": 6,
+          "error_code": null,
+          "extra": {},
+          "status": "ok",
+          "trace_hash": "1104d94ce3c6d17f7526b4440d79a5c6dbcb1b65d60320e6c231559c0bdc6f7b",
+          "value": true
+        },
+        {
+          "episode_index": 7,
+          "error_code": null,
+          "extra": {},
+          "status": "ok",
+          "trace_hash": "7cd6d8c25cfd09b020ddf58585fb542340dc6864ae955a66aafa37651fc82c9f",
+          "value": true
+        },
+        {
+          "episode_index": 8,
+          "error_code": null,
+          "extra": {},
+          "status": "ok",
+          "trace_hash": "ed567e345b4ebea113b5688605c60ac731177959a60cdafa6a71e98542f159a3",
+          "value": true
+        },
+        {
+          "episode_index": 9,
+          "error_code": null,
+          "extra": {},
+          "status": "ok",
+          "trace_hash": "9707e2a59d2c61fbcac85ed200ef23959303b1e06f99885474f0626f37fabe00",
+          "value": true
+        },
+        {
+          "episode_index": 10,
+          "error_code": null,
+          "extra": {},
+          "status": "ok",
+          "trace_hash": "d71d0731c55610be07ed205d0eb2dd127f96d95e49c4117cba4701d7f939243a",
+          "value": true
+        },
+        {
+          "episode_index": 11,
+          "error_code": null,
+          "extra": {},
+          "status": "ok",
+          "trace_hash": "009168727b4604f6f9d3c394d49626204a58d89d37a99b6190825f67606af855",
+          "value": true
+        },
+        {
+          "episode_index": 12,
+          "error_code": null,
+          "extra": {},
+          "status": "ok",
+          "trace_hash": "c68c0e052fd183df18ca8616497753690c93ea337fb452d3c6ff7b1f86c754ff",
+          "value": true
+        },
+        {
+          "episode_index": 13,
+          "error_code": null,
+          "extra": {},
+          "status": "ok",
+          "trace_hash": "5782327251895b573d1d6c54db06aa2b6cc4a5822835febe597438e8de843e03",
+          "value": true
+        },
+        {
+          "episode_index": 14,
+          "error_code": null,
+          "extra": {},
+          "status": "ok",
+          "trace_hash": "b48b3d387525e446ea7f4c48214a8fe8fa08d165aeff1f03faba0f23307cbc82",
+          "value": true
+        },
+        {
+          "episode_index": 15,
+          "error_code": null,
+          "extra": {},
+          "status": "ok",
+          "trace_hash": "3ba1854ce821d6889cab4e3165c0627c00e17f6021f49768f1a00fe8aa56de3f",
+          "value": true
+        },
+        {
+          "episode_index": 16,
+          "error_code": null,
+          "extra": {},
+          "status": "ok",
+          "trace_hash": "04ce4647fb517e31a6bfc0e2516e9ed53114293d380c27e4bb624fc5e2646e1a",
+          "value": true
+        },
+        {
+          "episode_index": 17,
+          "error_code": null,
+          "extra": {},
+          "status": "ok",
+          "trace_hash": "4bb0bd8108fa5d9aa2a370c8ef30f9ffcc58072097e788070b3de24b183b71fb",
+          "value": true
+        },
+        {
+          "episode_index": 18,
+          "error_code": null,
+          "extra": {},
+          "status": "ok",
+          "trace_hash": "982b85234d98eb1e817ece865d6f1d4dc6db3176628c11d931c078bd9fb0de12",
+          "value": true
+        },
+        {
+          "episode_index": 19,
+          "error_code": null,
+          "extra": {},
+          "status": "ok",
+          "trace_hash": "1f69be827483f72ba27691c9dead85a095ae39f2425fe9cac3da2ded0d92bb21",
+          "value": true
+        },
+        {
+          "episode_index": 20,
+          "error_code": null,
+          "extra": {},
+          "status": "ok",
+          "trace_hash": "efcea9a9aeda722d74511988fc453718def9b31f5e532c976174843e6234aa10",
+          "value": true
+        },
+        {
+          "episode_index": 21,
+          "error_code": null,
+          "extra": {},
+          "status": "ok",
+          "trace_hash": "66b40c9b3c96a69ee2590fb58f0c034f64d16369214402f85418311b8736906b",
+          "value": true
+        },
+        {
+          "episode_index": 22,
+          "error_code": null,
+          "extra": {},
+          "status": "ok",
+          "trace_hash": "92931ad9295eba8d5d0133f0b503f55a3a0001fb8cd2913c5da33ce49ce8453c",
+          "value": true
+        },
+        {
+          "episode_index": 23,
+          "error_code": null,
+          "extra": {},
+          "status": "ok",
+          "trace_hash": "b76745d7ecc412c9f681db68f38579141dcdf57526d6183d21a50d3e7924f261",
+          "value": true
+        },
+        {
+          "episode_index": 24,
+          "error_code": null,
+          "extra": {},
+          "status": "ok",
+          "trace_hash": "17da23538441c137a57548b5e300b10cb15b68f4a33e6fa40e271276f65d464d",
+          "value": true
+        },
+        {
+          "episode_index": 25,
+          "error_code": null,
+          "extra": {},
+          "status": "ok",
+          "trace_hash": "dd8512f600fd8b7911f3a4f4e2bf2bd167befdfbd0c1fc439890f8cb213ac369",
+          "value": true
+        },
+        {
+          "episode_index": 26,
+          "error_code": null,
+          "extra": {},
+          "status": "ok",
+          "trace_hash": "38f7942dc542a93960879ea9b942ca207c3af2120e9b514741efc251e2703a88",
+          "value": true
+        },
+        {
+          "episode_index": 27,
+          "error_code": null,
+          "extra": {},
+          "status": "ok",
+          "trace_hash": "bd6327ffa4190bee5d563d17f7585ad5618d3b9e7bef70641a4cd1f1ff8749f3",
+          "value": true
+        },
+        {
+          "episode_index": 28,
+          "error_code": null,
+          "extra": {},
+          "status": "ok",
+          "trace_hash": "8b627b58ed509edc47b857f526f01475c298c554ee6b53733f0b6f9d69150caf",
+          "value": true
+        },
+        {
+          "episode_index": 29,
+          "error_code": null,
+          "extra": {},
+          "status": "ok",
+          "trace_hash": "5a9beb168c5c6dd31cfff2c4f4e49ef156fc1aa33774812944d5c25d085a6fac",
+          "value": true
+        },
+        {
+          "episode_index": 30,
+          "error_code": null,
+          "extra": {},
+          "status": "ok",
+          "trace_hash": "0ed0ef2bebe5077d8dea059535b25f1ff925e788a8a125e963edec5e086d31cb",
+          "value": true
+        },
+        {
+          "episode_index": 31,
+          "error_code": null,
+          "extra": {},
+          "status": "ok",
+          "trace_hash": "7d0f3b56a5449125a4fadb3141451a733bf7169db6d3285ac114aea200fc8195",
+          "value": true
+        },
+        {
+          "episode_index": 32,
+          "error_code": null,
+          "extra": {},
+          "status": "ok",
+          "trace_hash": "3e3a428192f75a3f8ca808b7f280ac663c454fa71ad2f79d8f5aeee3817aed78",
+          "value": true
+        },
+        {
+          "episode_index": 33,
+          "error_code": null,
+          "extra": {},
+          "status": "ok",
+          "trace_hash": "c354fe6260b3edf76eb3bff5d759396d58963630c939b20f7dc01069cc70f9dc",
+          "value": true
+        },
+        {
+          "episode_index": 34,
+          "error_code": null,
+          "extra": {},
+          "status": "ok",
+          "trace_hash": "aa7bb7b23a8180b74ddc8002e8fb105bb237487d6e6e384d5c478d7e8c07933f",
+          "value": true
+        },
+        {
+          "episode_index": 35,
+          "error_code": null,
+          "extra": {},
+          "status": "ok",
+          "trace_hash": "7387f646836be1c6f466da8ba6ad6d9eeeb24dae8b44f9dbeebb565afcbad6e6",
+          "value": true
+        },
+        {
+          "episode_index": 36,
+          "error_code": null,
+          "extra": {},
+          "status": "ok",
+          "trace_hash": "60dcfc9e4502633f9f474df9f3d0a0ac16db1abc54a404d52d58946019cc6e9a",
+          "value": true
+        },
+        {
+          "episode_index": 37,
+          "error_code": null,
+          "extra": {},
+          "status": "ok",
+          "trace_hash": "8fc1e30cc0d253fcc1c89f2c9d305727e26d5fe09fe62400012932194eac971c",
+          "value": true
+        },
+        {
+          "episode_index": 38,
+          "error_code": null,
+          "extra": {},
+          "status": "ok",
+          "trace_hash": "6832d1bf7b56e9a22126d19961e61fe08d3bf026e3136d07e0ce469612cfcbd6",
+          "value": true
+        },
+        {
+          "episode_index": 39,
+          "error_code": null,
+          "extra": {},
+          "status": "ok",
+          "trace_hash": "5b9692e63fe0cedf581c2692c37874aa8993a257038dd2cc655f1a463c58871d",
+          "value": true
+        },
+        {
+          "episode_index": 40,
+          "error_code": null,
+          "extra": {},
+          "status": "ok",
+          "trace_hash": "a9c9236034222efe0c1ed38930f7db2130ae4e2dee9b80f59b8e1787d41c16db",
+          "value": true
+        },
+        {
+          "episode_index": 41,
+          "error_code": null,
+          "extra": {},
+          "status": "ok",
+          "trace_hash": "13efe1a3fbf2cbb6898ef482fd8eb0d2c08fd2ce584f4edf6ac8baa28498f795",
+          "value": true
+        },
+        {
+          "episode_index": 42,
+          "error_code": null,
+          "extra": {},
+          "status": "ok",
+          "trace_hash": "4d71264e433bdff4953c70d86d4cd5bf3882f8767bf086753ca670a041d31821",
+          "value": true
+        },
+        {
+          "episode_index": 43,
+          "error_code": null,
+          "extra": {},
+          "status": "ok",
+          "trace_hash": "5160b41bb76169fae21e80cf10f55382ecd511bef5220ad093f2732f73d5cb96",
+          "value": true
+        },
+        {
+          "episode_index": 44,
+          "error_code": null,
+          "extra": {},
+          "status": "ok",
+          "trace_hash": "02f00bfe9d864c9f197a4c3fda4bfb5c39e2e1a9d34831fbd458e03432bc8859",
+          "value": true
+        },
+        {
+          "episode_index": 45,
+          "error_code": null,
+          "extra": {},
+          "status": "ok",
+          "trace_hash": "07d6cd329571296af3256e4b89a34977886c3fdd30bc8e6deb42d7ce7fc60101",
+          "value": true
+        },
+        {
+          "episode_index": 46,
+          "error_code": null,
+          "extra": {},
+          "status": "ok",
+          "trace_hash": "1e0dee3cb07dacf7366ea659707b3ce5818ccee06251193619d76347f2fa6366",
+          "value": true
+        },
+        {
+          "episode_index": 47,
+          "error_code": null,
+          "extra": {},
+          "status": "ok",
+          "trace_hash": "036474ede5bf78aec4bbff3c542a24f05ea2c0cbbb8753718000c8add9632c37",
+          "value": true
+        },
+        {
+          "episode_index": 48,
+          "error_code": null,
+          "extra": {},
+          "status": "ok",
+          "trace_hash": "341c7cfebc5c119b570eeb9bf38bc6a2ffc6fb766109a1c7afdea2fba9c610af",
+          "value": true
+        },
+        {
+          "episode_index": 49,
+          "error_code": null,
+          "extra": {},
+          "status": "ok",
+          "trace_hash": "4ddbeb35c44984c61a9c1a62bc41a09e270b4b7f6bb3fc710a56cdf9cff58833",
+          "value": true
+        },
+        {
+          "episode_index": 50,
+          "error_code": null,
+          "extra": {},
+          "status": "ok",
+          "trace_hash": "a5f5668aa7b1397d5244b3e91533f55463374552956b4749ab2291e70059aa7a",
+          "value": true
+        },
+        {
+          "episode_index": 51,
+          "error_code": null,
+          "extra": {},
+          "status": "ok",
+          "trace_hash": "828bba2cf232cf4240712d9773de52789b4e903bdb31a101e81ee6d6f31aa1ad",
+          "value": true
+        },
+        {
+          "episode_index": 52,
+          "error_code": null,
+          "extra": {},
+          "status": "ok",
+          "trace_hash": "0ce1c56d4bbb5ecf04efa99ed9a8e84cf5b02ebc5e1f7de60a85d5d3d0cf9e07",
+          "value": true
+        },
+        {
+          "episode_index": 53,
+          "error_code": null,
+          "extra": {},
+          "status": "ok",
+          "trace_hash": "aaaba18aa70ed3c9f647717028108817e7027dc2fd4be2829fbcd4b94ac65608",
+          "value": true
+        },
+        {
+          "episode_index": 54,
+          "error_code": null,
+          "extra": {},
+          "status": "ok",
+          "trace_hash": "8c1a78a8bd2a1ab5dacad7570e559a9f15a69bb935ef3a0ee50aca7d20ebdcaf",
+          "value": true
+        },
+        {
+          "episode_index": 55,
+          "error_code": null,
+          "extra": {},
+          "status": "ok",
+          "trace_hash": "745b66a84f8001ac74538ca4f092b9a06ea4fb01c562ad3b3271fe01c7e2344f",
+          "value": true
+        },
+        {
+          "episode_index": 56,
+          "error_code": null,
+          "extra": {},
+          "status": "ok",
+          "trace_hash": "73a269618319cef791a8cded22d8db4e59e169fdc085279afffe856dc1987071",
+          "value": true
+        },
+        {
+          "episode_index": 57,
+          "error_code": null,
+          "extra": {},
+          "status": "ok",
+          "trace_hash": "982997ae1c8971138c7c00465ef7d08604587b5f8ccbd0a5ad4856bfc65e4020",
+          "value": true
+        },
+        {
+          "episode_index": 58,
+          "error_code": null,
+          "extra": {},
+          "status": "ok",
+          "trace_hash": "3090b958b0aaa6d139439db5ffffd596baca1ba1441f5b481f28dfc5a8e035ae",
+          "value": true
+        },
+        {
+          "episode_index": 59,
+          "error_code": null,
+          "extra": {},
+          "status": "ok",
+          "trace_hash": "4af315c6ff80c7ebd336d75e49fdfa7a7c301704ae89ad3bb443321aa4428c5a",
+          "value": true
+        },
+        {
+          "episode_index": 60,
+          "error_code": null,
+          "extra": {},
+          "status": "ok",
+          "trace_hash": "4eb42ec78944a61030d435cad89e9711f586a9e76d03c71f1204e1f4d39df186",
+          "value": true
+        },
+        {
+          "episode_index": 61,
+          "error_code": null,
+          "extra": {},
+          "status": "ok",
+          "trace_hash": "d21a51f09c3869e56ad2f078e059362a6715bfe1d2b701b8ecb209780fa9f168",
+          "value": true
+        },
+        {
+          "episode_index": 62,
+          "error_code": null,
+          "extra": {},
+          "status": "ok",
+          "trace_hash": "7708ec630e56ea0fc3475a099064b61bb04e3e0868a83d5a1304a2c9cc33c7dc",
+          "value": true
+        },
+        {
+          "episode_index": 63,
+          "error_code": null,
+          "extra": {},
+          "status": "ok",
+          "trace_hash": "67997671fc471665ef9d0acb275393acf02f6a7040f1d4410372fd58481152d9",
+          "value": true
+        },
+        {
+          "episode_index": 64,
+          "error_code": null,
+          "extra": {},
+          "status": "ok",
+          "trace_hash": "e1478427001b6394bea132247c56e8e3ea50df3f8987fa0628c3d13fe00bf7e7",
+          "value": true
+        },
+        {
+          "episode_index": 65,
+          "error_code": null,
+          "extra": {},
+          "status": "ok",
+          "trace_hash": "3bdc45f95bcc267c443cd7e360fd3857e83aeb6774a13430eb825df77ba32cbf",
+          "value": true
+        },
+        {
+          "episode_index": 66,
+          "error_code": null,
+          "extra": {},
+          "status": "ok",
+          "trace_hash": "6db8339be1e83d34d68445ad132446c59788141b7bcd0cfa23a553cc3c1cadf2",
+          "value": true
+        },
+        {
+          "episode_index": 67,
+          "error_code": null,
+          "extra": {},
+          "status": "ok",
+          "trace_hash": "398fb60fd4f33a3e8e6fa50f9decbf01c1ccf63ec6e0d4621c53bf68401c2212",
+          "value": true
+        },
+        {
+          "episode_index": 68,
+          "error_code": null,
+          "extra": {},
+          "status": "ok",
+          "trace_hash": "eb1717db3791d415326e3ffac35e286c65c364b6090ffc0b8dbe473c9263238f",
+          "value": true
+        },
+        {
+          "episode_index": 69,
+          "error_code": null,
+          "extra": {},
+          "status": "ok",
+          "trace_hash": "b7874d2c633947eb42c55c6d4ad1e0020accaf27f3c690264c22ec7f82d25a5b",
+          "value": true
+        },
+        {
+          "episode_index": 70,
+          "error_code": null,
+          "extra": {},
+          "status": "ok",
+          "trace_hash": "cf4c0bba05ccec4fc29bfe41e8cf798eaf8d538e2eb86bc802da8166b43149cf",
+          "value": true
+        },
+        {
+          "episode_index": 71,
+          "error_code": null,
+          "extra": {},
+          "status": "ok",
+          "trace_hash": "6a728119a1945fee5863f76141e8ca3e8921c465b85f8a36aade54c172bf0a71",
+          "value": true
+        },
+        {
+          "episode_index": 72,
+          "error_code": null,
+          "extra": {},
+          "status": "ok",
+          "trace_hash": "688d47b2c795ab3031403f18c3563d3e643a4aa0714a37692cc974dd05d264af",
+          "value": true
+        },
+        {
+          "episode_index": 73,
+          "error_code": null,
+          "extra": {},
+          "status": "ok",
+          "trace_hash": "1fc6dcee64bbe45d1b7387b0a5314c04cc271e03024e45b9e5554c7b37812894",
+          "value": true
+        },
+        {
+          "episode_index": 74,
+          "error_code": null,
+          "extra": {},
+          "status": "ok",
+          "trace_hash": "558b27f40876ad6ebe4b226b680f89bf13e77e51447ea40e91053b1b1b48bb66",
+          "value": true
+        },
+        {
+          "episode_index": 75,
+          "error_code": null,
+          "extra": {},
+          "status": "ok",
+          "trace_hash": "a0ef1cdf639eb5604983d09342d0f0ad757247bb852c20ef318fed9c2e34661b",
+          "value": true
+        },
+        {
+          "episode_index": 76,
+          "error_code": null,
+          "extra": {},
+          "status": "ok",
+          "trace_hash": "0143d27ffadc81c29056371cf51ddba5aec64f164994f9211e0b1571f14edf62",
+          "value": true
+        },
+        {
+          "episode_index": 77,
+          "error_code": null,
+          "extra": {},
+          "status": "ok",
+          "trace_hash": "45c2433b6c636f4ee7ca2e4ed6750c7639e204aab4de9f14979f2a507b91d367",
+          "value": true
+        },
+        {
+          "episode_index": 78,
+          "error_code": null,
+          "extra": {},
+          "status": "ok",
+          "trace_hash": "7b226c1234aaba432fc5876cecbe3280d84a4bd348ab6963b7d7f2291e761f7b",
+          "value": true
+        },
+        {
+          "episode_index": 79,
+          "error_code": null,
+          "extra": {},
+          "status": "ok",
+          "trace_hash": "776ce733db718b1fd17bc38322121d01cf0242b4af6f963e8817654887555a84",
+          "value": true
+        },
+        {
+          "episode_index": 80,
+          "error_code": null,
+          "extra": {},
+          "status": "ok",
+          "trace_hash": "a67488c7619e94d5c38bc8cce78655fb76e7c7d631118bf53a7ce2c74b7052c0",
+          "value": true
+        },
+        {
+          "episode_index": 81,
+          "error_code": null,
+          "extra": {},
+          "status": "ok",
+          "trace_hash": "fb771da009b707d50f2b4496ba284eaac410e2d224444be2feb6afe8461a8d40",
+          "value": true
+        },
+        {
+          "episode_index": 82,
+          "error_code": null,
+          "extra": {},
+          "status": "ok",
+          "trace_hash": "82a73d8c0381ba30825ac8a2303302889c8857f49cd2bfce16b130b63e6c1fcc",
+          "value": true
+        },
+        {
+          "episode_index": 83,
+          "error_code": null,
+          "extra": {},
+          "status": "ok",
+          "trace_hash": "35d43ae3114e083b3d5ea25aa148b151c46f36fe4a3d5ce0bc0e2e43a1b171d5",
+          "value": true
+        },
+        {
+          "episode_index": 84,
+          "error_code": null,
+          "extra": {},
+          "status": "ok",
+          "trace_hash": "448b0fd731d23b55605be5cc789ebe6e95be146269c5c87c17bfb67ab1c65d88",
+          "value": true
+        },
+        {
+          "episode_index": 85,
+          "error_code": null,
+          "extra": {},
+          "status": "ok",
+          "trace_hash": "ebd7c94bce3507046a3ca3b1cd443cd40d67443e552fcb985481ad30576661dd",
+          "value": true
+        },
+        {
+          "episode_index": 86,
+          "error_code": null,
+          "extra": {},
+          "status": "ok",
+          "trace_hash": "5d7dc2f54db04d720e705154c9eb96b3372af7f3d6152bdb21cea29ba778d151",
+          "value": true
+        },
+        {
+          "episode_index": 87,
+          "error_code": null,
+          "extra": {},
+          "status": "ok",
+          "trace_hash": "69678110e61d372e75dac8f95216f634c3af4c4fa850aa32b87d93abe2cce749",
+          "value": true
+        },
+        {
+          "episode_index": 88,
+          "error_code": null,
+          "extra": {},
+          "status": "ok",
+          "trace_hash": "046a9dd92ec3f32e4c3f421ceb26c0d6e4c99051e9394ca771ae3b735bc5af07",
+          "value": true
+        },
+        {
+          "episode_index": 89,
+          "error_code": null,
+          "extra": {},
+          "status": "ok",
+          "trace_hash": "7d256410fb529579ebf2e00fff422d8743209d2fe4f48af52922bb53a525c80f",
+          "value": true
+        },
+        {
+          "episode_index": 90,
+          "error_code": null,
+          "extra": {},
+          "status": "ok",
+          "trace_hash": "d5b135ab8095180f8c0e68b5e0c2590d4b7612d65beb8b09e2294c0453217a70",
+          "value": true
+        },
+        {
+          "episode_index": 91,
+          "error_code": null,
+          "extra": {},
+          "status": "ok",
+          "trace_hash": "12152a0ebee8ca3c97a394997332789870b6f1352052d04d36cf64244c560870",
+          "value": true
+        },
+        {
+          "episode_index": 92,
+          "error_code": null,
+          "extra": {},
+          "status": "ok",
+          "trace_hash": "152e4fff07228eb945480aa4c3a3087b4830f318fa28efa497b90da95f4fea6c",
+          "value": true
+        },
+        {
+          "episode_index": 93,
+          "error_code": null,
+          "extra": {},
+          "status": "ok",
+          "trace_hash": "0f34d0cd257f87f54dfe5b393045212d14e81a8c58292bdea11feddd4bf5afae",
+          "value": true
+        },
+        {
+          "episode_index": 94,
+          "error_code": null,
+          "extra": {},
+          "status": "ok",
+          "trace_hash": "a8e7ccd879e29bd126a9f77105a01c2b3b4f25065f578f1ce8b61175e9cb0733",
+          "value": true
+        },
+        {
+          "episode_index": 95,
+          "error_code": null,
+          "extra": {},
+          "status": "ok",
+          "trace_hash": "67eaa5db0b03945c6fb8bb3830875784131f2835bb39649a8e9c8724ba64b1e2",
+          "value": true
+        },
+        {
+          "episode_index": 96,
+          "error_code": null,
+          "extra": {},
+          "status": "ok",
+          "trace_hash": "ba260c78b2a18fd78ece1d05199e0efa67b97a7076a5f03ce64d477c8d311282",
+          "value": true
+        },
+        {
+          "episode_index": 97,
+          "error_code": null,
+          "extra": {},
+          "status": "ok",
+          "trace_hash": "3f9d257eb1000ff666511c2449febeb51808224155005452e047bc4c39522935",
+          "value": true
+        },
+        {
+          "episode_index": 98,
+          "error_code": null,
+          "extra": {},
+          "status": "ok",
+          "trace_hash": "79965ec26394dfd41966c2e90eee90545fcb15c2eb8cca057ba543894cef446b",
+          "value": true
+        },
+        {
+          "episode_index": 99,
+          "error_code": null,
+          "extra": {},
+          "status": "ok",
+          "trace_hash": "c0e6a9c73a869a0de3b4ae74da88a3882d588ed0578552e683688d51ee9f5104",
+          "value": true
+        }
+      ],
+      "evaluator_file_sha256": "2667c17ba63500356a1b8ae6133999cd3198b345859856e547590cf04eaa3a74",
+      "evaluator_id": "lifted",
+      "evaluator_version": "1.0.0",
+      "failures": {},
+      "kind": "binary",
+      "n": 100,
+      "n_episodes": 100,
+      "n_failed": 0,
+      "name": "lifted@1.0.0",
+      "numerator": null,
+      "profile_id": "a100-40gb-groot-n17-sonic",
+      "profile_label": "MEASURED",
+      "run_hash": "9e3d574d6167368ce2ae7e75ac6c095bad0ab5c17c60fa022a5a8b2781f6965e",
+      "unit": "",
+      "value": 1.0
+    },
+    {
+      "aggregate": "proportion",
+      "ci_conf": 0.95,
+      "ci_hi": 0.9843366960084523,
+      "ci_lo": 0.9016292856411208,
+      "ci_method": "wilson",
+      "cs_alpha": 0.05,
+      "cs_hi": 1.0,
+      "cs_lo": 0.88,
+      "denominator": null,
+      "episodes": [
+        {
+          "episode_index": 0,
+          "error_code": null,
+          "extra": {
+            "success_step": 183
+          },
+          "status": "ok",
+          "trace_hash": "24dfa3fa6e552b3f2a2cd359b80c12f2a93786a1dc04c3dca63574e27f38d889",
+          "value": true
+        },
+        {
+          "episode_index": 1,
+          "error_code": null,
+          "extra": {
+            "success_step": 209
+          },
+          "status": "ok",
+          "trace_hash": "8060767f0c7c779c082e618c3c23ac1b130a307e930407437910cde43bc38989",
+          "value": true
+        },
+        {
+          "episode_index": 2,
+          "error_code": null,
+          "extra": {
+            "success_step": 201
+          },
+          "status": "ok",
+          "trace_hash": "457c1aaa88e0604834cbf63af8f78342da3332acce8223454acf547739a93703",
+          "value": true
+        },
+        {
+          "episode_index": 3,
+          "error_code": null,
+          "extra": {
+            "success_step": 197
+          },
+          "status": "ok",
+          "trace_hash": "d3dd9888d373e1209ac0d21692fe1a36cb8ea5f636bb87d82fb545af90f79ec2",
+          "value": true
+        },
+        {
+          "episode_index": 4,
+          "error_code": null,
+          "extra": {
+            "success_step": 201
+          },
+          "status": "ok",
+          "trace_hash": "b4992a03a1687192d400e5059ca5412fa771617a442bc47846eb73c0bc582722",
+          "value": true
+        },
+        {
+          "episode_index": 5,
+          "error_code": null,
+          "extra": {
+            "success_step": 184
+          },
+          "status": "ok",
+          "trace_hash": "cd752a7040ca435d3b44d824ab0dac221b9ea64f8e057c09dd4088558870c23f",
+          "value": true
+        },
+        {
+          "episode_index": 6,
+          "error_code": null,
+          "extra": {
+            "success_step": 190
+          },
+          "status": "ok",
+          "trace_hash": "1104d94ce3c6d17f7526b4440d79a5c6dbcb1b65d60320e6c231559c0bdc6f7b",
+          "value": true
+        },
+        {
+          "episode_index": 7,
+          "error_code": null,
+          "extra": {
+            "success_step": -1
+          },
+          "status": "ok",
+          "trace_hash": "7cd6d8c25cfd09b020ddf58585fb542340dc6864ae955a66aafa37651fc82c9f",
+          "value": false
+        },
+        {
+          "episode_index": 8,
+          "error_code": null,
+          "extra": {
+            "success_step": 204
+          },
+          "status": "ok",
+          "trace_hash": "ed567e345b4ebea113b5688605c60ac731177959a60cdafa6a71e98542f159a3",
+          "value": true
+        },
+        {
+          "episode_index": 9,
+          "error_code": null,
+          "extra": {
+            "success_step": 210
+          },
+          "status": "ok",
+          "trace_hash": "9707e2a59d2c61fbcac85ed200ef23959303b1e06f99885474f0626f37fabe00",
+          "value": true
+        },
+        {
+          "episode_index": 10,
+          "error_code": null,
+          "extra": {
+            "success_step": 195
+          },
+          "status": "ok",
+          "trace_hash": "d71d0731c55610be07ed205d0eb2dd127f96d95e49c4117cba4701d7f939243a",
+          "value": true
+        },
+        {
+          "episode_index": 11,
+          "error_code": null,
+          "extra": {
+            "success_step": 209
+          },
+          "status": "ok",
+          "trace_hash": "009168727b4604f6f9d3c394d49626204a58d89d37a99b6190825f67606af855",
+          "value": true
+        },
+        {
+          "episode_index": 12,
+          "error_code": null,
+          "extra": {
+            "success_step": 195
+          },
+          "status": "ok",
+          "trace_hash": "c68c0e052fd183df18ca8616497753690c93ea337fb452d3c6ff7b1f86c754ff",
+          "value": true
+        },
+        {
+          "episode_index": 13,
+          "error_code": null,
+          "extra": {
+            "success_step": 190
+          },
+          "status": "ok",
+          "trace_hash": "5782327251895b573d1d6c54db06aa2b6cc4a5822835febe597438e8de843e03",
+          "value": true
+        },
+        {
+          "episode_index": 14,
+          "error_code": null,
+          "extra": {
+            "success_step": 197
+          },
+          "status": "ok",
+          "trace_hash": "b48b3d387525e446ea7f4c48214a8fe8fa08d165aeff1f03faba0f23307cbc82",
+          "value": true
+        },
+        {
+          "episode_index": 15,
+          "error_code": null,
+          "extra": {
+            "success_step": 160
+          },
+          "status": "ok",
+          "trace_hash": "3ba1854ce821d6889cab4e3165c0627c00e17f6021f49768f1a00fe8aa56de3f",
+          "value": true
+        },
+        {
+          "episode_index": 16,
+          "error_code": null,
+          "extra": {
+            "success_step": 192
+          },
+          "status": "ok",
+          "trace_hash": "04ce4647fb517e31a6bfc0e2516e9ed53114293d380c27e4bb624fc5e2646e1a",
+          "value": true
+        },
+        {
+          "episode_index": 17,
+          "error_code": null,
+          "extra": {
+            "success_step": -1
+          },
+          "status": "ok",
+          "trace_hash": "4bb0bd8108fa5d9aa2a370c8ef30f9ffcc58072097e788070b3de24b183b71fb",
+          "value": false
+        },
+        {
+          "episode_index": 18,
+          "error_code": null,
+          "extra": {
+            "success_step": 191
+          },
+          "status": "ok",
+          "trace_hash": "982b85234d98eb1e817ece865d6f1d4dc6db3176628c11d931c078bd9fb0de12",
+          "value": true
+        },
+        {
+          "episode_index": 19,
+          "error_code": null,
+          "extra": {
+            "success_step": 178
+          },
+          "status": "ok",
+          "trace_hash": "1f69be827483f72ba27691c9dead85a095ae39f2425fe9cac3da2ded0d92bb21",
+          "value": true
+        },
+        {
+          "episode_index": 20,
+          "error_code": null,
+          "extra": {
+            "success_step": 204
+          },
+          "status": "ok",
+          "trace_hash": "efcea9a9aeda722d74511988fc453718def9b31f5e532c976174843e6234aa10",
+          "value": true
+        },
+        {
+          "episode_index": 21,
+          "error_code": null,
+          "extra": {
+            "success_step": 207
+          },
+          "status": "ok",
+          "trace_hash": "66b40c9b3c96a69ee2590fb58f0c034f64d16369214402f85418311b8736906b",
+          "value": true
+        },
+        {
+          "episode_index": 22,
+          "error_code": null,
+          "extra": {
+            "success_step": 206
+          },
+          "status": "ok",
+          "trace_hash": "92931ad9295eba8d5d0133f0b503f55a3a0001fb8cd2913c5da33ce49ce8453c",
+          "value": true
+        },
+        {
+          "episode_index": 23,
+          "error_code": null,
+          "extra": {
+            "success_step": 186
+          },
+          "status": "ok",
+          "trace_hash": "b76745d7ecc412c9f681db68f38579141dcdf57526d6183d21a50d3e7924f261",
+          "value": true
+        },
+        {
+          "episode_index": 24,
+          "error_code": null,
+          "extra": {
+            "success_step": 210
+          },
+          "status": "ok",
+          "trace_hash": "17da23538441c137a57548b5e300b10cb15b68f4a33e6fa40e271276f65d464d",
+          "value": true
+        },
+        {
+          "episode_index": 25,
+          "error_code": null,
+          "extra": {
+            "success_step": 202
+          },
+          "status": "ok",
+          "trace_hash": "dd8512f600fd8b7911f3a4f4e2bf2bd167befdfbd0c1fc439890f8cb213ac369",
+          "value": true
+        },
+        {
+          "episode_index": 26,
+          "error_code": null,
+          "extra": {
+            "success_step": 194
+          },
+          "status": "ok",
+          "trace_hash": "38f7942dc542a93960879ea9b942ca207c3af2120e9b514741efc251e2703a88",
+          "value": true
+        },
+        {
+          "episode_index": 27,
+          "error_code": null,
+          "extra": {
+            "success_step": 190
+          },
+          "status": "ok",
+          "trace_hash": "bd6327ffa4190bee5d563d17f7585ad5618d3b9e7bef70641a4cd1f1ff8749f3",
+          "value": true
+        },
+        {
+          "episode_index": 28,
+          "error_code": null,
+          "extra": {
+            "success_step": -1
+          },
+          "status": "ok",
+          "trace_hash": "8b627b58ed509edc47b857f526f01475c298c554ee6b53733f0b6f9d69150caf",
+          "value": false
+        },
+        {
+          "episode_index": 29,
+          "error_code": null,
+          "extra": {
+            "success_step": 170
+          },
+          "status": "ok",
+          "trace_hash": "5a9beb168c5c6dd31cfff2c4f4e49ef156fc1aa33774812944d5c25d085a6fac",
+          "value": true
+        },
+        {
+          "episode_index": 30,
+          "error_code": null,
+          "extra": {
+            "success_step": 178
+          },
+          "status": "ok",
+          "trace_hash": "0ed0ef2bebe5077d8dea059535b25f1ff925e788a8a125e963edec5e086d31cb",
+          "value": true
+        },
+        {
+          "episode_index": 31,
+          "error_code": null,
+          "extra": {
+            "success_step": 204
+          },
+          "status": "ok",
+          "trace_hash": "7d0f3b56a5449125a4fadb3141451a733bf7169db6d3285ac114aea200fc8195",
+          "value": true
+        },
+        {
+          "episode_index": 32,
+          "error_code": null,
+          "extra": {
+            "success_step": 207
+          },
+          "status": "ok",
+          "trace_hash": "3e3a428192f75a3f8ca808b7f280ac663c454fa71ad2f79d8f5aeee3817aed78",
+          "value": true
+        },
+        {
+          "episode_index": 33,
+          "error_code": null,
+          "extra": {
+            "success_step": 204
+          },
+          "status": "ok",
+          "trace_hash": "c354fe6260b3edf76eb3bff5d759396d58963630c939b20f7dc01069cc70f9dc",
+          "value": true
+        },
+        {
+          "episode_index": 34,
+          "error_code": null,
+          "extra": {
+            "success_step": 200
+          },
+          "status": "ok",
+          "trace_hash": "aa7bb7b23a8180b74ddc8002e8fb105bb237487d6e6e384d5c478d7e8c07933f",
+          "value": true
+        },
+        {
+          "episode_index": 35,
+          "error_code": null,
+          "extra": {
+            "success_step": 179
+          },
+          "status": "ok",
+          "trace_hash": "7387f646836be1c6f466da8ba6ad6d9eeeb24dae8b44f9dbeebb565afcbad6e6",
+          "value": true
+        },
+        {
+          "episode_index": 36,
+          "error_code": null,
+          "extra": {
+            "success_step": 168
+          },
+          "status": "ok",
+          "trace_hash": "60dcfc9e4502633f9f474df9f3d0a0ac16db1abc54a404d52d58946019cc6e9a",
+          "value": true
+        },
+        {
+          "episode_index": 37,
+          "error_code": null,
+          "extra": {
+            "success_step": 215
+          },
+          "status": "ok",
+          "trace_hash": "8fc1e30cc0d253fcc1c89f2c9d305727e26d5fe09fe62400012932194eac971c",
+          "value": true
+        },
+        {
+          "episode_index": 38,
+          "error_code": null,
+          "extra": {
+            "success_step": 206
+          },
+          "status": "ok",
+          "trace_hash": "6832d1bf7b56e9a22126d19961e61fe08d3bf026e3136d07e0ce469612cfcbd6",
+          "value": true
+        },
+        {
+          "episode_index": 39,
+          "error_code": null,
+          "extra": {
+            "success_step": 187
+          },
+          "status": "ok",
+          "trace_hash": "5b9692e63fe0cedf581c2692c37874aa8993a257038dd2cc655f1a463c58871d",
+          "value": true
+        },
+        {
+          "episode_index": 40,
+          "error_code": null,
+          "extra": {
+            "success_step": 175
+          },
+          "status": "ok",
+          "trace_hash": "a9c9236034222efe0c1ed38930f7db2130ae4e2dee9b80f59b8e1787d41c16db",
+          "value": true
+        },
+        {
+          "episode_index": 41,
+          "error_code": null,
+          "extra": {
+            "success_step": 210
+          },
+          "status": "ok",
+          "trace_hash": "13efe1a3fbf2cbb6898ef482fd8eb0d2c08fd2ce584f4edf6ac8baa28498f795",
+          "value": true
+        },
+        {
+          "episode_index": 42,
+          "error_code": null,
+          "extra": {
+            "success_step": 192
+          },
+          "status": "ok",
+          "trace_hash": "4d71264e433bdff4953c70d86d4cd5bf3882f8767bf086753ca670a041d31821",
+          "value": true
+        },
+        {
+          "episode_index": 43,
+          "error_code": null,
+          "extra": {
+            "success_step": 191
+          },
+          "status": "ok",
+          "trace_hash": "5160b41bb76169fae21e80cf10f55382ecd511bef5220ad093f2732f73d5cb96",
+          "value": true
+        },
+        {
+          "episode_index": 44,
+          "error_code": null,
+          "extra": {
+            "success_step": 175
+          },
+          "status": "ok",
+          "trace_hash": "02f00bfe9d864c9f197a4c3fda4bfb5c39e2e1a9d34831fbd458e03432bc8859",
+          "value": true
+        },
+        {
+          "episode_index": 45,
+          "error_code": null,
+          "extra": {
+            "success_step": 200
+          },
+          "status": "ok",
+          "trace_hash": "07d6cd329571296af3256e4b89a34977886c3fdd30bc8e6deb42d7ce7fc60101",
+          "value": true
+        },
+        {
+          "episode_index": 46,
+          "error_code": null,
+          "extra": {
+            "success_step": 174
+          },
+          "status": "ok",
+          "trace_hash": "1e0dee3cb07dacf7366ea659707b3ce5818ccee06251193619d76347f2fa6366",
+          "value": true
+        },
+        {
+          "episode_index": 47,
+          "error_code": null,
+          "extra": {
+            "success_step": 206
+          },
+          "status": "ok",
+          "trace_hash": "036474ede5bf78aec4bbff3c542a24f05ea2c0cbbb8753718000c8add9632c37",
+          "value": true
+        },
+        {
+          "episode_index": 48,
+          "error_code": null,
+          "extra": {
+            "success_step": 191
+          },
+          "status": "ok",
+          "trace_hash": "341c7cfebc5c119b570eeb9bf38bc6a2ffc6fb766109a1c7afdea2fba9c610af",
+          "value": true
+        },
+        {
+          "episode_index": 49,
+          "error_code": null,
+          "extra": {
+            "success_step": 202
+          },
+          "status": "ok",
+          "trace_hash": "4ddbeb35c44984c61a9c1a62bc41a09e270b4b7f6bb3fc710a56cdf9cff58833",
+          "value": true
+        },
+        {
+          "episode_index": 50,
+          "error_code": null,
+          "extra": {
+            "success_step": 177
+          },
+          "status": "ok",
+          "trace_hash": "a5f5668aa7b1397d5244b3e91533f55463374552956b4749ab2291e70059aa7a",
+          "value": true
+        },
+        {
+          "episode_index": 51,
+          "error_code": null,
+          "extra": {
+            "success_step": 198
+          },
+          "status": "ok",
+          "trace_hash": "828bba2cf232cf4240712d9773de52789b4e903bdb31a101e81ee6d6f31aa1ad",
+          "value": true
+        },
+        {
+          "episode_index": 52,
+          "error_code": null,
+          "extra": {
+            "success_step": 192
+          },
+          "status": "ok",
+          "trace_hash": "0ce1c56d4bbb5ecf04efa99ed9a8e84cf5b02ebc5e1f7de60a85d5d3d0cf9e07",
+          "value": true
+        },
+        {
+          "episode_index": 53,
+          "error_code": null,
+          "extra": {
+            "success_step": 158
+          },
+          "status": "ok",
+          "trace_hash": "aaaba18aa70ed3c9f647717028108817e7027dc2fd4be2829fbcd4b94ac65608",
+          "value": true
+        },
+        {
+          "episode_index": 54,
+          "error_code": null,
+          "extra": {
+            "success_step": 209
+          },
+          "status": "ok",
+          "trace_hash": "8c1a78a8bd2a1ab5dacad7570e559a9f15a69bb935ef3a0ee50aca7d20ebdcaf",
+          "value": true
+        },
+        {
+          "episode_index": 55,
+          "error_code": null,
+          "extra": {
+            "success_step": 178
+          },
+          "status": "ok",
+          "trace_hash": "745b66a84f8001ac74538ca4f092b9a06ea4fb01c562ad3b3271fe01c7e2344f",
+          "value": true
+        },
+        {
+          "episode_index": 56,
+          "error_code": null,
+          "extra": {
+            "success_step": 205
+          },
+          "status": "ok",
+          "trace_hash": "73a269618319cef791a8cded22d8db4e59e169fdc085279afffe856dc1987071",
+          "value": true
+        },
+        {
+          "episode_index": 57,
+          "error_code": null,
+          "extra": {
+            "success_step": 223
+          },
+          "status": "ok",
+          "trace_hash": "982997ae1c8971138c7c00465ef7d08604587b5f8ccbd0a5ad4856bfc65e4020",
+          "value": true
+        },
+        {
+          "episode_index": 58,
+          "error_code": null,
+          "extra": {
+            "success_step": 211
+          },
+          "status": "ok",
+          "trace_hash": "3090b958b0aaa6d139439db5ffffd596baca1ba1441f5b481f28dfc5a8e035ae",
+          "value": true
+        },
+        {
+          "episode_index": 59,
+          "error_code": null,
+          "extra": {
+            "success_step": 190
+          },
+          "status": "ok",
+          "trace_hash": "4af315c6ff80c7ebd336d75e49fdfa7a7c301704ae89ad3bb443321aa4428c5a",
+          "value": true
+        },
+        {
+          "episode_index": 60,
+          "error_code": null,
+          "extra": {
+            "success_step": 207
+          },
+          "status": "ok",
+          "trace_hash": "4eb42ec78944a61030d435cad89e9711f586a9e76d03c71f1204e1f4d39df186",
+          "value": true
+        },
+        {
+          "episode_index": 61,
+          "error_code": null,
+          "extra": {
+            "success_step": 201
+          },
+          "status": "ok",
+          "trace_hash": "d21a51f09c3869e56ad2f078e059362a6715bfe1d2b701b8ecb209780fa9f168",
+          "value": true
+        },
+        {
+          "episode_index": 62,
+          "error_code": null,
+          "extra": {
+            "success_step": 204
+          },
+          "status": "ok",
+          "trace_hash": "7708ec630e56ea0fc3475a099064b61bb04e3e0868a83d5a1304a2c9cc33c7dc",
+          "value": true
+        },
+        {
+          "episode_index": 63,
+          "error_code": null,
+          "extra": {
+            "success_step": 204
+          },
+          "status": "ok",
+          "trace_hash": "67997671fc471665ef9d0acb275393acf02f6a7040f1d4410372fd58481152d9",
+          "value": true
+        },
+        {
+          "episode_index": 64,
+          "error_code": null,
+          "extra": {
+            "success_step": 195
+          },
+          "status": "ok",
+          "trace_hash": "e1478427001b6394bea132247c56e8e3ea50df3f8987fa0628c3d13fe00bf7e7",
+          "value": true
+        },
+        {
+          "episode_index": 65,
+          "error_code": null,
+          "extra": {
+            "success_step": 212
+          },
+          "status": "ok",
+          "trace_hash": "3bdc45f95bcc267c443cd7e360fd3857e83aeb6774a13430eb825df77ba32cbf",
+          "value": true
+        },
+        {
+          "episode_index": 66,
+          "error_code": null,
+          "extra": {
+            "success_step": 206
+          },
+          "status": "ok",
+          "trace_hash": "6db8339be1e83d34d68445ad132446c59788141b7bcd0cfa23a553cc3c1cadf2",
+          "value": true
+        },
+        {
+          "episode_index": 67,
+          "error_code": null,
+          "extra": {
+            "success_step": 208
+          },
+          "status": "ok",
+          "trace_hash": "398fb60fd4f33a3e8e6fa50f9decbf01c1ccf63ec6e0d4621c53bf68401c2212",
+          "value": true
+        },
+        {
+          "episode_index": 68,
+          "error_code": null,
+          "extra": {
+            "success_step": 180
+          },
+          "status": "ok",
+          "trace_hash": "eb1717db3791d415326e3ffac35e286c65c364b6090ffc0b8dbe473c9263238f",
+          "value": true
+        },
+        {
+          "episode_index": 69,
+          "error_code": null,
+          "extra": {
+            "success_step": 207
+          },
+          "status": "ok",
+          "trace_hash": "b7874d2c633947eb42c55c6d4ad1e0020accaf27f3c690264c22ec7f82d25a5b",
+          "value": true
+        },
+        {
+          "episode_index": 70,
+          "error_code": null,
+          "extra": {
+            "success_step": 194
+          },
+          "status": "ok",
+          "trace_hash": "cf4c0bba05ccec4fc29bfe41e8cf798eaf8d538e2eb86bc802da8166b43149cf",
+          "value": true
+        },
+        {
+          "episode_index": 71,
+          "error_code": null,
+          "extra": {
+            "success_step": 199
+          },
+          "status": "ok",
+          "trace_hash": "6a728119a1945fee5863f76141e8ca3e8921c465b85f8a36aade54c172bf0a71",
+          "value": true
+        },
+        {
+          "episode_index": 72,
+          "error_code": null,
+          "extra": {
+            "success_step": 198
+          },
+          "status": "ok",
+          "trace_hash": "688d47b2c795ab3031403f18c3563d3e643a4aa0714a37692cc974dd05d264af",
+          "value": true
+        },
+        {
+          "episode_index": 73,
+          "error_code": null,
+          "extra": {
+            "success_step": 170
+          },
+          "status": "ok",
+          "trace_hash": "1fc6dcee64bbe45d1b7387b0a5314c04cc271e03024e45b9e5554c7b37812894",
+          "value": true
+        },
+        {
+          "episode_index": 74,
+          "error_code": null,
+          "extra": {
+            "success_step": 196
+          },
+          "status": "ok",
+          "trace_hash": "558b27f40876ad6ebe4b226b680f89bf13e77e51447ea40e91053b1b1b48bb66",
+          "value": true
+        },
+        {
+          "episode_index": 75,
+          "error_code": null,
+          "extra": {
+            "success_step": 207
+          },
+          "status": "ok",
+          "trace_hash": "a0ef1cdf639eb5604983d09342d0f0ad757247bb852c20ef318fed9c2e34661b",
+          "value": true
+        },
+        {
+          "episode_index": 76,
+          "error_code": null,
+          "extra": {
+            "success_step": 205
+          },
+          "status": "ok",
+          "trace_hash": "0143d27ffadc81c29056371cf51ddba5aec64f164994f9211e0b1571f14edf62",
+          "value": true
+        },
+        {
+          "episode_index": 77,
+          "error_code": null,
+          "extra": {
+            "success_step": 204
+          },
+          "status": "ok",
+          "trace_hash": "45c2433b6c636f4ee7ca2e4ed6750c7639e204aab4de9f14979f2a507b91d367",
+          "value": true
+        },
+        {
+          "episode_index": 78,
+          "error_code": null,
+          "extra": {
+            "success_step": 206
+          },
+          "status": "ok",
+          "trace_hash": "7b226c1234aaba432fc5876cecbe3280d84a4bd348ab6963b7d7f2291e761f7b",
+          "value": true
+        },
+        {
+          "episode_index": 79,
+          "error_code": null,
+          "extra": {
+            "success_step": 204
+          },
+          "status": "ok",
+          "trace_hash": "776ce733db718b1fd17bc38322121d01cf0242b4af6f963e8817654887555a84",
+          "value": true
+        },
+        {
+          "episode_index": 80,
+          "error_code": null,
+          "extra": {
+            "success_step": 197
+          },
+          "status": "ok",
+          "trace_hash": "a67488c7619e94d5c38bc8cce78655fb76e7c7d631118bf53a7ce2c74b7052c0",
+          "value": true
+        },
+        {
+          "episode_index": 81,
+          "error_code": null,
+          "extra": {
+            "success_step": 185
+          },
+          "status": "ok",
+          "trace_hash": "fb771da009b707d50f2b4496ba284eaac410e2d224444be2feb6afe8461a8d40",
+          "value": true
+        },
+        {
+          "episode_index": 82,
+          "error_code": null,
+          "extra": {
+            "success_step": 204
+          },
+          "status": "ok",
+          "trace_hash": "82a73d8c0381ba30825ac8a2303302889c8857f49cd2bfce16b130b63e6c1fcc",
+          "value": true
+        },
+        {
+          "episode_index": 83,
+          "error_code": null,
+          "extra": {
+            "success_step": 203
+          },
+          "status": "ok",
+          "trace_hash": "35d43ae3114e083b3d5ea25aa148b151c46f36fe4a3d5ce0bc0e2e43a1b171d5",
+          "value": true
+        },
+        {
+          "episode_index": 84,
+          "error_code": null,
+          "extra": {
+            "success_step": 185
+          },
+          "status": "ok",
+          "trace_hash": "448b0fd731d23b55605be5cc789ebe6e95be146269c5c87c17bfb67ab1c65d88",
+          "value": true
+        },
+        {
+          "episode_index": 85,
+          "error_code": null,
+          "extra": {
+            "success_step": 168
+          },
+          "status": "ok",
+          "trace_hash": "ebd7c94bce3507046a3ca3b1cd443cd40d67443e552fcb985481ad30576661dd",
+          "value": true
+        },
+        {
+          "episode_index": 86,
+          "error_code": null,
+          "extra": {
+            "success_step": 187
+          },
+          "status": "ok",
+          "trace_hash": "5d7dc2f54db04d720e705154c9eb96b3372af7f3d6152bdb21cea29ba778d151",
+          "value": true
+        },
+        {
+          "episode_index": 87,
+          "error_code": null,
+          "extra": {
+            "success_step": 179
+          },
+          "status": "ok",
+          "trace_hash": "69678110e61d372e75dac8f95216f634c3af4c4fa850aa32b87d93abe2cce749",
+          "value": true
+        },
+        {
+          "episode_index": 88,
+          "error_code": null,
+          "extra": {
+            "success_step": -1
+          },
+          "status": "ok",
+          "trace_hash": "046a9dd92ec3f32e4c3f421ceb26c0d6e4c99051e9394ca771ae3b735bc5af07",
+          "value": false
+        },
+        {
+          "episode_index": 89,
+          "error_code": null,
+          "extra": {
+            "success_step": 180
+          },
+          "status": "ok",
+          "trace_hash": "7d256410fb529579ebf2e00fff422d8743209d2fe4f48af52922bb53a525c80f",
+          "value": true
+        },
+        {
+          "episode_index": 90,
+          "error_code": null,
+          "extra": {
+            "success_step": 196
+          },
+          "status": "ok",
+          "trace_hash": "d5b135ab8095180f8c0e68b5e0c2590d4b7612d65beb8b09e2294c0453217a70",
+          "value": true
+        },
+        {
+          "episode_index": 91,
+          "error_code": null,
+          "extra": {
+            "success_step": 206
+          },
+          "status": "ok",
+          "trace_hash": "12152a0ebee8ca3c97a394997332789870b6f1352052d04d36cf64244c560870",
+          "value": true
+        },
+        {
+          "episode_index": 92,
+          "error_code": null,
+          "extra": {
+            "success_step": 151
+          },
+          "status": "ok",
+          "trace_hash": "152e4fff07228eb945480aa4c3a3087b4830f318fa28efa497b90da95f4fea6c",
+          "value": true
+        },
+        {
+          "episode_index": 93,
+          "error_code": null,
+          "extra": {
+            "success_step": 195
+          },
+          "status": "ok",
+          "trace_hash": "0f34d0cd257f87f54dfe5b393045212d14e81a8c58292bdea11feddd4bf5afae",
+          "value": true
+        },
+        {
+          "episode_index": 94,
+          "error_code": null,
+          "extra": {
+            "success_step": 189
+          },
+          "status": "ok",
+          "trace_hash": "a8e7ccd879e29bd126a9f77105a01c2b3b4f25065f578f1ce8b61175e9cb0733",
+          "value": true
+        },
+        {
+          "episode_index": 95,
+          "error_code": null,
+          "extra": {
+            "success_step": 204
+          },
+          "status": "ok",
+          "trace_hash": "67eaa5db0b03945c6fb8bb3830875784131f2835bb39649a8e9c8724ba64b1e2",
+          "value": true
+        },
+        {
+          "episode_index": 96,
+          "error_code": null,
+          "extra": {
+            "success_step": 219
+          },
+          "status": "ok",
+          "trace_hash": "ba260c78b2a18fd78ece1d05199e0efa67b97a7076a5f03ce64d477c8d311282",
+          "value": true
+        },
+        {
+          "episode_index": 97,
+          "error_code": null,
+          "extra": {
+            "success_step": 181
+          },
+          "status": "ok",
+          "trace_hash": "3f9d257eb1000ff666511c2449febeb51808224155005452e047bc4c39522935",
+          "value": true
+        },
+        {
+          "episode_index": 98,
+          "error_code": null,
+          "extra": {
+            "success_step": 210
+          },
+          "status": "ok",
+          "trace_hash": "79965ec26394dfd41966c2e90eee90545fcb15c2eb8cca057ba543894cef446b",
+          "value": true
+        },
+        {
+          "episode_index": 99,
+          "error_code": null,
+          "extra": {
+            "success_step": 170
+          },
+          "status": "ok",
+          "trace_hash": "c0e6a9c73a869a0de3b4ae74da88a3882d588ed0578552e683688d51ee9f5104",
+          "value": true
+        }
+      ],
+      "evaluator_file_sha256": "a2f6580f4d227cd0241d91d46e7cb95351b0b8f39645d4efd4e08d8cfcfe44e3",
+      "evaluator_id": "task_success",
+      "evaluator_version": "1.0.0",
+      "failures": {},
+      "kind": "binary",
+      "n": 100,
+      "n_episodes": 100,
+      "n_failed": 0,
+      "name": "task_success@1.0.0",
+      "numerator": null,
+      "profile_id": "a100-40gb-groot-n17-sonic",
+      "profile_label": "MEASURED",
+      "run_hash": "9e3d574d6167368ce2ae7e75ac6c095bad0ab5c17c60fa022a5a8b2781f6965e",
+      "unit": "",
+      "value": 0.96
+    }
+  ],
+  "not_run": [],
+  "options": {
+    "bootstrap_draws": 2000,
+    "bootstrap_seed": 0,
+    "conf": 0.95
+  },
+  "profile": {
+    "confidence": "high",
+    "document": {
+      "calibration": {
+        "confidence": "high",
+        "contention_model": "none",
+        "statement": "MEASURED profile: 300 timed inference calls on the host named in provenance.measured_on. It describes that host, that policy and that thread count only; re-measure with `kite profile measure` on any other target before quoting numbers."
+      },
+      "distribution": {
+        "kind": "empirical",
+        "samples_ns": [
+          206302132,
+          204823146,
+          207024283,
+          207602720,
+          205725300,
+          206771451,
+          204880234,
+          204747971,
+          204965124,
+          205011697,
+          205093267,
+          205069794,
+          205140349,
+          206299055,
+          205205357,
+          204496725,
+          205090920,
+          203891005,
+          206409970,
+          207135828,
+          202169345,
+          204898766,
+          204004607,
+          206055829,
+          204398922,
+          202290991,
+          202887455,
+          205059589,
+          203339693,
+          206928277,
+          203230443,
+          202544695,
+          202586117,
+          203760750,
+          205811417,
+          202286982,
+          203622615,
+          204254031,
+          203369263,
+          205440497,
+          203193655,
+          203903718,
+          210037928,
+          202412873,
+          206885931,
+          202355824,
+          206418912,
+          206185938,
+          205118691,
+          203903851,
+          203713991,
+          204956082,
+          203949201,
+          204229591,
+          201684187,
+          203510152,
+          204615773,
+          202376947,
+          203015785,
+          202322054,
+          202379937,
+          203529230,
+          203639293,
+          202667495,
+          201940934,
+          202457264,
+          202895965,
+          204943158,
+          203471363,
+          202065345,
+          202692834,
+          201859981,
+          203324667,
+          202821266,
+          202660871,
+          203088921,
+          203930948,
+          203033598,
+          202403957,
+          202983832,
+          202609466,
+          204365355,
+          203454068,
+          202384118,
+          204453663,
+          204825740,
+          207491373,
+          206953216,
+          204647149,
+          202212462,
+          204001734,
+          204316300,
+          204076242,
+          205946977,
+          203853844,
+          204917971,
+          203861644,
+          204792387,
+          206180082,
+          203533401,
+          205681639,
+          203319991,
+          202695925,
+          201273073,
+          203221508,
+          202332446,
+          203312262,
+          206162959,
+          204999526,
+          203116113,
+          203275437,
+          202592060,
+          202500889,
+          201506044,
+          201932260,
+          201641434,
+          202298564,
+          201630975,
+          201548174,
+          202176901,
+          201588685,
+          202339710,
+          202274036,
+          202018535,
+          202473951,
+          202941807,
+          203541735,
+          203223735,
+          203782127,
+          203947975,
+          202383567,
+          202193651,
+          205988118,
+          201752310,
+          202877353,
+          201964904,
+          202711422,
+          202043677,
+          202260631,
+          202354573,
+          202566278,
+          203264313,
+          202262353,
+          201593413,
+          202845420,
+          201875319,
+          203142307,
+          201668547,
+          202187009,
+          202657321,
+          203336233,
+          202104360,
+          202080706,
+          202077009,
+          202270787,
+          201769960,
+          202436774,
+          202397631,
+          202128750,
+          203490719,
+          203107761,
+          204138727,
+          203420338,
+          202457764,
+          202154513,
+          202236728,
+          204282553,
+          201715598,
+          202795885,
+          203140544,
+          203230527,
+          203176188,
+          203140413,
+          202511401,
+          204562547,
+          205216188,
+          203760736,
+          204131208,
+          205562989,
+          205431256,
+          204593990,
+          202616680,
+          204494007,
+          205431906,
+          205089960,
+          203131352,
+          204125603,
+          205574229,
+          204770176,
+          202215773,
+          205962365,
+          204572308,
+          200049510,
+          205445722,
+          205471246,
+          203656980,
+          204919956,
+          202480327,
+          202481384,
+          203250433,
+          203171014,
+          201826797,
+          202011898,
+          201870826,
+          204919332,
+          205099326,
+          204979225,
+          204625188,
+          206007844,
+          206930284,
+          207492391,
+          205429820,
+          215349698,
+          218392448,
+          204625287,
+          202885002,
+          203850412,
+          206378281,
+          205147126,
+          203480509,
+          203092273,
+          202239902,
+          202961068,
+          205782075,
+          203819439,
+          203428643,
+          203545993,
+          202371984,
+          204237864,
+          202983376,
+          204193796,
+          203210145,
+          203152654,
+          205000397,
+          203435313,
+          203206027,
+          202559761,
+          202704645,
+          203805757,
+          203567673,
+          202607081,
+          201715970,
+          204226344,
+          205464139,
+          202165840,
+          200881944,
+          202000819,
+          203639259,
+          206896258,
+          203697681,
+          205189005,
+          204251291,
+          203616094,
+          202450133,
+          203951065,
+          201839850,
+          202439421,
+          207307176,
+          207164955,
+          204415353,
+          206529076,
+          204677044,
+          204500940,
+          202594593,
+          203365296,
+          202000328,
+          204701841,
+          203487727,
+          202754278,
+          202995653,
+          202010722,
+          202376158,
+          205228534,
+          203454147,
+          204114625,
+          203287143,
+          204701171,
+          206005010,
+          206028119,
+          205065003,
+          204786450,
+          204973773,
+          204937844,
+          204803866,
+          203994030,
+          201767657,
+          203139522,
+          205646982,
+          203211478,
+          204329276,
+          205603001,
+          203366109,
+          203806506,
+          203499642,
+          203693403,
+          203829363,
+          205790981,
+          209090341,
+          203618899,
+          205027147
+        ]
+      },
+      "hardware": {
+        "board": null,
+        "part": "x86_64 CPU, 12 cores",
+        "power_mode": "default",
+        "runtime": "cuda, 4 torch thread(s), adapter groot vunset",
+        "vendor": "Linux"
+      },
+      "id": "a100-40gb-groot-n17-sonic",
+      "kite_profile_version": "1",
+      "policy_ref": {
+        "id": "groot",
+        "input_shape": [
+          3,
+          480,
+          640
+        ],
+        "revision": "unset"
+      },
+      "provenance": {
+        "derivation": "300 timed act calls of policy kind groot (spec specs/sonic/desk_groot.yaml) on one synthetic observation after 10 warm-ups; wall clock of this host",
+        "kind": "measured",
+        "measured_at": "2026-11-06T10:29:28Z",
+        "measured_on": "kite-g1-sonic Linux-6.8.0-1070-gcp-x86_64-with-glibc2.35 python 3.13.18",
+        "n_samples": 300,
+        "source_profile_sha256": null
+      },
+      "summary": {
+        "p50_ns": 203519691,
+        "p90_ns": 205989807,
+        "p99_ns": 209099817
+      },
+      "version": "0.1.0"
+    },
+    "id": "a100-40gb-groot-n17-sonic",
+    "label": "MEASURED",
+    "provenance": "measured",
+    "sha256": "1dfa71ffe06432a3dc3ee664b7cba5519ba38d58d85692e32762126716d5afdc",
+    "version": "0.1.0"
+  },
+  "run": {
+    "condition": {
+      "camera": null,
+      "distractors": null,
+      "id": "reworded",
+      "instruction": {
+        "phrasings": [
+          "Put the apple on the plate.",
+          "Move the red apple onto the blue plate."
+        ]
+      },
+      "lighting": null,
+      "materials": null,
+      "object": null,
+      "observation_noise": null,
+      "physics": null,
+      "version": "1.0.0"
+    },
+    "created_at": "2026-11-06T18:53:05Z",
+    "determinism_tier": "statistical",
+    "determinism_verified": false,
+    "embodiment": {
+      "id": "twin/g1_sonic_arm_desk",
+      "version": "0.1.0"
+    },
+    "manifest_hash": "c09d87c77e134ea483a901bea5375390d370beb051b17154329d959e38df0299",
+    "n_episodes": 100,
+    "name": "sonic-desk-groot",
+    "platform": "Linux-6.8.0-1070-gcp-x86_64-with-glibc2.35",
+    "policy": {
+      "kind": "groot",
+      "ref": "tcp://127.0.0.1:5550",
+      "revision": "desk_v1-checkpoint-20000"
+    },
+    "policy_repeatability": {
+      "max_abs_diff": 0.220703125,
+      "n": 5
+    },
+    "run_hash": "9e3d574d6167368ce2ae7e75ac6c095bad0ab5c17c60fa022a5a8b2781f6965e",
+    "run_id": "c09d87c77e13",
+    "seed_base": 0,
+    "stopped_at": null,
+    "task": {
+      "file": "78e5c459ddbc259ddb1b612e0f63fc167f54d5ae2ccff60eb2a7f3039813182a",
+      "id": null,
+      "version": "1.0.0"
+    }
+  }
+}

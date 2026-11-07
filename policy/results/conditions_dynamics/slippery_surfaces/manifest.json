@@ -1,0 +1,270 @@
+{
+  "environment": {
+    "batch": 8,
+    "cpu_count": 16,
+    "created_at": "2026-11-06T22:57:42Z",
+    "determinism_verified": false,
+    "evaluator_timeout_s": 60.0,
+    "hostname": "kite-g1-eval",
+    "image_every_n": 10,
+    "library_versions": {
+      "mcap": "1.4.0",
+      "pyarrow": "25.0.1",
+      "pydantic": "2.13.5",
+      "zstandard": "0.25.0"
+    },
+    "output_dir": "/home/amogh/runs/sweep_dyn_20000/runs/slippery_surfaces",
+    "overrides": {
+      "episodes.count": "100",
+      "policy.ref": "tcp://127.0.0.1:5551",
+      "policy.revision": "desk_v1-checkpoint-20000",
+      "run.batch": "8",
+      "trace.video.every_n": "5"
+    },
+    "platform": "Linux-6.8.0-1070-gcp-x86_64-with-glibc2.35",
+    "stop": null,
+    "stopped_at": null,
+    "video": {
+      "cameras": null,
+      "every_n": 5
+    },
+    "workers": 1
+  },
+  "evaluators": [
+    {
+      "file_sha256": "efec4507e4de8514d1f59d2abd09319d2706a6a3f480b5961a97a12221905376",
+      "id": "action_staleness_p95",
+      "version": "1.0.0"
+    },
+    {
+      "file_sha256": "19e8e1bb30fd5b83012120b09de74e93278bb18b1f3b0c15df9cc89f8d3b82d4",
+      "id": "deadline_miss_rate",
+      "version": "1.1.0"
+    },
+    {
+      "file_sha256": "af12790f82a394b52bd3e7ea499482aef36b1ebb4010b5584292db0b3e33dbe9",
+      "id": "failure_dropped_in_transit",
+      "version": "1.0.0"
+    },
+    {
+      "file_sha256": "af12790f82a394b52bd3e7ea499482aef36b1ebb4010b5584292db0b3e33dbe9",
+      "id": "failure_held_at_end",
+      "version": "1.0.0"
+    },
+    {
+      "file_sha256": "af12790f82a394b52bd3e7ea499482aef36b1ebb4010b5584292db0b3e33dbe9",
+      "id": "failure_knocked_away",
+      "version": "1.0.0"
+    },
+    {
+      "file_sha256": "af12790f82a394b52bd3e7ea499482aef36b1ebb4010b5584292db0b3e33dbe9",
+      "id": "failure_missed_plate",
+      "version": "1.0.0"
+    },
+    {
+      "file_sha256": "af12790f82a394b52bd3e7ea499482aef36b1ebb4010b5584292db0b3e33dbe9",
+      "id": "failure_no_grip",
+      "version": "1.0.0"
+    },
+    {
+      "file_sha256": "af12790f82a394b52bd3e7ea499482aef36b1ebb4010b5584292db0b3e33dbe9",
+      "id": "failure_placed_not_held",
+      "version": "1.0.0"
+    },
+    {
+      "file_sha256": "46749770b39231b4e470771904fceadc780dbfc89fb88ff171798d72e25d9583",
+      "id": "fell",
+      "version": "1.0.0"
+    },
+    {
+      "file_sha256": "2667c17ba63500356a1b8ae6133999cd3198b345859856e547590cf04eaa3a74",
+      "id": "lifted",
+      "version": "1.0.0"
+    },
+    {
+      "file_sha256": "3cb98cf389c24e2a1bf080b1a0cb704f654eb6e88b6372d9483255faedc36033",
+      "id": "peak_arm_joint_speed",
+      "version": "1.0.0"
+    },
+    {
+      "file_sha256": "ac61b7ba031f0ea91fe7f0f0cc636461d77f9b5f8f17537e1994af9973bc2146",
+      "id": "task_success",
+      "version": "1.0.0"
+    }
+  ],
+  "policy_assets": {
+    "asset_hashes": {
+      "embodiment_tag": "unitree_g1_sonic",
+      "revision": "desk_v1-checkpoint-20000",
+      "seeded": "true",
+      "server": "tcp://127.0.0.1:5551"
+    },
+    "revision": "desk_v1-checkpoint-20000"
+  },
+  "profile": {
+    "id": "a100-40gb-groot-n17-sonic",
+    "sha256": "1dfa71ffe06432a3dc3ee664b7cba5519ba38d58d85692e32762126716d5afdc",
+    "version": "0.1.0"
+  },
+  "seeds": {
+    "seed_base": 0
+  },
+  "spec_resolved": {
+    "compute": {
+      "kind": "file",
+      "path": "1dfa71ffe06432a3dc3ee664b7cba5519ba38d58d85692e32762126716d5afdc",
+      "server": null,
+      "sha256": "1dfa71ffe06432a3dc3ee664b7cba5519ba38d58d85692e32762126716d5afdc"
+    },
+    "condition": {
+      "camera": null,
+      "distractors": null,
+      "id": "slippery_surfaces",
+      "instruction": null,
+      "lighting": null,
+      "materials": null,
+      "object": null,
+      "observation_noise": null,
+      "physics": {
+        "damping_scale": null,
+        "friction_scale": [
+          0.6,
+          0.9
+        ],
+        "gain_scale": null
+      },
+      "version": "1.0.0"
+    },
+    "control": {
+      "max_steps": 600,
+      "physics_dt_ns": 5000000,
+      "rate_hz": 50
+    },
+    "determinism": {
+      "n_repeats": 5,
+      "tier": "statistical"
+    },
+    "episodes": {
+      "count": 100,
+      "seed_base": 0
+    },
+    "eval": {
+      "evals_dir": "94c36a986114d2b6acf62a94b0bd2e13d42df79d11768109c798bfca51bf06d9",
+      "include": null
+    },
+    "gate": {
+      "chunk_blend": "newest",
+      "deadline_ns": 500000000,
+      "ensemble_m": 0.01,
+      "fallback": "hold_last",
+      "max_reuse_steps": 40,
+      "request_interval_steps": 15,
+      "safe_stop_after": 5
+    },
+    "kite_spec_version": "2",
+    "name": "sonic-desk-groot",
+    "policy": {
+      "asset_dir": null,
+      "device": "cuda",
+      "kind": "groot",
+      "ref": "tcp://127.0.0.1:5551",
+      "revision": "desk_v1-checkpoint-20000",
+      "temporal_ensemble_coeff": null,
+      "torch_threads": 4
+    },
+    "task": {
+      "file": "78e5c459ddbc259ddb1b612e0f63fc167f54d5ae2ccff60eb2a7f3039813182a",
+      "id": null,
+      "instruction": "Pick up the apple from the table and place it onto the plate next to it.",
+      "params": {
+        "above_plate_m": [
+          0.01,
+          0.07
+        ],
+        "apple_rest_z_m": 0.839,
+        "apple_xy": [
+          0.328,
+          0.19
+        ],
+        "fallen_height_m": 0.45,
+        "hold_steps": 25,
+        "jitter_m": 0.03,
+        "lift_threshold_m": 0.03,
+        "plate_inner_radius_m": 0.06,
+        "plate_rest_z_m": 0.801,
+        "plate_xy": [
+          0.326,
+          -0.025
+        ]
+      },
+      "version": "1.0.0"
+    },
+    "trace": {
+      "record_chunks": true
+    },
+    "world": {
+      "arm_rgba": null,
+      "embodiment": "1b0b73c5c6f49fb4a8e0f5b323228df181c7d0a76bf48ba465ae0c5f852654d6",
+      "hide_floor": null,
+      "hide_frame": null,
+      "kind": "sonic",
+      "lighting": null,
+      "menagerie_dir": null,
+      "model": "853f601430f405024b28f73a886a55ad96ac96d61e1e791b5de07e62e72cb7a5",
+      "mujoco_version": "3.6.0",
+      "render": {
+        "backend": "native",
+        "camera": "ego_view",
+        "height": 480,
+        "hide_geom_groups": [],
+        "reflection": false,
+        "shadow": true,
+        "width": 640
+      },
+      "robot": "gear_sonic/sonic_v1_1",
+      "scene": "menagerie",
+      "table_rgba": null
+    }
+  },
+  "versions": {
+    "kite-backends-lerobot": "0.2.0",
+    "kite-backends-mujoco": "0.2.0",
+    "kite-backends-openpi": "0.2.0",
+    "kite-cli": "0.2.0",
+    "kite-runtime": "0.2.0",
+    "kite-sdk": "0.2.0",
+    "kite-spec": "0.2.0",
+    "kite-trace": "0.2.0",
+    "lerobot": "0.5.1",
+    "mujoco": "3.6.0",
+    "numpy": "2.2.6",
+    "python": "3.13",
+    "spec_version": "2",
+    "torch": "2.7.1",
+    "trace_format_version": "2"
+  },
+  "world_assets": {
+    "asset_hashes": {
+      "embodiment": "1b0b73c5c6f49fb4a8e0f5b323228df181c7d0a76bf48ba465ae0c5f852654d6",
+      "model_file": "853f601430f405024b28f73a886a55ad96ac96d61e1e791b5de07e62e72cb7a5",
+      "sonic_checkpoint": "sonic_v1_1",
+      "sonic_decoder": "34bae8570d4a4421a5391a5c2befd745d4a02d182ec539e5f9da44c091c67509",
+      "sonic_encoder": "fb97de22819b2057b41459802128d91723d91a25f0ad73e7bfc41a9cf8365bae"
+    },
+    "mujoco_version": "3.6.0",
+    "render_flags": {
+      "mjRND_ADDITIVE": false,
+      "mjRND_CULL_FACE": true,
+      "mjRND_DEPTH": false,
+      "mjRND_FOG": false,
+      "mjRND_HAZE": true,
+      "mjRND_IDCOLOR": false,
+      "mjRND_REFLECTION": false,
+      "mjRND_SEGMENT": false,
+      "mjRND_SHADOW": true,
+      "mjRND_SKYBOX": true,
+      "mjRND_WIREFRAME": false
+    },
+    "scene_xml_sha256": "555ba3d902534cf2cd06b05682e18c9c09019fca432c061ac6a9523cc9a3b10d"
+  }
+}
