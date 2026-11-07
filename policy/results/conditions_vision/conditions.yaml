@@ -1,13 +1,4 @@
-# Robustness conditions for the SONIC desk (2026-11-06; docs/conditions.md). With `kite sweep --conditions`, each is
-# one cell against the baseline, paired by episode (the same apple and plate draws, the same latency draws).
-# Holm's floor (docs/conditions.md): with 6 rows, the baseline must place the apple in at least 8 episodes for any
-# row to be able to show a break.
-#
-# What each mirrors from the arm-desk evaluation rounds (gs://kite-481710-arm-sonic, s5/after_varied.log):
-# - low_light: its `evening`;  - side_light: its `window` (a low, raking light from one side);
-# - camera_turn: its `cam_side_yaw`, the head camera turned (rendering only: the robot is unchanged);
-# - clutter: its `rearranged`, loosely: extra objects on the free desk area, away from the apple and the plate;
-# and two the arm-desk rounds did not run: proprioceptive noise, and a reworded instruction.
+# Vision conditions for the desk: each runs 100 episodes against the baseline, with the same apple and plate positions.
 - {id: low_light, lighting: {intensity: [0.35, 0.6]}}
 - {id: side_light, lighting: {shadows: true, direction_deg: [50, 80]}}
 - {id: camera_turn, camera: {rotation_jitter_deg: 4.0}}

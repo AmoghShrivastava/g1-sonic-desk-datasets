@@ -17,28 +17,19 @@ apple and plate move 12 cm outside that layout. Nothing fell in any run.
 
 ## How it was trained
 
-- **Data:** `desk_v1`, 824 episodes (160,415 frames at 50 Hz). This is not one of the eight datasets in this repository.
-  It was made by Kite's own generator (`tools/sonic/desk_generate.py` in kite-ml/project-horizon), which replays NVIDIA's
-  Arena demos object-centrically through SONIC on the same desk twin. The apple and plate are placed within ±8 cm, and
-  only rollouts that pass the evaluation's success rule are kept.
-- **Run:** Isaac-GR00T `launch_finetune.py` from nvidia/GR00T-N1.7-3B, 20,000 steps at global batch 16, colour jitter,
-  one A100 40GB (about 3 h). The published weights are `checkpoint-20000`.
+- **Data:** 824 episodes (160,415 frames at 50 Hz) of the same task on this desk, with the apple and plate placed
+  within ±8 cm. This is not one of the eight datasets in this repository.
+- **Run:** fine-tuned from nvidia/GR00T-N1.7-3B, 20,000 steps at global batch 16 on one A100 40GB. The published
+  weights are `checkpoint-20000`.
 
 ## How it was evaluated
 
-[Kite](https://kiteml.com) ran the policy closed-loop on the desk twin: the G1 under SONIC v1.1 in MuJoCo, GR00T served
-by Isaac-GR00T's policy server.
+[Kite](https://kiteml.com) ran the policy closed-loop on the desk twin: the G1 under SONIC v1.1 in MuJoCo.
 
 - Every episode lasts 12 s. Success means the apple rests on the plate, out of the hand, for 0.5 s.
-- The latency is a measured A100 profile (p50 204 ms), injected in simulated time, so a score does not depend on the
-  GPU that served it.
-- Requests are seeded and shadowed frames render deterministically: two separate runs of the same 100 episodes gave
-  byte-identical traces.
-- Conditions are paired with their baseline episode by episode: the same apple and plate positions, the same latency
-  draws.
+- Each condition uses the same apple and plate positions as its baseline, episode by episode.
 
-Everything below is generated from the scorecards in [`results/`](results/) ([`SUMMARY.md`](results/SUMMARY.md),
-[`summary.json`](results/summary.json)).
+The numbers below are in [`results/SUMMARY.md`](results/SUMMARY.md) and [`results/summary.json`](results/summary.json).
 
 ### Training layout (in-distribution)
 
@@ -50,12 +41,10 @@ Everything below is generated from the scorecards in [`results/`](results/) ([`S
 | 15,000 | 49/50 (98%, 90–100%) | 0 |
 | **20,000** | **190/200 (95%, 91–97%)** | 0 |
 
-No request missed its 500 ms deadline (0 of 8,000).
-
 ### Held-out layout: the number to quote
 
-The apple and plate sit 12 cm to the robot's left, outside the ±8 cm the training data covered, on seeds from 100,000
-that no choice was made on.
+The apple and plate sit 12 cm to the robot's left, outside the ±8 cm the training data covered, on new episodes
+that played no part in any choice.
 
 | | Placed (95% CI) | Fell |
 |---|---|---|

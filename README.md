@@ -45,8 +45,8 @@ python gr00t/experiment/launch_finetune.py --base-model-path nvidia/GR00T-N1.7-3
 kiteml) is GR00T N1.7 fine-tuned for `UNITREE_G1_SONIC` on the desk. In Kite's closed-loop evaluation it places the
 apple in **95%** of episodes in the layout it trained on (190/200), and **69%** when the apple and plate move 12 cm
 outside it (69/100; most failures knock the apple away before the grasp). It stays at 92–100% under light, camera,
-clutter, noise, mass, friction and servo conditions, and it never fell. [`policy/`](policy/) has the training, every
-result with its scorecard, GIFs of successes and failures, and the method.
+clutter, noise, mass, friction and servo conditions, and it never fell. [`policy/`](policy/) has the results and GIFs of
+successes and failures.
 
 ![Held-out success](policy/gifs/heldout_success_overview.gif)
 
