@@ -59,14 +59,17 @@ apple positions in training is the obvious next step.
 | Vision | Placed | | Dynamics (within real variation) | Placed |
 |---|---|---|---|---|
 | baseline | 98 | | baseline | 99 |
-| low light (35–60%) | 94 | | slippery surfaces (friction ×0.6–0.9) | 99 |
-| side light, shadows | 94 | | light apple (100–130 g) | 99 |
-| camera turned ±4° | 93 | | heavy apple (200–250 g) | 100 |
+| low light (35–60%) | 94 | | slippery surfaces (friction ×0.6–0.9) | 100 |
+| side light, shadows | 94 | | light apple (100–130 g) | 100 |
+| camera turned ±4° | 93 | | heavy apple (200–250 g) | 99 |
 | clutter on the desk | 92 | | waxy apple (friction 0.4–0.6) | 99 |
-| state noise (σ 0.02) | 96 | | weaker and stiffer servos, joint damping, 5–30 ms motor delay | *running* |
-| reworded instruction | 96 | | | |
+| state noise (σ 0.02) | 96 | | weaker servos (gain ×0.85–0.95) | 94 |
+| reworded instruction | 96 | | stiffer servos (gain ×1.05–1.15) | 99 |
+| | | | stiff joints (damping ×1.2–2.0) | 98 |
+| | | | motor delay 5–15 ms | 98 |
+| | | | motor delay 15–30 ms | 93 |
 
-No condition so far moves the policy by more than 6 points, and nothing fell. The vision conditions ran in the twin's
+No condition moves the policy by more than 6 points, and nothing fell. The dynamics column is the complete ten-cell sweep; an earlier partial run of four cells differed by one episode in three of them. Every cell, with GIFs, a slower-model test and safety numbers, is in the [top-level README](../README.md#stress-tests-what-kite-changed-and-what-happened). The vision conditions ran in the twin's
 first contact model; the dynamics ones in the corrected one (below).
 
 ### The apple's contacts
@@ -96,7 +99,6 @@ rate-limit the arm, which would also lower those peaks.
 - Simulation only. Nothing has been run on a real robot or on NVIDIA's own SONIC deploy.
 - The training data and the in-distribution evaluation come from the same desk twin. That is why the held-out figure
   (69%) is the one to quote.
-- Four dynamics cells are still running. This page will be updated when they finish.
 
 Made by [Kite](https://kiteml.com). The model is under the NVIDIA Open Model License. It was trained on data derived
 from nvidia/Arena-G1-Static-PickNPlace-Task (CC-BY-4.0).

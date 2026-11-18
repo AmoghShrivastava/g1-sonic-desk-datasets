@@ -45,10 +45,64 @@ python gr00t/experiment/launch_finetune.py --base-model-path nvidia/GR00T-N1.7-3
 kiteml) is GR00T N1.7 fine-tuned for `UNITREE_G1_SONIC` on the desk. In Kite's closed-loop evaluation it places the
 apple in **95%** of episodes in the layout it trained on (190/200), and **69%** when the apple and plate move 12 cm
 outside it (69/100; most failures knock the apple away before the grasp). It stays at 92–100% under light, camera,
-clutter, noise, mass, friction and servo conditions, and it never fell. [`policy/`](policy/) has the results and GIFs of
+clutter, noise, mass, friction, servo and delay conditions, and it never fell; a slower model is what breaks it. [`policy/`](policy/) has the results and GIFs of
 successes and failures.
 
 ![Held-out success](policy/gifs/heldout_success_overview.gif)
+
+### Stress tests: what Kite changed, and what happened
+
+Kite changes one thing at a time and runs the policy 100 times from the same apple and plate positions as its
+baseline. Each clip below is one real try, at 2× speed; the label names the change and the condition's score. All
+of them in one video: [`policy/stress_tests_grid.mp4`](policy/stress_tests_grid.mp4).
+
+<table>
+<tr><td align="center"><img src="policy/gifs/conditions/baseline.gif" width="240"><br><sub>Baseline · 99/100</sub></td><td align="center"><img src="policy/gifs/conditions/light_apple.gif" width="240"><br><sub>Lighter apple · 100/100</sub></td><td align="center"><img src="policy/gifs/conditions/heavy_apple.gif" width="240"><br><sub>Heavier apple · 99/100</sub></td><td align="center"><img src="policy/gifs/conditions/slippery.gif" width="240"><br><sub>Slippery surfaces · 100/100</sub></td></tr>
+<tr><td align="center"><img src="policy/gifs/conditions/weak_motors.gif" width="240"><br><sub>Weaker motors · 94/100</sub></td><td align="center"><img src="policy/gifs/conditions/strong_motors.gif" width="240"><br><sub>Stronger motors · 99/100</sub></td><td align="center"><img src="policy/gifs/conditions/motor_delay.gif" width="240"><br><sub>Controller delay 15–30 ms · 93/100</sub></td><td align="center"><img src="policy/gifs/conditions/dim_light.gif" width="240"><br><sub>Dim light · 94/100</sub></td></tr>
+<tr><td align="center"><img src="policy/gifs/conditions/model_2x_slower.gif" width="240"><br><sub>Model 2× slower · 69/100</sub></td><td align="center"><img src="policy/gifs/conditions/model_3x_slower.gif" width="240"><br><sub>Model 3× slower · 0/100</sub></td><td align="center"><img src="policy/gifs/conditions/safety_normal.gif" width="240"><br><sub>Normal settings · 48/50</sub></td><td align="center"><img src="policy/gifs/conditions/safety_weak_spot.gif" width="240"><br><sub>Search's weak spot · 41/50</sub></td></tr>
+</table>
+
+| Group | Change | Parameter and range | Placed / 100 | Baseline |
+|---|---|---|---|---|
+| Vision | Low light | light intensity ×0.35–0.60 | 94 | 98 |
+| Vision | Side light, shadows | one low, hard side light | 94 | 98 |
+| Vision | Camera turned | head camera rotated up to ±4° | 93 | 98 |
+| Vision | Clutter | extra objects on the desk | 92 | 98 |
+| Vision | State noise | Gaussian noise on the robot state, σ 0.02 | 96 | 98 |
+| Vision | Reworded instruction | the task asked in other words | 96 | 98 |
+| Dynamics | Slippery surfaces | friction ×0.6–0.9 | 100 | 99 |
+| Dynamics | Lighter apple | mass 100–130 g (modelled 150 g) | 100 | 99 |
+| Dynamics | Heavier apple | mass 200–250 g | 99 | 99 |
+| Dynamics | Waxy apple | apple friction 0.4–0.6 | 99 | 99 |
+| Dynamics | Weaker motors | actuator gain ×0.85–0.95 | **94** | 99 |
+| Dynamics | Stronger motors | actuator gain ×1.05–1.15 | 99 | 99 |
+| Dynamics | Stiff joints | joint damping ×1.2–2.0 | 98 | 99 |
+| Dynamics | Controller delay | commands reach the motors 5–15 ms late | 98 | 99 |
+| Dynamics | Controller delay | 15–30 ms late | **93** | 99 |
+| Timing | Model 1.5× slower | policy answers in ~310 ms instead of ~205 ms (A100) | **66** | 99 |
+| Timing | Model 2× slower | ~410 ms | **69** | 99 |
+| Timing | Model 3× slower | ~615 ms | **0** | 99 |
+| Search | Kite's weak spot | all dynamics at once: friction ×0.6–0.9, apple 100–175 g, apple friction 0.4–0.6, gain ×0.85–1.0, damping ×1.2–2.0, delay 5–30 ms | 41 / 50 | 48 / 50 |
+
+The policy holds up to every single change in the world: no condition costs it more than 6 points, and it never fell.
+What breaks it is time. When the model answers 1.5× slower than the A100 serves it, success drops to about two thirds,
+and at 3× it never places the apple. The search's weak spot costs 7 of 50 on the same tries, a hint rather than a
+finding (exact McNemar p = 0.065).
+
+**Safety at the weak spot** (the same 50 tries per side, re-simulated with contact recording on):
+
+| Check | Normal | Weak spot |
+|---|---|---|
+| Unwanted touches per try (median) | 1.5 | 8 |
+| Idle right hand bumped the desk | 12 / 50 | 39 / 50 |
+| Hardest press on anything, worst try | 49 N | 151 N |
+| Tries with a joint past its limit | 0 / 50 | 3 / 50 |
+| Tries where it hit itself | 0 / 50 | 1 / 50 |
+| Apple dropped | 0 / 50 | 1 / 50 |
+| Jerkiness (dimensionless, lower is smoother) | 18.8 | 18.8 |
+
+It still succeeds most of the time there, but it gets rougher: the idle hand rests on the desk and presses harder.
+[`policy/`](policy/) has the full results.
 
 ## Limits
 
